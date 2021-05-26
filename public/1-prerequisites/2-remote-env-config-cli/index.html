@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Remote enviroment &amp; Configure the AWS CLI :: DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
+    <title>Truy cập từ xa vào máy ảo Windows và cấu hình AWS CLI :: DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
 
     
-    <link href="/css/nucleus.css?1622004112" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1622004112" rel="stylesheet">
-    <link href="/css/hybrid.css?1622004112" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1622004112" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1622004112" rel="stylesheet">
-    <link href="/css/auto-complete.css?1622004112" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1622004112" rel="stylesheet">
-    <link href="/css/theme.css?1622004112" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1622004112" rel="stylesheet">
+    <link href="/css/nucleus.css?1622005921" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1622005921" rel="stylesheet">
+    <link href="/css/hybrid.css?1622005921" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1622005921" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1622005921" rel="stylesheet">
+    <link href="/css/auto-complete.css?1622005921" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1622005921" rel="stylesheet">
+    <link href="/css/theme.css?1622005921" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1622005921" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1622004112" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1622005921" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1622004112"></script>
+    <script src="/js/jquery-3.3.1.min.js?1622005921"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1622004112"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1622004112"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1622005921"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1622005921"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1622004112"></script>
+<script type="text/javascript" src="/js/search.js?1622005921"></script>
 
     
   </div>
@@ -141,13 +141,13 @@
  
   
     
-    <li data-nav-id="/1-prerequisites/2-remote-env-config-cli/" title="Remote enviroment &amp; Configure the AWS CLI" class="dd-item 
+    <li data-nav-id="/1-prerequisites/2-remote-env-config-cli/" title="Truy cập từ xa vào máy ảo Windows và cấu hình AWS CLI" class="dd-item 
         
         active
         
         ">
       <a href="/1-prerequisites/2-remote-env-config-cli/">
-          <b>1.2. </b>Remote enviroment &amp; Configure the AWS CLI
+          <b>1.2. </b>Truy cập từ xa vào máy ảo Windows và cấu hình AWS CLI
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1018,7 +1018,7 @@
             
           
           
-            <a href='/'>Microservices Messaging & Eventing</a> > <a href='/1-prerequisites/'>Các bước chuẩn bị</a> > Remote enviroment & Configure the AWS CLI
+            <a href='/'>Microservices Messaging & Eventing</a> > <a href='/1-prerequisites/'>Các bước chuẩn bị</a> > Truy cập từ xa vào máy ảo Windows và cấu hình AWS CLI
           
         
           
@@ -1055,7 +1055,7 @@
           
             <h1>
               
-              Remote enviroment &amp; Configure the AWS CLI
+              Truy cập từ xa vào máy ảo Windows và cấu hình AWS CLI
             </h1>
           
 
@@ -1063,37 +1063,29 @@
 
 
 
-	<h4 id="remote-into-windows-instance">Remote into Windows instance</h4>
+	<h4 id="truy-cập-từ-xa-vào-máy-ảo-windows">Truy cập từ xa vào máy ảo Windows</h4>
 <ol>
 <li>Truy cập vào AWS EC2 và vào máy ảo DexAxWindowsHost</li>
-<li>Chọn <strong>Connect</strong></li>
-</ol>
-<p><img src="/images/1/17.png?width=90pc" alt="ConnectEC2"></p>
-<ol start="3">
-<li>Chọn tab <strong>RDP client</strong></li>
-</ol>
-<p><img src="/images/1/18.png?width=90pc" alt="ConnectEC2"></p>
-<ol start="4">
+<li>Chọn <strong>Connect</strong>
+<img src="/images/1/17.png?width=90pc" alt="ConnectEC2"></li>
+<li>Chọn tab <strong>RDP client</strong>
+<img src="/images/1/18.png?width=90pc" alt="ConnectEC2"></li>
 <li>Chọn <strong>Getpassword</strong> để lấy mật khẩu đăng nhập vào máy ảo</li>
-<li>Chọn <strong>Browse</strong> và trỏ tới tập tin keypair đã lưu ở phần 1. Chọn <strong>Decrypt Password</strong></li>
+<li>Chọn <strong>Browse</strong> và trỏ tới tập tin keypair đã lưu ở phần 1. Chọn <strong>Decrypt Password</strong>
+<img src="/images/1/19.png?width=90pc" alt="ConnectEC2"></li>
+<li>Sao chép mật khẩu và chọn <strong>Download remote desktop file</strong>. Một file RDP sẽ được tải xuống, dùng để truy cập vào máy ảo Windows
+<img src="/images/1/20.png?width=90pc" alt="ConnectEC2"></li>
+<li>Mở file RDP đã tải, nhập mật khẩu đã lưu ở bước 6 và chọn Connect. Một cảnh báo về xác minh chứng chỉ có thể xuất hiện, chọn <strong>Continue</strong> để tiếp tục.<br>
+Như vậy, ta đã kết nối được vào máy ảo Windows được tạo.</li>
 </ol>
-<p><img src="/images/1/19.png?width=90pc" alt="ConnectEC2"></p>
-<ol start="6">
-<li>Sao chép mật khẩu và chọn <strong>Download remote desktop file</strong>. Một file RDP sẽ được tải xuống, dùng để truy cập vào máy ảo Windows</li>
-</ol>
-<p><img src="/images/1/20.png?width=90pc" alt="ConnectEC2"></p>
-<ol start="7">
-<li>Mở file RDP đã tải, nhập mật khẩu đã lưu ở bước 6 và chọn Connect. Một cảnh báo về xác minh chứng chỉ có thể xuất hiện, chọn <strong>Continue</strong> để tiếp tục.</li>
-</ol>
-<p>Như vậy, ta đã kết nối được vào máy ảo Windows được tạo.</p>
-<h4 id="configure-aws-cli">Configure AWS CLI</h4>
-<ol>
+<h4 id="cấu-hình-aws-cli">Cấu hình AWS CLI</h4>
+<ol start="8">
 <li>Mở và nhập đoạn sau vào trình soạn thảo</li>
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws configure set profile.devaxacademy.region &lt;your_region&gt;
 aws configure set profile.devaxacademy.aws_access_key_id &lt;access_key_id&gt;
 aws configure set profile.devaxacademy.aws_secret_access_key &lt;secret_access_key&gt;
-</code></pre></div><ol start="2">
+</code></pre></div><ol start="9">
 <li>Nếu bạn đã có một bộ thông tin xác thực cho người dùng IAM có đặc quyền quản trị, bạn có thể sử dụng lại chúng cho các thông tin bên dưới trong bước tiếp theo. Nếu bạn chưa có thông tin xác thực truy cập, làm theo hướng dẫn <a href="https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys">tại đây</a> để truy xuất chúng cho người dùng có đặc quyền quản trị để sử dụng trong bài thực hành này.</li>
 <li>Điền các giá trị của người dùng IAM vào câu lệnh aws configure:
 <ul>
@@ -1613,19 +1605,19 @@ aws configure set profile.devaxacademy.aws_secret_access_key &lt;secret_access_k
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1622004112"></script>
-    <script src="/js/perfect-scrollbar.min.js?1622004112"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1622004112"></script>
-    <script src="/js/jquery.sticky.js?1622004112"></script>
-    <script src="/js/featherlight.min.js?1622004112"></script>
-    <script src="/js/highlight.pack.js?1622004112"></script>
+    <script src="/js/clipboard.min.js?1622005921"></script>
+    <script src="/js/perfect-scrollbar.min.js?1622005921"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1622005921"></script>
+    <script src="/js/jquery.sticky.js?1622005921"></script>
+    <script src="/js/featherlight.min.js?1622005921"></script>
+    <script src="/js/highlight.pack.js?1622005921"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1622004112"></script>
-    <script src="/js/learn.js?1622004112"></script>
-    <script src="/js/hugo-learn.js?1622004112"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1622005921"></script>
+    <script src="/js/learn.js?1622005921"></script>
+    <script src="/js/hugo-learn.js?1622005921"></script>
 
-    <link href="/mermaid/mermaid.css?1622004112" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1622004112"></script>
+    <link href="/mermaid/mermaid.css?1622005921" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1622005921"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
