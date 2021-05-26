@@ -12,21 +12,21 @@
     <title>Các bước chuẩn bị :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices cho Truyền tin &amp; Sự kiện</title>
 
     
-    <link href="/css/nucleus.css?1621999496" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1621999496" rel="stylesheet">
-    <link href="/css/hybrid.css?1621999496" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1621999496" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1621999496" rel="stylesheet">
-    <link href="/css/auto-complete.css?1621999496" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1621999496" rel="stylesheet">
-    <link href="/css/theme.css?1621999496" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1621999496" rel="stylesheet">
+    <link href="/css/nucleus.css?1622004113" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1622004113" rel="stylesheet">
+    <link href="/css/hybrid.css?1622004113" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1622004113" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1622004113" rel="stylesheet">
+    <link href="/css/auto-complete.css?1622004113" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1622004113" rel="stylesheet">
+    <link href="/css/theme.css?1622004113" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1622004113" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1621999496" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1622004113" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1621999496"></script>
+    <script src="/js/jquery-3.3.1.min.js?1622004113"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1621999496"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1621999496"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1622004113"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1622004113"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1621999496"></script>
+<script type="text/javascript" src="/js/search.js?1622004113"></script>
 
     
   </div>
@@ -125,102 +125,6 @@
           
       </a>
       
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/1-prerequisites/1-create-environment/1-vpc/" title="VPC" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/1-prerequisites/1-create-environment/1-vpc/">
-          <b>1.1.1. </b>VPC
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/1-prerequisites/1-create-environment/2-ec2/" title="EC2" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/1-prerequisites/1-create-environment/2-ec2/">
-          <b>1.1.2. </b>EC2
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/1-prerequisites/1-create-environment/3-rds/" title="RDS" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/1-prerequisites/1-create-environment/3-rds/">
-          <b>1.1.3. </b>RDS
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
               
     </li>
   
@@ -1153,19 +1057,20 @@
 
 
 
-	<p>Welcome to the first module in this workshop! This module involves getting access to a developer environment that we’ve provisioned for you. The developer environment contains all the software and network access required to get you up and running with the labs in record time.</p>
-<p>We’ve chosen to do this as the main aim for this workshop is learning the content in each module, not setting up your local machines. It also provides a consistent environment between you and your fellow colleagues to eliminate the weird “works on my machine” behavior.</p>
-<p>If you were planning on running this lab on your own machine, you’ll have to adapt the instructions accordingly. Make sure to manually install the software listed in the <strong>Development Environment</strong> section below.</p>
-<p><strong>Contents</strong></p>
+	<p>Chào mừng các bạn đến với module đầu tiên của workshop. Đây là module chuẩn bị, hướng dẫn các bạn tạo mọi trường chứa sẵn toàn bộ tài nguyên cần thiết cho workshop.</p>
+<p><strong>Nội dung</strong></p>
 <ul>
-<li><a href="#topics-covered">Topics Covered</a></li>
-<li><a href="#development-environment">Development Environment</a></li>
+<li><a href="#c%C3%A1c-ch%E1%BB%A7-%C4%91%E1%BB%81-ch%C3%ADnh">Các chủ đề chính</a></li>
+<li><a href="#m%C3%B4i-tr%C6%B0%E1%BB%9Dng-ph%C3%A1t-tri%E1%BB%83n">Môi trường phát triển</a></li>
 </ul>
-<h4 id="topics-covered">Topics Covered</h4>
-<p>By the end of this lab, you will be able to:</p>
-<p>Connect to a running windows instance</p>
-<h4 id="development-environment">Development Environment</h4>
-<p>A fully fledged development environment has already been created for you with the following resources installed:</p>
+<h4 id="các-chủ-đề-chính">Các chủ đề chính</h4>
+<p>Module này sẽ hướng dẫn bạn :</p>
+<ul>
+<li>Tạo môi trường từ template Cloud Formation.</li>
+<li>Kết nối vào một Windows Instance.</li>
+</ul>
+<h4 id="môi-trường-phát-triển">Môi trường phát triển</h4>
+<p>Môi trường phát triển của chúng ta bao gồm các thành phần:</p>
 <ul>
 <li>Java 8 JDK</li>
 <li>Apache Maven</li>
@@ -1239,58 +1144,8 @@
 
                     
                     
-                        
-                    
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
             
         
@@ -1730,19 +1585,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1621999496"></script>
-    <script src="/js/perfect-scrollbar.min.js?1621999496"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1621999496"></script>
-    <script src="/js/jquery.sticky.js?1621999496"></script>
-    <script src="/js/featherlight.min.js?1621999496"></script>
-    <script src="/js/highlight.pack.js?1621999496"></script>
+    <script src="/js/clipboard.min.js?1622004113"></script>
+    <script src="/js/perfect-scrollbar.min.js?1622004113"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1622004113"></script>
+    <script src="/js/jquery.sticky.js?1622004113"></script>
+    <script src="/js/featherlight.min.js?1622004113"></script>
+    <script src="/js/highlight.pack.js?1622004113"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1621999496"></script>
-    <script src="/js/learn.js?1621999496"></script>
-    <script src="/js/hugo-learn.js?1621999496"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1622004113"></script>
+    <script src="/js/learn.js?1622004113"></script>
+    <script src="/js/hugo-learn.js?1622004113"></script>
 
-    <link href="/mermaid/mermaid.css?1621999496" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1621999496"></script>
+    <link href="/mermaid/mermaid.css?1622004113" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1622004113"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

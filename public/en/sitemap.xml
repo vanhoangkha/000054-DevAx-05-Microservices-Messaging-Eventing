@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/1-prerequisites/</loc>
+    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/1-prerequisites/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/1-prerequisites/"
+                />
+  </url>
+  
+  <url>
     <loc>/2-messaging-options/7-kinesis-pub-sqs-sub/a/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -93,21 +108,6 @@
   </url>
   
   <url>
-    <loc>/1-prerequisites/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/1-prerequisites/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/1-prerequisites/"
-                />
-  </url>
-  
-  <url>
     <loc>/1-prerequisites/1-create-environment/</loc>
     <xhtml:link
                 rel="alternate"
@@ -118,20 +118,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/1-prerequisites/1-create-environment/"
-                />
-  </url>
-  
-  <url>
-    <loc>/1-prerequisites/1-create-environment/1-vpc/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/1-prerequisites/1-create-environment/1-vpc/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/1-prerequisites/1-create-environment/1-vpc/"
                 />
   </url>
   
@@ -241,20 +227,6 @@
   </url>
   
   <url>
-    <loc>/1-prerequisites/1-create-environment/2-ec2/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/1-prerequisites/1-create-environment/2-ec2/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/1-prerequisites/1-create-environment/2-ec2/"
-                />
-  </url>
-  
-  <url>
     <loc>/1-prerequisites/2-remote-env-config-cli/</loc>
     <xhtml:link
                 rel="alternate"
@@ -295,20 +267,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/2-messaging-options/3-sqs-pub-sub/"
-                />
-  </url>
-  
-  <url>
-    <loc>/1-prerequisites/1-create-environment/3-rds/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/1-prerequisites/1-create-environment/3-rds/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/1-prerequisites/1-create-environment/3-rds/"
                 />
   </url>
   
