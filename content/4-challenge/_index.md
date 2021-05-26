@@ -1,13 +1,13 @@
 +++
-title = "Challenge"
+title = "Bài tập nâng cao"
 date = 2021
 weight = 4
 chapter = false
 pre = "<b>4. </b>"
 +++
 
-If you have time available, take your pick of the following to help solidify what you have learned in this module. If you don’t have time to fully implement, at least consider what your approach would be, and discuss with your instructor:
-> - Modify the Lambda function you used in the Kinesis-to-SQS exercise to modify the data in some other way, for example, changing the X-rotation rather than the Y-rotation.
-> - Modify the Lambda function you used in the Kinesis-to-SQS exercise to send the messages read from the Kinesis stream to the SNS topic used for fan-out, so that you can see multiple consumers of the messages read from the stream.
-> - Add another Lambda function to the Kinesis stream to perform processing on the stream in parallel.
-> - Experiment with the dashboards feature of Kibana to create graphs that highlight information about the sales data being sent between the two EC2 instances.
+Nếu bạn có thời gian nhiều hơn, hãy thử thực hiện một số các bước bên dưới nhằm củng cố thêm kiến thức mà bạn đã học ở module này. Nếu bạn không có thời gian để triển khai, bạn có thể suy nghĩ về hướng giải quyết và thảo luận với mọi người.
+- Điều chỉnh Lambda function đã sử dụng trong Kinesis-To-SQS để điều chỉnh dữ liệu theo một cách khác như là thay đổi tọa độ X thay vì tọa độ Y như trong bài.
+- Điều chỉnh Lambda function đã sử dụng trong Kinesis-To-SQS nhằm gửi dữ liệu nhận được từ Kinesis stream đến các SNS topic sử dụng mô hình fan-out, như vậy bạn sẽ thấy được nhiều comsumer sẽ nhận được thông tin từ stream.
+- Thêm một Lambda function để Kinesis stream thực hiện xử lý stream một cách song song.
+- Thử nghiệm với các tính năng dashboard của Kibana để tạo biểu đồ nêu bật thông tin về dữ liệu kinh doanh được gửi giữa hai EC2 instance.

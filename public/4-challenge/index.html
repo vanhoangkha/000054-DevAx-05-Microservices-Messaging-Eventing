@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Challenge :: DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
+    <title>Bài tập nâng cao :: DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
 
     
-    <link href="/css/nucleus.css?1622011441" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1622011441" rel="stylesheet">
-    <link href="/css/hybrid.css?1622011441" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1622011441" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1622011441" rel="stylesheet">
-    <link href="/css/auto-complete.css?1622011441" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1622011441" rel="stylesheet">
-    <link href="/css/theme.css?1622011441" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1622011441" rel="stylesheet">
+    <link href="/css/nucleus.css?1622019645" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1622019645" rel="stylesheet">
+    <link href="/css/hybrid.css?1622019645" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1622019645" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1622019645" rel="stylesheet">
+    <link href="/css/auto-complete.css?1622019645" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1622019645" rel="stylesheet">
+    <link href="/css/theme.css?1622019645" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1622019645" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1622011441" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1622019645" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1622011441"></script>
+    <script src="/js/jquery-3.3.1.min.js?1622019645"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1622011441"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1622011441"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1622019645"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1622019645"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1622011441"></script>
+<script type="text/javascript" src="/js/search.js?1622019645"></script>
 
     
   </div>
@@ -820,13 +820,13 @@
  
   
     
-    <li data-nav-id="/4-challenge/" title="Challenge" class="dd-item 
+    <li data-nav-id="/4-challenge/" title="Bài tập nâng cao" class="dd-item 
         
         active
         
         ">
       <a href="/4-challenge/">
-          <b>4. </b>Challenge
+          <b>4. </b>Bài tập nâng cao
           
             <i class="fas fa-check read-icon"></i>
           
@@ -846,13 +846,13 @@
  
   
     
-    <li data-nav-id="/5-conclusion/" title="Conclusion" class="dd-item 
+    <li data-nav-id="/5-conclusion/" title="Kết luận" class="dd-item 
         
         
         
         ">
       <a href="/5-conclusion/">
-          <b>5. </b>Conclusion
+          <b>5. </b>Kết luận
           
             <i class="fas fa-check read-icon"></i>
           
@@ -872,13 +872,39 @@
  
   
     
-    <li data-nav-id="/6-resources/" title="Reference resources" class="dd-item 
+    <li data-nav-id="/6-resources/" title="Tham khảo" class="dd-item 
         
         
         
         ">
       <a href="/6-resources/">
-          <b>6. </b>Reference resources
+          <b>6. </b>Tham khảo
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7-video/" title="Video tham khảo" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7-video/">
+          <b>7. </b>Video tham khảo
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1014,7 +1040,7 @@
             
           
           
-            <a href='/'>Microservices Messaging & Eventing</a> > Challenge
+            <a href='/'>Microservices Messaging & Eventing</a> > Bài tập nâng cao
           
         
           
@@ -1041,7 +1067,7 @@
           
             <h1>
               
-              Challenge
+              Bài tập nâng cao
             </h1>
           
 
@@ -1049,15 +1075,13 @@
 
 
 
-	<p>If you have time available, take your pick of the following to help solidify what you have learned in this module. If you don’t have time to fully implement, at least consider what your approach would be, and discuss with your instructor:</p>
-<blockquote>
+	<p>Nếu bạn có thời gian nhiều hơn, hãy thử thực hiện một số các bước bên dưới nhằm củng cố thêm kiến thức mà bạn đã học ở module này. Nếu bạn không có thời gian để triển khai, bạn có thể suy nghĩ về hướng giải quyết và thảo luận với mọi người.</p>
 <ul>
-<li>Modify the Lambda function you used in the Kinesis-to-SQS exercise to modify the data in some other way, for example, changing the X-rotation rather than the Y-rotation.</li>
-<li>Modify the Lambda function you used in the Kinesis-to-SQS exercise to send the messages read from the Kinesis stream to the SNS topic used for fan-out, so that you can see multiple consumers of the messages read from the stream.</li>
-<li>Add another Lambda function to the Kinesis stream to perform processing on the stream in parallel.</li>
-<li>Experiment with the dashboards feature of Kibana to create graphs that highlight information about the sales data being sent between the two EC2 instances.</li>
+<li>Điều chỉnh Lambda function đã sử dụng trong Kinesis-To-SQS để điều chỉnh dữ liệu theo một cách khác như là thay đổi tọa độ X thay vì tọa độ Y như trong bài.</li>
+<li>Điều chỉnh Lambda function đã sử dụng trong Kinesis-To-SQS nhằm gửi dữ liệu nhận được từ Kinesis stream đến các SNS topic sử dụng mô hình fan-out, như vậy bạn sẽ thấy được nhiều comsumer sẽ nhận được thông tin từ stream.</li>
+<li>Thêm một Lambda function để Kinesis stream thực hiện xử lý stream một cách song song.</li>
+<li>Thử nghiệm với các tính năng dashboard của Kibana để tạo biểu đồ nêu bật thông tin về dữ liệu kinh doanh được gửi giữa hai EC2 instance.</li>
 </ul>
-</blockquote>
 
 
 
@@ -1544,6 +1568,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -1556,7 +1596,7 @@
 			<a class="nav nav-prev" href="/3-message-streaming/5-kibana/" title="Explore Kibana"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/5-conclusion/" title="Conclusion" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/5-conclusion/" title="Kết luận" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1566,19 +1606,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1622011441"></script>
-    <script src="/js/perfect-scrollbar.min.js?1622011441"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1622011441"></script>
-    <script src="/js/jquery.sticky.js?1622011441"></script>
-    <script src="/js/featherlight.min.js?1622011441"></script>
-    <script src="/js/highlight.pack.js?1622011441"></script>
+    <script src="/js/clipboard.min.js?1622019645"></script>
+    <script src="/js/perfect-scrollbar.min.js?1622019645"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1622019645"></script>
+    <script src="/js/jquery.sticky.js?1622019645"></script>
+    <script src="/js/featherlight.min.js?1622019645"></script>
+    <script src="/js/highlight.pack.js?1622019645"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1622011441"></script>
-    <script src="/js/learn.js?1622011441"></script>
-    <script src="/js/hugo-learn.js?1622011441"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1622019645"></script>
+    <script src="/js/learn.js?1622019645"></script>
+    <script src="/js/hugo-learn.js?1622019645"></script>
 
-    <link href="/mermaid/mermaid.css?1622011441" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1622011441"></script>
+    <link href="/mermaid/mermaid.css?1622019645" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1622019645"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

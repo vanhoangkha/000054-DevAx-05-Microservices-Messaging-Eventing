@@ -316,21 +316,6 @@
   </url>
   
   <url>
-    <loc>/5-conclusion/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/5-conclusion/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/5-conclusion/"
-                />
-  </url>
-  
-  <url>
     <loc>/3-message-streaming/5-kibana/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -342,6 +327,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="/3-message-streaming/5-kibana/"
+                />
+  </url>
+  
+  <url>
+    <loc>/5-conclusion/</loc>
+    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-conclusion/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-conclusion/"
                 />
   </url>
   
@@ -361,21 +361,6 @@
   </url>
   
   <url>
-    <loc>/6-resources/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/6-resources/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/6-resources/"
-                />
-  </url>
-  
-  <url>
     <loc>/2-messaging-options/6-sns-pub-subs/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -391,6 +376,21 @@
   </url>
   
   <url>
+    <loc>/6-resources/</loc>
+    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/6-resources/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/6-resources/"
+                />
+  </url>
+  
+  <url>
     <loc>/2-messaging-options/7-kinesis-pub-sqs-sub/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -402,6 +402,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="/2-messaging-options/7-kinesis-pub-sqs-sub/"
+                />
+  </url>
+  
+  <url>
+    <loc>/7-video/</loc>
+    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/7-video/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/7-video/"
                 />
   </url>
   
