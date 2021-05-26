@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Eclipse Environment :: DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
+
+    
+    <link href="/css/nucleus.css?1621999495" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1621999495" rel="stylesheet">
+    <link href="/css/hybrid.css?1621999495" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1621999495" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1621999495" rel="stylesheet">
+    <link href="/css/auto-complete.css?1621999495" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1621999495" rel="stylesheet">
+    <link href="/css/theme.css?1621999495" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1621999495" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1621999495" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1621999495"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/2-messaging-options/7-kinesis-pub-sqs-sub/a/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1621999495"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1621999495"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1621999495"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/" title="Prerequisites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/">
+          <b>1. </b>Prerequisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/1-create-environment/" title="Create Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/1-create-environment/">
+          <b>1.1. </b>Create Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/1-create-environment/1-vpc/" title="VPC" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/1-create-environment/1-vpc/">
+          <b>1.1.1. </b>VPC
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/1-create-environment/2-ec2/" title="EC2" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/1-create-environment/2-ec2/">
+          <b>1.1.2. </b>EC2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/1-create-environment/3-rds/" title="RDS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/1-create-environment/3-rds/">
+          <b>1.1.3. </b>RDS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/2-remote-env-config-cli/" title="Remote enviroment &amp; Configure the AWS CLI" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/2-remote-env-config-cli/">
+          <b>1.2. </b>Remote enviroment &amp; Configure the AWS CLI
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/" title="Exploring Messaging Options" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/2-messaging-options/">
+          <b>2. </b>Exploring Messaging Options
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/1-prerequisites/" title="Install &amp; Configure Prerequisites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/1-prerequisites/">
+          <b>2.1. </b>Install &amp; Configure Prerequisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/2-website-on-s3/" title="Setup S3 bucket website" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/2-website-on-s3/">
+          <b>2.2. </b>Setup S3 bucket website
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/3-sqs-pub-sub/" title="SQS Publisher to SQS Subcriber" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/3-sqs-pub-sub/">
+          <b>2.3. </b>SQS Publisher to SQS Subcriber
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/4-sqs-pub-subs/" title="SQS Publisher to Multiple SQS Subscribers" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/4-sqs-pub-subs/">
+          <b>2.4. </b>SQS Publisher to Multiple SQS Subscribers
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/5-sqs-pub-sub-fifo/" title="SQS Publisher to SQS Subscriber with FIFO message ordering" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/5-sqs-pub-sub-fifo/">
+          <b>2.5. </b>SQS Publisher to SQS Subscriber with FIFO message ordering
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/6-sns-pub-subs/" title="SNS Publisher to Multiple SQS Subcribers" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/6-sns-pub-subs/">
+          <b>2.6. </b>SNS Publisher to Multiple SQS Subcribers
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/7-kinesis-pub-sqs-sub/" title="Kinesis Publisher to SQS Subcriber" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/2-messaging-options/7-kinesis-pub-sqs-sub/">
+          <b>2.7. </b>Kinesis Publisher to SQS Subcriber
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/7-kinesis-pub-sqs-sub/a/" title="Eclipse Environment" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/2-messaging-options/7-kinesis-pub-sqs-sub/a/">
+          <b>Option A. </b>Eclipse Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/7-kinesis-pub-sqs-sub/b/" title="AWS Cloud9 Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/7-kinesis-pub-sqs-sub/b/">
+          <b>Option B. </b>AWS Cloud9 Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/8-mqtt-pub-sub/" title="MQTT Publisher to MQTT Subcriber" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/8-mqtt-pub-sub/">
+          <b>2.8. </b>MQTT Publisher to MQTT Subcriber
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/" title="Implementing Message Streaming Using Kinesis" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/">
+          <b>3. </b>Implementing Message Streaming Using Kinesis
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/1-prequistite/" title="Prerequisite" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/1-prequistite/">
+          <b>3.1. </b>Prerequisite
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/1-prequistite/a/" title="Eclipse Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/1-prequistite/a/">
+          <b>Option A. </b>Eclipse Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/1-prequistite/b/" title="AWS Cloud9 Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/1-prequistite/b/">
+          <b>Option B. </b>AWS Cloud9 Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/2-kinesis-producer/" title="Create the Kinesis Producer" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/2-kinesis-producer/">
+          <b>3.2. </b>Create the Kinesis Producer
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/2-kinesis-producer/a/" title="Eclipse Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/2-kinesis-producer/a/">
+          <b>Option A. </b>Eclipse Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/2-kinesis-producer/b/" title="AWS Cloud9 Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/2-kinesis-producer/b/">
+          <b>Option B. </b>AWS Cloud9 Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/3-send-records/" title="Sending Records" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/3-send-records/">
+          <b>3.2. </b>Sending Records
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/4-verify-elasticsearch/" title="Checking in ElasticSearch" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/4-verify-elasticsearch/">
+          <b>3.4. </b>Checking in ElasticSearch
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/5-kibana/" title="Explore Kibana" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/5-kibana/">
+          <b>3.5. </b>Explore Kibana
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-challenge/" title="Challenge" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-challenge/">
+          <b>4. </b>Challenge
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-conclusion/" title="Conclusion" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-conclusion/">
+          <b>5. </b>Conclusion
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-resources/" title="Reference resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-resources/">
+          <b>6. </b>Reference resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/660548818043427/"><i class='fab fa-facebook'></i> AWS Study Group - FB Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/2-messaging-options/7-kinesis-pub-sqs-sub/a/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/2-messaging-options/7-kinesis-pub-sqs-sub/a/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+    
+
+    
+
+    
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Microservices Messaging & Eventing</a> > <a href='/2-messaging-options/'>Exploring Messaging Options</a> > <a href='/2-messaging-options/7-kinesis-pub-sqs-sub/'>Kinesis Publisher to SQS Subcriber</a> > Eclipse Environment
+          
+        
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Eclipse Environment
+            </h1>
+          
+
+        
+
+
+
+	<p>Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information. In this scenario, the browser will send draw points to a Kinesis stream. Normally, we would create a Kinesis consumer client and read the events from the stream directly and process them, and we will do this in our next scenario. But for this scenario, let’s assume we want the messages to be delivered to an SQS queue like we have done in our previous scenarios.</p>
+<p>Since there is no in-built way to route messages that have been published to a Kinesis stream into an SQS queue, we need an intermediary to do that processing/routing for us. In this scenario, we will implement the intermediary as an AWS Lambda function that will create a bridge between the Kinesis stream, and the SQS queue we want to target.</p>
+<p>The architecture for this scenario looks like this:</p>
+<p><img src="/images/2/kinesislambdasqsarchitecture.png?width=50pc" alt="SQS"></p>
+<p>Similar to a previous scenario, messages are rendered by a single subscriber to an Amazon SQS queue. But in this case, the messages are published to a Kinesis stream, and then transferred to the SQS queue by the Lambda function.</p>
+<p><strong>Contents</strong></p>
+<ul>
+<li><a href="#create-an-aws-lambda-function-that-implements-an-amazon-kinesis-event-consumer">Create an AWS Lambda function that implements an Amazon Kinesis event consumer</a></li>
+<li><a href="#update-the-lambda-function-implementation-to-publish-received-events-to-an-sqs-queue">Update the Lambda function implementation to publish received events to an SQS queue</a></li>
+</ul>
+<ol>
+<li>To start this demo, click the drop-down list on the website and choose <strong>AWS Kinesis publisher to SQS subscriber</strong>. When the page initialises, draw a shape on the Kinesis Publisher canvas. Notice that the <strong>Messages Sent</strong> counter increments, but no shape is rendered on the SQS Subscriber canvas? This is because the messages are being published into the Kinesis stream, but no Kinesis consumers are processing the message yet:</li>
+</ol>
+<p><img src="/images/2/15.png?width=90pc" alt="SQS"></p>
+<p>Follow the steps below to implement the Lambda function.</p>
+<h4 id="create-an-aws-lambda-function-that-implements-an-amazon-kinesis-event-consumer">Create an AWS Lambda function that implements an Amazon Kinesis event consumer</h4>
+<ol start="2">
+<li>In the <strong>Eclipse IDE</strong>, click the <strong>AWS</strong> icon to reveal the AWS menu, and select the option <strong>New AWS Lambda java Project&hellip;</strong></li>
+</ol>
+<p><img src="/images/2/16.png?width=90pc" alt="SQS"></p>
+<ol start="3">
+<li>In the dialog that appears, for <strong>Project name</strong> type <code>kinesissam-202103-LambdaFunction-XXXXXXXXX</code></li>
+<li>For <strong>Input Type</strong> select <code>Kinesis Event</code> from the drop-down list.</li>
+</ol>
+<p><img src="/images/2/17.png?width=90pc" alt="SQS"></p>
+<ol start="5">
+<li>Click <strong>Finish</strong></li>
+</ol>
+<p>We will use the default implementation to test that the configuration is correct before updating the implementation to peform a specific task.</p>
+<ol start="6">
+<li>Right-click on the <strong>LambdaFunctionHandler.java</strong> file and select the <strong>Amazon Web Services</strong> menu item. From the subitem that appears, choose <strong>Upload function to AWS Lambda&hellip;</strong></li>
+</ol>
+<p><img src="/images/2/18.png?width=90pc" alt="SQS"></p>
+<ol start="7">
+<li>Make sure the <strong>Asia Pacific(Tokyo)</strong> region is selected, and for <strong>Create a new Lambda function</strong>: enter <code>kinesissam-202103-LambdaFunction-XXXXXXXXX</code>.</li>
+<li>Click <strong>Next</strong>.</li>
+</ol>
+<p><img src="/images/2/19.png?width=90pc" alt="SQS"></p>
+<ol start="9">
+<li>Enter a <strong>Description</strong> such as <code>Lab 5 Kinesis to SQS</code>.</li>
+<li>For <strong>IAM Role</strong> select <code>LambdaKinesisToSQSRole</code> which has been provisioned for you by the lab setup.</li>
+<li>Click <strong>Finish</strong>. The Lambda function will be uploaded to your AWS account, ready to test. This may take a moment or two.</li>
+</ol>
+<p>While you are waiting for the upload to complete, take a quick look at the simple implementation the IDE has created for you.</p>
+<ol start="12">
+<li>Open the <strong>LambdaFunctionHandler</strong> class. It looks like this:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LambdaFunctionHandler</span> <span style="color:#66d9ef">implements</span> RequestHandler<span style="color:#f92672">&lt;</span>KinesisEvent<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">handleRequest</span><span style="color:#f92672">(</span>KinesisEvent event<span style="color:#f92672">,</span> Context context<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Input: &#34;</span> <span style="color:#f92672">+</span> event<span style="color:#f92672">);</span>
+
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>KinesisEventRecord record <span style="color:#f92672">:</span> event<span style="color:#f92672">.</span><span style="color:#a6e22e">getRecords</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            String payload <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>record<span style="color:#f92672">.</span><span style="color:#a6e22e">getKinesis</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">().</span><span style="color:#a6e22e">array</span><span style="color:#f92672">());</span>
+            context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Payload: &#34;</span> <span style="color:#f92672">+</span> payload<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#66d9ef">return</span> event<span style="color:#f92672">.</span><span style="color:#a6e22e">getRecords</span><span style="color:#f92672">().</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>This implementation will simply log the input event received by the Lambda function, and then for each record in the batch, it will log the contents. This is a good starting point to allow us to confirm our configuration is correctly reading data from the Kinesis stream.</p>
+<ol start="13">
+<li>Open the <strong>Kinesis console</strong> in the browser and select <strong>Go to the Streams console</strong></li>
+</ol>
+<p><img src="/images/2/20.png?width=90pc" alt="SQS"></p>
+<ol start="14">
+<li>You will see two streams - both have been provisioned by the lab template during setup. Click on <strong>iDevelopDrawingData</strong></li>
+</ol>
+<p><img src="/images/2/21.png?width=90pc" alt="SQS"></p>
+<ol start="15">
+<li>Select the <strong>Monitoring</strong> tab and scroll down to reveal the <strong>Put Records (Bytes) - Sum</strong> graph.</li>
+</ol>
+<p><img src="/images/2/22.png?width=90pc" alt="SQS"></p>
+<p>Around this location will be other statistics about the stream. Notice that the <strong>Incoming data - sum (Count)</strong> matches the same number you see in our demo website, under <strong>Messages Sent</strong>? You may need to move your mouse over the graph to see the actual data volume. In the example shown here, you would point your mouse at the end of the line to reveal the count (showing 118). The count of the two points on the graph will equal the <strong>Messages Sent</strong> metric on our website (last image, showing the Messages Sent from our website. 118)</p>
+<p><img src="/images/2/23.png?width=90pc" alt="SQS"></p>
+<p><img src="/images/2/25.png?width=90pc" alt="SQS"></p>
+<ol start="16">
+<li>When the Lambda function has finished uploading, open the <strong>AWS Lambda console</strong> in the browser. You will see the new Lambda function you just uploaded, <code>KinesisToSQS</code>. Click on it to manage its configuration.</li>
+<li>Under the Designer dashboard, you will find the <strong>Add triggers</strong> section.</li>
+</ol>
+<p><img src="/images/2/26.png?width=90pc" alt="SQS"></p>
+<ol start="18">
+<li>Click <strong>Kinesis</strong> from the list of triggers. It opens up Trigger configuration.</li>
+<li>For <strong>Kinesis stream</strong> select <code>iDevelopDrawingData</code> from the list</li>
+<li>For <strong>Starting position</strong> select <code>Trim horizon</code>. Leave the <strong>Batch size</strong> at <code>100</code>.</li>
+</ol>
+<p><img src="/images/2/27.png?width=90pc" alt="SQS"></p>
+<ol start="21">
+<li>Click <strong>Add</strong> and then click <strong>Save</strong>. The Kinesis trigger will be enabled for this Lambda function.</li>
+</ol>
+<p><img src="/images/2/28.png?width=90pc" alt="SQS"></p>
+<ol start="22">
+<li>It will take a moment or two for the Lambda function to be attached to the Kinesis stream. Wait a minute, and then click the <strong>Refresh</strong> icon on the <strong>Kinesis</strong> pannel. When the Lambda function is wired-up, you will see a message saying <em>Last processing result: OK</em>.</li>
+</ol>
+<p><img src="/images/2/29.png?width=90pc" alt="SQS"></p>
+<ol start="23">
+<li>Click the <strong>Monitoring</strong> tab. The draw points that have been sent into the Kinesis stream will have been consumed by the Lambda function, and you will see CloudWatch metrics indicating this activity. You will see activity in the <em>Invocation count</em> and <em>Invocation duration graphs</em>. Check that you don’t see any <em>Invocation error</em>s.</li>
+</ol>
+
+<div class="notices note" ><p>Depending on how many draw points you emited into the Kinesis stream, you will see a different number for <em>Invocation count</em>. When we enabled the trigger, we set the Batch size to 100 (which was the default). So the Lambda function will be invoked with up to 100 records at a time. If you sent 225 messages into the stream, this will be consumed by 3 invocations of the Lambda function - Math.ceil(225/100) == 3.</p>
+</div>
+
+<p><img src="/images/2/30.png?width=90pc" alt="SQS"></p>
+<ol start="24">
+<li>Click the <strong>View logs in CloudWatch</strong> button to open the CloudWatch Log Stream for this Lambda function. Click on the first log stream in the list and review the logs listed:</li>
+</ol>
+<p><img src="/images/2/31.png?width=90pc" alt="SQS"></p>
+<ol start="25">
+<li>Scroll through the events in the CloudWatch Log output. These events have been written to the log by our Lambda function code:</li>
+</ol>
+<p><img src="/images/2/32.png?width=90pc" alt="SQS"></p>
+<p>When writing your Lambda function code in Java, you can emit log strings into CloudWatch logs by simply calling the Logger’s .log() method:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">context.getLogger<span style="color:#f92672">()</span>.log<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Log message to emit: &#34;</span> + someMessage<span style="color:#f92672">)</span>;
+</code></pre></div><h4 id="update-the-lambda-function-implementation-to-publish-received-events-to-an-sqs-queue">Update the Lambda function implementation to publish received events to an SQS queue</h4>
+<p>Getting back to our scenario, we want to read the messages out of the Kinesis stream, and publish them into an SQS queue, where our browser implementation can read them and draw them on the subscriber’s canvas.</p>
+<ol start="26">
+<li>In the <strong>Eclipse IDE</strong>, replace the <strong>entire contents</strong> of the <code>/KinesisToSQS/src/main/java/com/amazonaws/lambda/demo/LambdaFunctionHandler.java</code> file with the following code:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.amazonaws.lambda.demo<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.awt.geom.AffineTransform<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.awt.geom.Point2D<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Collection<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Iterator<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.amazonaws.services.lambda.runtime.Context<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.amazonaws.services.lambda.runtime.RequestHandler<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.amazonaws.services.lambda.runtime.events.KinesisEvent<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.amazonaws.services.lambda.runtime.events.KinesisEvent.KinesisEventRecord<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.amazonaws.services.sqs.AmazonSQS<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.amazonaws.services.sqs.AmazonSQSClientBuilder<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.amazonaws.services.sqs.model.SendMessageBatchRequest<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.amazonaws.services.sqs.model.SendMessageBatchRequestEntry<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LambdaFunctionHandler</span> <span style="color:#66d9ef">implements</span> RequestHandler<span style="color:#f92672">&lt;</span>KinesisEvent<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> MAX_SQS_BATCH_SIZE <span style="color:#f92672">=</span> 10<span style="color:#f92672">;</span>
+
+	<span style="color:#66d9ef">private</span> AmazonSQS sqs <span style="color:#f92672">=</span> AmazonSQSClientBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">defaultClient</span><span style="color:#f92672">();</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">handleRequest</span><span style="color:#f92672">(</span>KinesisEvent event<span style="color:#f92672">,</span> Context context<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+    		Iterator<span style="color:#f92672">&lt;</span>KinesisEventRecord<span style="color:#f92672">&gt;</span> iterator <span style="color:#f92672">=</span> event<span style="color:#f92672">.</span><span style="color:#a6e22e">getRecords</span><span style="color:#f92672">().</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">();</span>    		
+    		AffineTransform transformer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AffineTransform<span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> 400<span style="color:#f92672">);</span>
+    		ObjectMapper mapper <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectMapper<span style="color:#f92672">();</span>
+    		Point2D dstPoint <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Point2D<span style="color:#f92672">.</span><span style="color:#a6e22e">Double</span><span style="color:#f92672">();</span>
+    		<span style="color:#66d9ef">boolean</span> sendMessagesToSQS <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    		
+    		<span style="color:#66d9ef">try</span>
+    		<span style="color:#f92672">{</span>
+    			<span style="color:#75715e">//
+</span><span style="color:#75715e"></span>    			<span style="color:#75715e">// Read the SQS Queue Target from the Lambda Environment Variables
+</span><span style="color:#75715e"></span>    			<span style="color:#75715e">//
+</span><span style="color:#75715e"></span>    			String sqsUrl <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">getenv</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;TargetSQSUrl&#34;</span><span style="color:#f92672">);</span>
+    			<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span> sqsUrl <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> sqsUrl<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">()</span> <span style="color:#f92672">)</span>
+    			<span style="color:#f92672">{</span>
+    				context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;WARNING:: Environment Variable [TargetSQSUrl] is not set. No messages will be sent via SQS&#34;</span><span style="color:#f92672">);</span>
+    				sendMessagesToSQS <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+    			<span style="color:#f92672">}</span>
+    				
+	    		<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span> iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">()</span> <span style="color:#f92672">)</span>
+	    		<span style="color:#f92672">{</span>
+	    			<span style="color:#66d9ef">int</span> messageCounter <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+	
+	        		<span style="color:#75715e">// Prepare a batch request to write all the messages we have received in this invocation
+</span><span style="color:#75715e"></span>	        		Collection<span style="color:#f92672">&lt;</span>SendMessageBatchRequestEntry<span style="color:#f92672">&gt;</span> entries <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>SendMessageBatchRequestEntry<span style="color:#f92672">&gt;();</span>
+	
+	        		<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span> iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">()</span> <span style="color:#f92672">&amp;&amp;</span> messageCounter<span style="color:#f92672">++</span> <span style="color:#f92672">&lt;</span> MAX_SQS_BATCH_SIZE <span style="color:#f92672">)</span>
+	        		<span style="color:#f92672">{</span>
+		            String payload <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getKinesis</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">().</span><span style="color:#a6e22e">array</span><span style="color:#f92672">());</span>
+		            context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Payload: &#34;</span> <span style="color:#f92672">+</span> payload<span style="color:#f92672">);</span>
+		            DrawPoint transformedPoint <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DrawPoint<span style="color:#f92672">();</span>
+	
+		            <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+	
+						transformedPoint <span style="color:#f92672">=</span> mapper<span style="color:#f92672">.</span><span style="color:#a6e22e">readValue</span><span style="color:#f92672">(</span>payload<span style="color:#f92672">,</span> DrawPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+			            <span style="color:#75715e">// Transform the point
+</span><span style="color:#75715e"></span>			            Point2D srcPoint <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Point2D<span style="color:#f92672">.</span><span style="color:#a6e22e">Double</span><span style="color:#f92672">(</span>transformedPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">getX</span><span style="color:#f92672">(),</span> transformedPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">getY</span><span style="color:#f92672">());</span>	            
+			            transformer<span style="color:#f92672">.</span><span style="color:#a6e22e">transform</span><span style="color:#f92672">(</span>srcPoint<span style="color:#f92672">,</span> dstPoint<span style="color:#f92672">);</span>
+	
+			            <span style="color:#75715e">// Update the payload
+</span><span style="color:#75715e"></span>			            transformedPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">setX</span><span style="color:#f92672">((</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span>dstPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">getX</span><span style="color:#f92672">());</span>
+			            transformedPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">setY</span><span style="color:#f92672">((</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span>dstPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">getY</span><span style="color:#f92672">());</span>
+	
+		                 <span style="color:#75715e">// Add this payload into our batch
+</span><span style="color:#75715e"></span>		        		    	SendMessageBatchRequestEntry entry <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SendMessageBatchRequestEntry<span style="color:#f92672">(</span>
+		        		    			<span style="color:#e6db74">&#34;msg_&#34;</span> <span style="color:#f92672">+</span> messageCounter<span style="color:#f92672">,</span>
+		        		    			mapper<span style="color:#f92672">.</span><span style="color:#a6e22e">writeValueAsString</span><span style="color:#f92672">(</span>transformedPoint<span style="color:#f92672">)</span>
+		        		    			<span style="color:#f92672">);</span>
+	
+		        		    	entries<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>entry<span style="color:#f92672">);</span>
+					<span style="color:#f92672">}</span>
+		            <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span>
+		            <span style="color:#f92672">{</span>
+		            		context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Unable to deserialise &#34;</span> <span style="color:#f92672">+</span> payload <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; as a DrawPoint! &#34;</span> <span style="color:#f92672">+</span> e<span style="color:#f92672">.</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">());</span>					
+					<span style="color:#f92672">}</span>
+	        		<span style="color:#f92672">}</span>
+	
+	        		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span> sendMessagesToSQS <span style="color:#f92672">&amp;&amp;</span> entries<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;</span> 0 <span style="color:#f92672">)</span>
+	        		<span style="color:#f92672">{</span>
+	        			<span style="color:#75715e">// We have reached the end of the records or we have reached the maximum	        		
+</span><span style="color:#75715e"></span>		        		<span style="color:#75715e">// batch size allowed for SQS, so we need to send our entries
+</span><span style="color:#75715e"></span>		        		context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Sending batch of &#34;</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>messageCounter <span style="color:#f92672">-</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; events to SQS...&#34;</span><span style="color:#f92672">);</span>
+		
+		        		SendMessageBatchRequest batch <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SendMessageBatchRequest<span style="color:#f92672">()</span>
+		        				<span style="color:#f92672">.</span><span style="color:#a6e22e">withQueueUrl</span><span style="color:#f92672">(</span>sqsUrl<span style="color:#f92672">);</span>
+		
+		            batch<span style="color:#f92672">.</span><span style="color:#a6e22e">setEntries</span><span style="color:#f92672">(</span>entries<span style="color:#f92672">);</span>
+		
+		            <span style="color:#75715e">// Perform the message sending
+</span><span style="color:#75715e"></span>		            sqs<span style="color:#f92672">.</span><span style="color:#a6e22e">sendMessageBatch</span><span style="color:#f92672">(</span>batch<span style="color:#f92672">);</span> 
+	        		<span style="color:#f92672">}</span>
+	    		<span style="color:#f92672">}</span>
+    		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span>
+        <span style="color:#f92672">{</span>
+        		context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;EXCEPTION::Aborting Lambda processing&#34;</span><span style="color:#f92672">);</span>
+        		context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">getStackTrace</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
+		<span style="color:#f92672">}</span>
+    		
+        <span style="color:#66d9ef">return</span> event<span style="color:#f92672">.</span><span style="color:#a6e22e">getRecords</span><span style="color:#f92672">().</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// Inner class must be marked as static in order for the JSON mapper to deserialise
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DrawPoint</span> <span style="color:#f92672">{</span>
+
+		<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> x<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> y<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> timestamp<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> clear<span style="color:#f92672">;</span>
+		
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getX</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+			<span style="color:#66d9ef">return</span> x<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setX</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> x<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getY</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+			<span style="color:#66d9ef">return</span> y<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setY</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> y<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> y<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getTimestamp</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+			<span style="color:#66d9ef">return</span> timestamp<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setTimestamp</span><span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> timestamp<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">timestamp</span> <span style="color:#f92672">=</span> timestamp<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isClear</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+			<span style="color:#66d9ef">return</span> clear<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setClear</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> clear<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">clear</span> <span style="color:#f92672">=</span> clear<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>	
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>You can also download this file from <a href="https://workshops.devax.academy/monoliths-to-microservices/module5/files/LambdaFunctionHandler.java"><strong>here</strong></a>.</p>
+<ol start="27">
+<li>Upload the Lambda function again using the Eclipse IDE.</li>
+<li>The Lambda function implementation expects the SQS Queue Url to be passed in via an Environment Variable. Before the function will be able to send messages to the SQS queue, you need to configure this variable.</li>
+</ol>
+<p>Once the upload is complete, on the AWS Lambda console, click the <strong>Configuration</strong> tab for the kinesissam-202103-LambdaFunction-PXLJKP8VVOJB Lambda function. Scroll down to the <strong>Environment variables</strong> section (if you don’t see it, click the name of your Lambda function in the Designer dashboard) and add a new variable with the key <code>TargetSQSUrl</code> and set the value to the <code>QueueUrl1</code> from the lab <strong>Additional Info panel</strong>. Click <strong>Save</strong>.</p>
+<p><img src="/images/2/33.png?width=90pc" alt="SQS"></p>
+<ol start="29">
+<li>Now go back to our demo website and draw a new shape to emit events into the Kinesis stream.</li>
+</ol>
+<p><img src="/images/2/34.png?width=90pc" alt="SQS"></p>
+<p>The drawing points should now be received via the SQS queue, and rendered on the canvas. Notice that the shape you draw is rendered inversed in the Y-dimension? This is because the implementation we used for the Lambda function executes a transform on the drawing points, just to demonstrate how we can manipulate the data in the Kinesis stream before passing it to the SQS queue.</p>
+<p>Take a few moments to review the handler implementation code to ensure you understand how it works.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/2-messaging-options/7-kinesis-pub-sqs-sub/" title="Kinesis Publisher to SQS Subcriber"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/2-messaging-options/7-kinesis-pub-sqs-sub/b/" title="AWS Cloud9 Environment" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1621999495"></script>
+    <script src="/js/perfect-scrollbar.min.js?1621999495"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1621999495"></script>
+    <script src="/js/jquery.sticky.js?1621999495"></script>
+    <script src="/js/featherlight.min.js?1621999495"></script>
+    <script src="/js/highlight.pack.js?1621999495"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1621999495"></script>
+    <script src="/js/learn.js?1621999495"></script>
+    <script src="/js/hugo-learn.js?1621999495"></script>
+
+    <link href="/mermaid/mermaid.css?1621999495" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1621999495"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

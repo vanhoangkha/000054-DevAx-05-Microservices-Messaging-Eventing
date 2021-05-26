@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>AWS Cloud9 Environment :: DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
+
+    
+    <link href="/css/nucleus.css?1621999495" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1621999495" rel="stylesheet">
+    <link href="/css/hybrid.css?1621999495" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1621999495" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1621999495" rel="stylesheet">
+    <link href="/css/auto-complete.css?1621999495" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1621999495" rel="stylesheet">
+    <link href="/css/theme.css?1621999495" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1621999495" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1621999495" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1621999495"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/3-message-streaming/1-prequistite/b/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1621999495"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1621999495"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1621999495"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/" title="Prerequisites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/">
+          <b>1. </b>Prerequisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/1-create-environment/" title="Create Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/1-create-environment/">
+          <b>1.1. </b>Create Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/1-create-environment/1-vpc/" title="VPC" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/1-create-environment/1-vpc/">
+          <b>1.1.1. </b>VPC
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/1-create-environment/2-ec2/" title="EC2" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/1-create-environment/2-ec2/">
+          <b>1.1.2. </b>EC2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/1-create-environment/3-rds/" title="RDS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/1-create-environment/3-rds/">
+          <b>1.1.3. </b>RDS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-prerequisites/2-remote-env-config-cli/" title="Remote enviroment &amp; Configure the AWS CLI" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-prerequisites/2-remote-env-config-cli/">
+          <b>1.2. </b>Remote enviroment &amp; Configure the AWS CLI
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/" title="Exploring Messaging Options" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/">
+          <b>2. </b>Exploring Messaging Options
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/1-prerequisites/" title="Install &amp; Configure Prerequisites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/1-prerequisites/">
+          <b>2.1. </b>Install &amp; Configure Prerequisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/2-website-on-s3/" title="Setup S3 bucket website" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/2-website-on-s3/">
+          <b>2.2. </b>Setup S3 bucket website
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/3-sqs-pub-sub/" title="SQS Publisher to SQS Subcriber" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/3-sqs-pub-sub/">
+          <b>2.3. </b>SQS Publisher to SQS Subcriber
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/4-sqs-pub-subs/" title="SQS Publisher to Multiple SQS Subscribers" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/4-sqs-pub-subs/">
+          <b>2.4. </b>SQS Publisher to Multiple SQS Subscribers
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/5-sqs-pub-sub-fifo/" title="SQS Publisher to SQS Subscriber with FIFO message ordering" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/5-sqs-pub-sub-fifo/">
+          <b>2.5. </b>SQS Publisher to SQS Subscriber with FIFO message ordering
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/6-sns-pub-subs/" title="SNS Publisher to Multiple SQS Subcribers" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/6-sns-pub-subs/">
+          <b>2.6. </b>SNS Publisher to Multiple SQS Subcribers
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/7-kinesis-pub-sqs-sub/" title="Kinesis Publisher to SQS Subcriber" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/7-kinesis-pub-sqs-sub/">
+          <b>2.7. </b>Kinesis Publisher to SQS Subcriber
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/7-kinesis-pub-sqs-sub/a/" title="Eclipse Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/7-kinesis-pub-sqs-sub/a/">
+          <b>Option A. </b>Eclipse Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/7-kinesis-pub-sqs-sub/b/" title="AWS Cloud9 Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/7-kinesis-pub-sqs-sub/b/">
+          <b>Option B. </b>AWS Cloud9 Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-messaging-options/8-mqtt-pub-sub/" title="MQTT Publisher to MQTT Subcriber" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-messaging-options/8-mqtt-pub-sub/">
+          <b>2.8. </b>MQTT Publisher to MQTT Subcriber
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/" title="Implementing Message Streaming Using Kinesis" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/3-message-streaming/">
+          <b>3. </b>Implementing Message Streaming Using Kinesis
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/1-prequistite/" title="Prerequisite" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/3-message-streaming/1-prequistite/">
+          <b>3.1. </b>Prerequisite
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/1-prequistite/a/" title="Eclipse Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/1-prequistite/a/">
+          <b>Option A. </b>Eclipse Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/1-prequistite/b/" title="AWS Cloud9 Environment" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/3-message-streaming/1-prequistite/b/">
+          <b>Option B. </b>AWS Cloud9 Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/2-kinesis-producer/" title="Create the Kinesis Producer" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/2-kinesis-producer/">
+          <b>3.2. </b>Create the Kinesis Producer
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/2-kinesis-producer/a/" title="Eclipse Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/2-kinesis-producer/a/">
+          <b>Option A. </b>Eclipse Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/2-kinesis-producer/b/" title="AWS Cloud9 Environment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/2-kinesis-producer/b/">
+          <b>Option B. </b>AWS Cloud9 Environment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/3-send-records/" title="Sending Records" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/3-send-records/">
+          <b>3.2. </b>Sending Records
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/4-verify-elasticsearch/" title="Checking in ElasticSearch" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/4-verify-elasticsearch/">
+          <b>3.4. </b>Checking in ElasticSearch
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-message-streaming/5-kibana/" title="Explore Kibana" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-message-streaming/5-kibana/">
+          <b>3.5. </b>Explore Kibana
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-challenge/" title="Challenge" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-challenge/">
+          <b>4. </b>Challenge
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-conclusion/" title="Conclusion" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-conclusion/">
+          <b>5. </b>Conclusion
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-resources/" title="Reference resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-resources/">
+          <b>6. </b>Reference resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/660548818043427/"><i class='fab fa-facebook'></i> AWS Study Group - FB Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/3-message-streaming/1-prequistite/b/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/3-message-streaming/1-prequistite/b/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+    
+
+    
+
+    
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Microservices Messaging & Eventing</a> > <a href='/3-message-streaming/'>Implementing Message Streaming Using Kinesis</a> > <a href='/3-message-streaming/1-prequistite/'>Prerequisite</a> > AWS Cloud9 Environment
+          
+        
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              AWS Cloud9 Environment
+            </h1>
+          
+
+        
+
+
+
+	<p>Our example use case simulates sales data coming from the field, and being processed via a Kinesis stream and written out into ElasticSearch where we can analyse the sales data graphically with Kibana. The sales data will be read from a CSV file, and have costs, quantities and transaction dates randomly applied. The architecture looks like this:</p>
+<p><img src="/images/3/kinesisconsumerproducerapparch.png?width=50pc" alt="SQS"></p>
+<p><strong>Contents</strong></p>
+<ul>
+<li><a href="#clone-the-repository-on-the-kinesis-consumer-ec2-instance">Clone the repository on the Kinesis Consumer EC2 instance</a></li>
+<li><a href="#create-a-new-repository-for-the-kinesis-producer-source-code">Create a new repository for the Kinesis Producer source code</a></li>
+<li><a href="#curl-down-the-zip-file-as-below-and-extract-it-as-before-location-is-here">Curl down the zip file as below and extract it as before, location is here</a></li>
+</ul>
+<ol>
+<li>Although you can do this on the console, lets do this in the cli:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws codecommit create-repository --repository-name KinesisConsumer --repository-description <span style="color:#e6db74">&#34;Sample application that consumes messages from a Kinesis stream and writes them to an ElasticSearch domain index.&#34;</span>
+</code></pre></div><p>This will produce the output - keep the following details for the next git config.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;repositoryMetadata&#34;</span>: {
+        <span style="color:#f92672">&#34;repositoryName&#34;</span>: <span style="color:#e6db74">&#34;KinesisConsumer&#34;</span>, 
+        <span style="color:#f92672">&#34;cloneUrlSsh&#34;</span>: <span style="color:#e6db74">&#34;ssh://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/KinesisConsumer&#34;</span>, 
+        <span style="color:#f92672">&#34;lastModifiedDate&#34;</span>: <span style="color:#ae81ff">1615766849.351</span>, 
+        <span style="color:#f92672">&#34;repositoryDescription&#34;</span>: <span style="color:#e6db74">&#34;Sample application that consumes messages from a Kinesis stream and writes them to an ElasticSearch domain index.&#34;</span>, 
+        <span style="color:#f92672">&#34;cloneUrlHttp&#34;</span>: <span style="color:#e6db74">&#34;https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/KinesisConsumer&#34;</span>, 
+        <span style="color:#f92672">&#34;creationDate&#34;</span>: <span style="color:#ae81ff">1615766849.351</span>, 
+        <span style="color:#f92672">&#34;repositoryId&#34;</span>: <span style="color:#e6db74">&#34;1e6d110e-f607-4393-9c39-f7f4c1ba7b38&#34;</span>, 
+        <span style="color:#f92672">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:codecommit:ap-northeast-1:XXXXXXXXXX886:KinesisConsumer&#34;</span>, 
+        <span style="color:#f92672">&#34;accountId&#34;</span>: <span style="color:#e6db74">&#34;XXXXXXXXXX886&#34;</span>
+    }
+}
+</code></pre></div><ol start="2">
+<li>Setup your required access for the repo for <code>aws-student</code>. Git the config details:</li>
+</ol>
+
+<div class="notices note" ><p>Replace the <strong>&lt;cloneUrlHttp&gt;</strong> with your previously created repository.</p>
+</div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git config --global user.name <span style="color:#e6db74">&#34;user name&#34;</span>
+git config --global user.email <span style="color:#e6db74">&#34;user name email&#34;</span>
+git config --global credential.helper <span style="color:#e6db74">&#39;!aws codecommit credential-helper $@&#39;</span>
+git config --global credential.UseHttpPath true
+git clone &lt;cloneUrlHttp&gt;
+</code></pre></div><ol start="3">
+<li>Add a <code>readme.md</code> to confirm it is working:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd KinesisConsumer
+echo <span style="color:#e6db74">&#34;hello&#34;</span> &gt; Readme.md
+git add Readme.md
+git commit -m <span style="color:#e6db74">&#39;ee&#39;</span>
+git push
+</code></pre></div><p>This should give you the following output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Enumerating objects: 3, <span style="color:#66d9ef">done</span>.
+Counting objects: 100% <span style="color:#f92672">(</span>3/3<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+Writing objects: 100% <span style="color:#f92672">(</span>3/3<span style="color:#f92672">)</span>, <span style="color:#ae81ff">215</span> bytes | 215.00 KiB/s, <span style="color:#66d9ef">done</span>.
+Total <span style="color:#ae81ff">3</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>
+To https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/KinesisConsumer
+ * <span style="color:#f92672">[</span>new branch<span style="color:#f92672">]</span>      master -&gt; master
+</code></pre></div><ol start="4">
+<li>Download the source code bundle from KinesisConsumer.zip and explode the zip file onto your filesystem.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/environment
+curl https://workshops.devax.academy/monoliths-to-microservices/module5/files/KinesisConsumer.zip --output KinesisConsumer.zip
+unzip KinesisConsumer.zip
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Archive:  KinesisConsumer.zip
+  inflating: KinesisConsumer/pom.xml  
+  inflating: KinesisConsumer/.gitignore  
+   creating: KinesisConsumer/src/
+   creating: KinesisConsumer/src/main/
+   creating: KinesisConsumer/src/main/java/
+   creating: KinesisConsumer/src/main/java/idevelop/
+   creating: KinesisConsumer/src/main/java/idevelop/demo/
+  inflating: KinesisConsumer/src/main/java/idevelop/demo/SaleItemTransaction.java  
+  inflating: KinesisConsumer/src/main/java/idevelop/demo/ResponseHandler.java  
+  inflating: KinesisConsumer/src/main/java/idevelop/demo/RecordProcessorFactory.java  
+  inflating: KinesisConsumer/src/main/java/idevelop/demo/KinesisConsumerApp.java  
+  inflating: KinesisConsumer/src/main/java/idevelop/demo/config.java  
+  inflating: KinesisConsumer/src/main/java/idevelop/demo/RecordProcessor.java 
+</code></pre></div><ol start="5">
+<li>In the Cloud9 IDE, open the config.java file.</li>
+</ol>
+<p><img src="/images/3/10.png?width=90pc" alt="MessageStreaming"></p>
+<ol start="6">
+<li>Lets change the details in here :</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export dets<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws cloudformation describe-stacks --query <span style="color:#e6db74">&#34;Stacks[?StackName&gt;&#39;mod&#39;].StackName&#34;</span> --output text<span style="color:#66d9ef">)</span>
+aws cloudformation describe-stacks --stack-name $dets --query <span style="color:#e6db74">&#34;Stacks[].Outputs[?OutputKey==&#39;ElasticsearchEndpoint&#39;][OutputValue]&#34;</span> --output text
+</code></pre></div><ol start="7">
+<li>
+<p>Update the value of the <code>public static final String ELASTICSEARCH_ENDPOINT</code> to match the value in the labs cloudformation output - panel, called <strong>ElasticsearchEndpoint</strong>. By default, the value is set to <code>REPLACE_WITH_YOUR_ELASTIC_SEARCH_ENDPOINT</code>. Erase this value and replace it with your <strong>ElasticsearchEndpoint</strong> value. Save the file.</p>
+</li>
+<li>
+<p>Verify that the <code>REGION</code> is set to the right region. (e.g. change from <code>ap-southeast-2</code> to <code>ap-northeast-1</code>)</p>
+</li>
+<li>
+<p>Add the new files to the repository by issuing the command:</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd KinesisConsumer
+git add .
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git status
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">On branch master
+Your branch is up-to-date with <span style="color:#e6db74">&#39;origin/master&#39;</span>.
+
+Changes to be committed:
+  <span style="color:#f92672">(</span>use <span style="color:#e6db74">&#34;git reset HEAD &lt;file&gt;...&#34;</span> to unstage<span style="color:#f92672">)</span>
+
+        new file:   .gitignore
+        new file:   pom.xml
+        new file:   src/main/java/idevelop/demo/KinesisConsumerApp.java
+        new file:   src/main/java/idevelop/demo/RecordProcessor.java
+        new file:   src/main/java/idevelop/demo/RecordProcessorFactory.java
+        new file:   src/main/java/idevelop/demo/ResponseHandler.java
+        new file:   src/main/java/idevelop/demo/SaleItemTransaction.java
+        new file:   src/main/java/idevelop/demo/config.java
+</code></pre></div><ol start="10">
+<li>Commit and push the new files to the branch by issuing the following commands:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git commit -m <span style="color:#e6db74">&#34;Initial commit&#34;</span>
+git push
+</code></pre></div><p>You should see the files that you have added into the repository listed in the browser view.</p>
+<h4 id="clone-the-repository-on-the-kinesis-consumer-ec2-instance">Clone the repository on the Kinesis Consumer EC2 instance</h4>
+<p>The labs setup has provisioned an EC2 instance for you to run as the Consumer in this scenario. You will now connect to the EC2 instance, clone the repository, build and run the Consumer code.</p>
+<p>In order to securely connect into your cloud infrastructure, you will use SSH, the secure shell. SSH requires a public/private key-pair to be set up and installed on the client and server that will communicate via the SSH protocol. The EC2 instances have been launched with a public key. You need to retrieve the private key so you can use that to establish a secure connection. Click <strong>Download PEM</strong>. Save this private key file on your local machine. In a terminal session on your local machine, run the following command. This command will ensure you can use the downloaded private key to log into the EC2 instances you will be using.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod <span style="color:#ae81ff">400</span> &lt;path to your downloaded PEM file&gt;
+</code></pre></div><p><strong>Example:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod <span style="color:#ae81ff">400</span> ~/environment/ec2-keypair.pem
+</code></pre></div>
+<div class="notices note" ><p>Leave the terminal session open, you will return shortly.</p>
+</div>
+
+<ol start="11">
+<li>On the lab guide page, in the <strong>Additional Info</strong> panel, locate the <strong>EC2InstanceKinesisConsumer</strong> called <code>KCL_instance</code> value and copy it to your clipboard.</li>
+<li>Use the command below as a template to connect to the instance:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh -i &lt;path to your downloaded PEM file&gt; ec2-user@&lt;EC2InstanceKinesisConsumer&gt;
+</code></pre></div><p><strong>Example:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh -i ~/environment/ec2-keypair.pem ec2-user@34.212.21.7
+</code></pre></div>
+<div class="notices note" ><ul>
+<li>Don’t include the <code>&lt;</code> and <code>&gt;</code> symbols.</li>
+<li>If you have difficulty with this step please seek help from a lab assistant.</li>
+<li>Once you have successfully logged on to the instance via SSH, continue below.</li>
+</ul>
+</div>
+
+<ol start="13">
+<li>On the terminal window you used to SSH to the instance, issue the following commands to clone the repository:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git config --global credential.helper <span style="color:#e6db74">&#39;!aws codecommit credential-helper $@&#39;</span>
+git config --global credential.UseHttpPath true
+git clone https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/KinesisConsumer/
+</code></pre></div><p>You should get this output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Cloning into <span style="color:#e6db74">&#39;KinesisConsumer&#39;</span>...
+remote: Counting objects: 18, <span style="color:#66d9ef">done</span>.
+Unpacking objects: 100% <span style="color:#f92672">(</span>18/18<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+</code></pre></div><ol start="14">
+<li>The source code you had checked in from your workstation will now be cloned onto the EC2 instance and will take a moment to complete.</li>
+<li>The setup process has installed Maven on the EC2 instance so you can build the source code. <code>cd</code> into the <code>KinesisConsumer</code> directory and execute this command:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd KinesisConsumer
+/opt/apache-maven-3.3.9/bin/mvn package shade:shade
+</code></pre></div><p>It will take a few moments to complete the build.</p>
+<ol start="16">
+<li>When the build is complete, start the Kinesis Consumer application by issuing:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -jar target/KinesisConsumerApp-1.0.0.jar
+</code></pre></div><p>The application will start and wait for events to be published into the Kinesis stream. You should see no errors, and after a few moments, the console output should show <strong>‘Sleeping…’</strong> since there are no records in the stream to process:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">INFO: Initializing record processor <span style="color:#66d9ef">for</span> shard: shardId-000000000000
+Aug 21, <span style="color:#ae81ff">2017</span> 11:30:19 AM idevelop.demo.RecordProcessor initialize
+INFO: Initializing record processor <span style="color:#66d9ef">for</span> shard: shardId-000000000001
+Aug 21, <span style="color:#ae81ff">2017</span> 11:30:57 AM com.amazonaws.services.kinesis.clientlibrary.lib.worker.Worker info
+INFO: Current stream shard assignments: shardId-000000000001, shardId-000000000000
+Aug 21, <span style="color:#ae81ff">2017</span> 11:30:57 AM com.amazonaws.services.kinesis.clientlibrary.lib.worker.Worker info
+INFO: Sleeping ...
+</code></pre></div><ol start="17">
+<li>Stop the execution in the terminal window by issuing <code>CTRL + C</code></li>
+</ol>
+<h4 id="create-a-new-repository-for-the-kinesis-producer-source-code">Create a new repository for the Kinesis Producer source code</h4>
+<p>You will now repeat the process above, this time, creating a repository for the <strong>Kinesis Producer</strong> application, and cloning it on to the Kinesis Producer EC2 instance. Once this is complete, you can begin testing data transfer between the two machines, via Amazon Kinesis.</p>
+<p>The process of creating the repository is the same as the previous steps, but we repeat it here for convenience.</p>
+<ol start="18">
+<li>Login to the cloud9 IDE again:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws codecommit create-repository --repository-name KinesisProducer --repository-description <span style="color:#e6db74">&#34;Sample application that publishes sales events into a Kinesis stream.&#34;</span>
+</code></pre></div><p>This will produce the output - keep the following details for the next git config.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;repositoryMetadata&#34;</span>: <span style="color:#f92672">{</span>
+        <span style="color:#e6db74">&#34;repositoryName&#34;</span>: <span style="color:#e6db74">&#34;KinesisProducer&#34;</span>, 
+        <span style="color:#e6db74">&#34;cloneUrlSsh&#34;</span>: <span style="color:#e6db74">&#34;ssh://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/KinesisProducer&#34;</span>, 
+        <span style="color:#e6db74">&#34;lastModifiedDate&#34;</span>: 1615768593.186, 
+        <span style="color:#e6db74">&#34;repositoryDescription&#34;</span>: <span style="color:#e6db74">&#34;Sample application that publishes sales events into a Kinesis stream.&#34;</span>, 
+        <span style="color:#e6db74">&#34;cloneUrlHttp&#34;</span>: <span style="color:#e6db74">&#34;https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/KinesisProducer&#34;</span>, 
+        <span style="color:#e6db74">&#34;creationDate&#34;</span>: 1615768593.186, 
+        <span style="color:#e6db74">&#34;repositoryId&#34;</span>: <span style="color:#e6db74">&#34;b01af616-7e23-4748-918c-f0902783d717&#34;</span>, 
+        <span style="color:#e6db74">&#34;Arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:codecommit:ap-northeast-1:XXXXXXXXXX86:KinesisProducer&#34;</span>, 
+        <span style="color:#e6db74">&#34;accountId&#34;</span>: <span style="color:#e6db74">&#34;XXXXXXXXXX86&#34;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ol start="19">
+<li>Confirm that the helper class is actioned</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git config -l --global
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">credential.helper<span style="color:#f92672">=</span>!aws codecommit credential-helper $@
+credential.usehttppath<span style="color:#f92672">=</span>true
+</code></pre></div><ol start="20">
+<li>If this is not set - you can action below:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git config --global credential.helper <span style="color:#e6db74">&#39;!aws codecommit credential-helper $@&#39;</span>
+git config --global credential.UseHttpPath true
+</code></pre></div><ol start="21">
+<li>Clone the repository</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/KinesisProducer
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Cloning into <span style="color:#e6db74">&#39;KinesisProducer&#39;</span>...
+warning: You appear to have cloned an empty repository.
+</code></pre></div><h4 id="curl-down-the-zip-file-as-below-and-extract-it-as-before-location-is-here">Curl down the zip file as below and extract it as before, location is here</h4>
+<ol start="22">
+<li>Download the source code bundle from KinesisConsumer.zip and explode the zip file onto your filesystem.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/environment
+curl https://workshops.devax.academy/monoliths-to-microservices/module5/files/KinesisProducer.zip --output KinesisProducer.zip
+unzip KinesisProducer.zip
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Archive:  KinesisProducer.zip
+  inflating: KinesisProducer/pom.xml
+  inflating: KinesisProducer/.gitignore
+   creating: KinesisProducer/src/
+   creating: KinesisProducer/src/main/
+   creating: KinesisProducer/src/main/java/
+   creating: KinesisProducer/src/main/java/idevelop/
+   creating: KinesisProducer/src/main/java/idevelop/demo/
+  inflating: KinesisProducer/src/main/java/idevelop/demo/SaleItemTransaction.java
+  inflating: KinesisProducer/src/main/java/idevelop/demo/KinesisProducerApp.java
+</code></pre></div><ol start="23">
+<li>Add the files into git</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd KinesisProducer
+git add .
+git commit -m <span style="color:#e6db74">&#34;Initial commit&#34;</span>
+git push
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Counting objects: 11, <span style="color:#66d9ef">done</span>.
+Delta compression using up to <span style="color:#ae81ff">2</span> threads.
+Compressing objects: 100% <span style="color:#f92672">(</span>7/7<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+Writing objects: 100% <span style="color:#f92672">(</span>11/11<span style="color:#f92672">)</span>, 4.20 KiB | 4.20 MiB/s, <span style="color:#66d9ef">done</span>.
+Total <span style="color:#ae81ff">11</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>
+To https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/KinesisProducer
+ * <span style="color:#f92672">[</span>new branch<span style="color:#f92672">]</span>      master -&gt; master
+</code></pre></div>
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/3-message-streaming/1-prequistite/a/" title="Eclipse Environment"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/3-message-streaming/2-kinesis-producer/" title="Create the Kinesis Producer" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1621999496"></script>
+    <script src="/js/perfect-scrollbar.min.js?1621999496"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1621999496"></script>
+    <script src="/js/jquery.sticky.js?1621999496"></script>
+    <script src="/js/featherlight.min.js?1621999496"></script>
+    <script src="/js/highlight.pack.js?1621999496"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1621999496"></script>
+    <script src="/js/learn.js?1621999496"></script>
+    <script src="/js/hugo-learn.js?1621999496"></script>
+
+    <link href="/mermaid/mermaid.css?1621999496" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1621999496"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
