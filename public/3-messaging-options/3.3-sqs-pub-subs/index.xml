@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQS Publisher to Multiple SQS Subscribers on DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
+    <link>/3-messaging-options/3.3-sqs-pub-subs/</link>
+    <description>Recent content in SQS Publisher to Multiple SQS Subscribers on DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 01 Jan 1970 07:33:40 +0700</lastBuildDate><atom:link href="/3-messaging-options/3.3-sqs-pub-subs/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

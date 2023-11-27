@@ -5,10 +5,6 @@
     <link>/3-message-streaming/3-send-records/</link>
     <description>Recent content in Sending Records on DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 01 Jan 1970 07:33:41 +0700</lastBuildDate>
-    
-	<atom:link href="/3-message-streaming/3-send-records/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 01 Jan 1970 07:33:41 +0700</lastBuildDate><atom:link href="/3-message-streaming/3-send-records/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

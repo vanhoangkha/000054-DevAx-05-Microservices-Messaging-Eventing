@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/vi/1-prerequisites/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
@@ -15,9 +14,7 @@
                 hreflang="vi"
                 href="/vi/1-prerequisites/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-messaging-options/1-prerequisites/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -30,9 +27,7 @@
                 hreflang="vi"
                 href="/vi/2-messaging-options/1-prerequisites/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/3-message-streaming/1-prequistite/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -45,9 +40,7 @@
                 hreflang="vi"
                 href="/vi/3-message-streaming/1-prequistite/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-messaging-options/7-kinesis-pub-sqs-sub/a/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -60,9 +53,7 @@
                 hreflang="vi"
                 href="/vi/2-messaging-options/7-kinesis-pub-sqs-sub/a/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/3-message-streaming/1-prequistite/a/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -75,9 +66,7 @@
                 hreflang="vi"
                 href="/vi/3-message-streaming/1-prequistite/a/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/3-message-streaming/2-kinesis-producer/a/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -90,9 +79,7 @@
                 hreflang="vi"
                 href="/vi/3-message-streaming/2-kinesis-producer/a/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -105,9 +92,59 @@
                 hreflang="vi"
                 href="/vi/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/vi/4-message-streaming/4.1-prequistite/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/4-message-streaming/4.1-prequistite/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/4-message-streaming/4.1-prequistite/"
+                />
+  </url><url>
+    <loc>/vi/1-introduction/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/1-introduction/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/1-introduction/"
+                />
+  </url><url>
+    <loc>/vi/2-prepare/2.1-createkeypair/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/2-prepare/2.1-createkeypair/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/2-prepare/2.1-createkeypair/"
+                />
+  </url><url>
+    <loc>/vi/3-messaging-options/3.1-website-on-s3/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-messaging-options/3.1-website-on-s3/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-messaging-options/3.1-website-on-s3/"
+                />
+  </url><url>
     <loc>/vi/1-prerequisites/1-create-environment/</loc>
     <xhtml:link
                 rel="alternate"
@@ -119,9 +156,7 @@
                 hreflang="vi"
                 href="/vi/1-prerequisites/1-create-environment/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-messaging-options/7-kinesis-pub-sqs-sub/b/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -134,9 +169,7 @@
                 hreflang="vi"
                 href="/vi/2-messaging-options/7-kinesis-pub-sqs-sub/b/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/3-message-streaming/1-prequistite/b/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -149,9 +182,7 @@
                 hreflang="vi"
                 href="/vi/3-message-streaming/1-prequistite/b/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/3-message-streaming/2-kinesis-producer/b/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -164,9 +195,7 @@
                 hreflang="vi"
                 href="/vi/3-message-streaming/2-kinesis-producer/b/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/3-message-streaming/3-send-records/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -179,9 +208,7 @@
                 hreflang="vi"
                 href="/vi/3-message-streaming/3-send-records/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-messaging-options/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -194,24 +221,7 @@
                 hreflang="vi"
                 href="/vi/2-messaging-options/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/2-messaging-options/2-website-on-s3/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-messaging-options/2-website-on-s3/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-messaging-options/2-website-on-s3/"
-                />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/3-message-streaming/2-kinesis-producer/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -224,9 +234,72 @@
                 hreflang="vi"
                 href="/vi/3-message-streaming/2-kinesis-producer/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/vi/2-messaging-options/2-website-on-s3/</loc>
+    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/2-messaging-options/2-website-on-s3/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/2-messaging-options/2-website-on-s3/"
+                />
+  </url><url>
+    <loc>/vi/2-prepare/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/2-prepare/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/2-prepare/"
+                />
+  </url><url>
+    <loc>/vi/4-message-streaming/4.2-send-records/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/4-message-streaming/4.2-send-records/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/4-message-streaming/4.2-send-records/"
+                />
+  </url><url>
+    <loc>/vi/3-messaging-options/3.2-sqs-pub-sub/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-messaging-options/3.2-sqs-pub-sub/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-messaging-options/3.2-sqs-pub-sub/"
+                />
+  </url><url>
+    <loc>/vi/2-prepare/2.2-createstack/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/2-prepare/2.2-createstack/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/2-prepare/2.2-createstack/"
+                />
+  </url><url>
     <loc>/vi/1-prerequisites/2-remote-env-config-cli/</loc>
     <xhtml:link
                 rel="alternate"
@@ -238,9 +311,7 @@
                 hreflang="vi"
                 href="/vi/1-prerequisites/2-remote-env-config-cli/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-messaging-options/3-sqs-pub-sub/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -253,9 +324,7 @@
                 hreflang="vi"
                 href="/vi/2-messaging-options/3-sqs-pub-sub/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/3-message-streaming/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -268,9 +337,59 @@
                 hreflang="vi"
                 href="/vi/3-message-streaming/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/vi/2-prepare/2.3-connectvirtualmachine/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/2-prepare/2.3-connectvirtualmachine/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/2-prepare/2.3-connectvirtualmachine/"
+                />
+  </url><url>
+    <loc>/vi/4-message-streaming/4.3-verify-elasticsearch/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/4-message-streaming/4.3-verify-elasticsearch/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/4-message-streaming/4.3-verify-elasticsearch/"
+                />
+  </url><url>
+    <loc>/vi/3-messaging-options/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-messaging-options/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-messaging-options/"
+                />
+  </url><url>
+    <loc>/vi/3-messaging-options/3.3-sqs-pub-subs/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-messaging-options/3.3-sqs-pub-subs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-messaging-options/3.3-sqs-pub-subs/"
+                />
+  </url><url>
     <loc>/vi/4-challenge/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -283,9 +402,7 @@
                 hreflang="vi"
                 href="/vi/4-challenge/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/3-message-streaming/4-verify-elasticsearch/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -298,9 +415,7 @@
                 hreflang="vi"
                 href="/vi/3-message-streaming/4-verify-elasticsearch/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-messaging-options/4-sqs-pub-subs/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -313,24 +428,46 @@
                 hreflang="vi"
                 href="/vi/2-messaging-options/4-sqs-pub-subs/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/3-message-streaming/5-kibana/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+  </url><url>
+    <loc>/vi/4-message-streaming/4.4-kibana/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/3-message-streaming/5-kibana/"
+                href="/4-message-streaming/4.4-kibana/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/3-message-streaming/5-kibana/"
+                href="/vi/4-message-streaming/4.4-kibana/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/vi/3-messaging-options/3.4-sqs-pub-sub-fifo/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-messaging-options/3.4-sqs-pub-sub-fifo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-messaging-options/3.4-sqs-pub-sub-fifo/"
+                />
+  </url><url>
+    <loc>/vi/4-message-streaming/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/4-message-streaming/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/4-message-streaming/"
+                />
+  </url><url>
     <loc>/vi/5-conclusion/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -343,9 +480,20 @@
                 hreflang="vi"
                 href="/vi/5-conclusion/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/vi/3-message-streaming/5-kibana/</loc>
+    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-message-streaming/5-kibana/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-message-streaming/5-kibana/"
+                />
+  </url><url>
     <loc>/vi/2-messaging-options/5-sqs-pub-sub-fifo/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -358,9 +506,33 @@
                 hreflang="vi"
                 href="/vi/2-messaging-options/5-sqs-pub-sub-fifo/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/vi/5-challenge/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-challenge/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-challenge/"
+                />
+  </url><url>
+    <loc>/vi/3-messaging-options/3.5-sns-pub-subs/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-messaging-options/3.5-sns-pub-subs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-messaging-options/3.5-sns-pub-subs/"
+                />
+  </url><url>
     <loc>/vi/2-messaging-options/6-sns-pub-subs/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -373,9 +545,7 @@
                 hreflang="vi"
                 href="/vi/2-messaging-options/6-sns-pub-subs/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/6-resources/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -388,9 +558,33 @@
                 hreflang="vi"
                 href="/vi/6-resources/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/vi/6-cleanup/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/6-cleanup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/6-cleanup/"
+                />
+  </url><url>
+    <loc>/vi/3-messaging-options/3.6-kinesis-pub-sqs-sub/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-messaging-options/3.6-kinesis-pub-sqs-sub/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-messaging-options/3.6-kinesis-pub-sqs-sub/"
+                />
+  </url><url>
     <loc>/vi/2-messaging-options/7-kinesis-pub-sqs-sub/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -403,9 +597,7 @@
                 hreflang="vi"
                 href="/vi/2-messaging-options/7-kinesis-pub-sqs-sub/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/7-video/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -418,9 +610,20 @@
                 hreflang="vi"
                 href="/vi/7-video/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/vi/3-messaging-options/3.7-mqtt-pub-sub/</loc>
+    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-messaging-options/3.7-mqtt-pub-sub/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-messaging-options/3.7-mqtt-pub-sub/"
+                />
+  </url><url>
     <loc>/vi/2-messaging-options/8-mqtt-pub-sub/</loc>
     <lastmod>1970-01-01T07:33:41+07:00</lastmod>
     <xhtml:link
@@ -433,9 +636,7 @@
                 hreflang="vi"
                 href="/vi/2-messaging-options/8-mqtt-pub-sub/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -447,9 +648,7 @@
                 hreflang="vi"
                 href="/vi/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -462,5 +661,4 @@
                 href="/vi/tags/"
                 />
   </url>
-  
 </urlset>

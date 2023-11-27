@@ -1,0 +1,2905 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Kinesis Publisher tới SQS Subcriber  :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices cho Truyền tin &amp; Sự kiện</title>
+
+    
+    <link href="/css/nucleus.css?1701077934" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1701077934" rel="stylesheet">
+    <link href="/css/hybrid.css?1701077934" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1701077934" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1701077934" rel="stylesheet">
+    <link href="/css/auto-complete.css?1701077934" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1701077934" rel="stylesheet">
+    <link href="/css/theme.css?1701077934" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1701077934" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1701077934" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1701077934"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/vi/3-messaging-options/3.6-kinesis-pub-sqs-sub/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1701077934"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1701077934"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/vi";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1701077934"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/" title="Các bước chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/">
+          <b>1. </b>Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/1-create-environment/" title="Chuẩn bị môi trường" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/1-create-environment/">
+          <b>1.1. </b>Chuẩn bị môi trường
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-prerequisites/2-remote-env-config-cli/" title="Truy cập từ xa vào máy ảo Windows và cấu hình AWS CLI" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-prerequisites/2-remote-env-config-cli/">
+          <b>1.2. </b>Truy cập từ xa vào máy ảo Windows và cấu hình AWS CLI
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-introduction/">
+          <b>1. </b>Giới thiệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-messaging-options/" title="Lựa chọn cách truyền tin" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-messaging-options/">
+          <b>2. </b>Lựa chọn cách truyền tin
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-messaging-options/1-prerequisites/" title="Các bước chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-messaging-options/1-prerequisites/">
+          <b>2.1. </b>Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-messaging-options/2-website-on-s3/" title="Triển khai Web trên S3" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-messaging-options/2-website-on-s3/">
+          <b>2.2. </b>Triển khai Web trên S3
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-messaging-options/3-sqs-pub-sub/" title="SQS Publisher tới SQS Subcriber" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-messaging-options/3-sqs-pub-sub/">
+          <b>2.3. </b>SQS Publisher tới SQS Subcriber
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-messaging-options/4-sqs-pub-subs/" title="SQS Publisher tới nhiều SQS Subscriber" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-messaging-options/4-sqs-pub-subs/">
+          <b>2.4. </b>SQS Publisher tới nhiều SQS Subscriber
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-messaging-options/5-sqs-pub-sub-fifo/" title="SQS Publisher tới SQS Subscriber với FIFO" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-messaging-options/5-sqs-pub-sub-fifo/">
+          <b>2.5. </b>SQS Publisher tới SQS Subscriber với FIFO
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-messaging-options/6-sns-pub-subs/" title="SNS Publisher tới nhiều SQS Subcribers" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-messaging-options/6-sns-pub-subs/">
+          <b>2.6. </b>SNS Publisher tới nhiều SQS Subcribers
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-messaging-options/7-kinesis-pub-sqs-sub/" title="Kinesis Publisher tới SQS Subcriber" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-messaging-options/7-kinesis-pub-sqs-sub/">
+          <b>2.7. </b>Kinesis Publisher tới SQS Subcriber
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-messaging-options/7-kinesis-pub-sqs-sub/a/" title="Dùng Eclipse" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-messaging-options/7-kinesis-pub-sqs-sub/a/">
+          <b>Cách A. </b>Dùng Eclipse
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-messaging-options/7-kinesis-pub-sqs-sub/b/" title="Dùng AWS Cloud9" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-messaging-options/7-kinesis-pub-sqs-sub/b/">
+          <b>Cách B. </b>Dùng AWS Cloud9
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-messaging-options/8-mqtt-pub-sub/" title="MQTT Publisher to MQTT Subcriber" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-messaging-options/8-mqtt-pub-sub/">
+          <b>2.8. </b>MQTT Publisher to MQTT Subcriber
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prepare/" title="Chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prepare/">
+          <b>2. </b>Chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prepare/2.1-createkeypair/" title="Tạo Key Pair" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prepare/2.1-createkeypair/">
+          <b>2.1. </b>Tạo Key Pair
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prepare/2.2-createstack/" title="Tạo CloudFormation stack" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prepare/2.2-createstack/">
+          <b>2.2. </b>Tạo CloudFormation stack
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prepare/2.3-connectvirtualmachine/" title="Kết nối Windows instance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prepare/2.3-connectvirtualmachine/">
+          <b>2.3. </b>Kết nối Windows instance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-message-streaming/" title="Truyền thông tin với Kinesis" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-message-streaming/">
+          <b>3. </b>Truyền thông tin với Kinesis
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-message-streaming/1-prequistite/" title="Các bước chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-message-streaming/1-prequistite/">
+          <b>3.1. </b>Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-message-streaming/1-prequistite/a/" title="Dùng Eclipse" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-message-streaming/1-prequistite/a/">
+          <b>Cách A. </b>Dùng Eclipse
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-message-streaming/1-prequistite/b/" title="Dùng AWS Cloud9" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-message-streaming/1-prequistite/b/">
+          <b>Cách B. </b>Dùng AWS Cloud9
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-message-streaming/3-send-records/" title="Gửi các Bản ghi" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-message-streaming/3-send-records/">
+          <b>3.2. </b>Gửi các Bản ghi
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-message-streaming/2-kinesis-producer/" title="Tạo Kinesis Producer" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-message-streaming/2-kinesis-producer/">
+          <b>3.2. </b>Tạo Kinesis Producer
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-message-streaming/2-kinesis-producer/a/" title="Dùng Eclipse" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-message-streaming/2-kinesis-producer/a/">
+          <b>Cách A. </b>Dùng Eclipse
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-message-streaming/2-kinesis-producer/b/" title="Dùng AWS Cloud9" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-message-streaming/2-kinesis-producer/b/">
+          <b>Cách B. </b>Dùng AWS Cloud9
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-message-streaming/4-verify-elasticsearch/" title="Kiểm tra trong ElasticSearch" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-message-streaming/4-verify-elasticsearch/">
+          <b>3.4. </b>Kiểm tra trong ElasticSearch
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-message-streaming/5-kibana/" title="Khám phá Kibana" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-message-streaming/5-kibana/">
+          <b>3.5. </b>Khám phá Kibana
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-messaging-options/" title="Lựa chọn cách truyền tin " class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/vi/3-messaging-options/">
+          <b>3. </b>Lựa chọn cách truyền tin 
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-messaging-options/3.1-website-on-s3/" title="Triển khai Web trên S3" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-messaging-options/3.1-website-on-s3/">
+          <b>3.1. </b>Triển khai Web trên S3
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-messaging-options/3.2-sqs-pub-sub/" title="SQS Publisher tới SQS Subcriber" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-messaging-options/3.2-sqs-pub-sub/">
+          <b>3.2. </b>SQS Publisher tới SQS Subcriber
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-messaging-options/3.3-sqs-pub-subs/" title="SQS Publisher tới nhiều SQS Subscriber " class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-messaging-options/3.3-sqs-pub-subs/">
+          <b>3.3. </b>SQS Publisher tới nhiều SQS Subscriber 
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-messaging-options/3.4-sqs-pub-sub-fifo/" title="SQS Publisher tới SQS Subscriber với FIFO " class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-messaging-options/3.4-sqs-pub-sub-fifo/">
+          <b>3.4. </b>SQS Publisher tới SQS Subscriber với FIFO 
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-messaging-options/3.5-sns-pub-subs/" title="SNS Publisher tới nhiều SQS Subcribers " class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-messaging-options/3.5-sns-pub-subs/">
+          <b>3.5. </b>SNS Publisher tới nhiều SQS Subcribers 
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-messaging-options/3.6-kinesis-pub-sqs-sub/" title="Kinesis Publisher tới SQS Subcriber " class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/vi/3-messaging-options/3.6-kinesis-pub-sqs-sub/">
+          <b>3.6. </b>Kinesis Publisher tới SQS Subcriber 
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-messaging-options/3.7-mqtt-pub-sub/" title="MQTT Publisher tới MQTT Subcriber" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-messaging-options/3.7-mqtt-pub-sub/">
+          <b>3.7. </b>MQTT Publisher tới MQTT Subcriber
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-challenge/" title="Bài tập nâng cao" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-challenge/">
+          <b>4. </b>Bài tập nâng cao
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-message-streaming/" title="Truyền thông tin với Kinesis" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-message-streaming/">
+          <b>4. </b>Truyền thông tin với Kinesis
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-message-streaming/4.1-prequistite/" title="Các bước chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-message-streaming/4.1-prequistite/">
+          <b>4.1. </b>Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-message-streaming/4.2-send-records/" title="Gửi các Bản ghi " class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-message-streaming/4.2-send-records/">
+          <b>4.2. </b>Gửi các Bản ghi 
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-message-streaming/4.3-verify-elasticsearch/" title="Kiểm tra trong ElasticSearch " class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-message-streaming/4.3-verify-elasticsearch/">
+          <b>4.3. </b>Kiểm tra trong ElasticSearch 
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-message-streaming/4.4-kibana/" title="Khám phá Kibana " class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-message-streaming/4.4-kibana/">
+          <b>4.4. </b>Khám phá Kibana 
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-conclusion/" title="Kết luận" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-conclusion/">
+          <b>5. </b>Kết luận
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-challenge/" title="Bài tập nâng cao" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-challenge/">
+          <b>5. </b>Bài tập nâng cao
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-resources/" title="Tham khảo" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-resources/">
+          <b>6. </b>Tham khảo
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-cleanup/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-cleanup/">
+          <b>6. </b>Dọn dẹp tài nguyên
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-video/" title="Video tham khảo" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-video/">
+          <b>7. </b>Video tham khảo
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/660548818043427/"><i class='fab fa-facebook'></i> AWS Study Group - Nhóm FB</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/3-messaging-options/3.6-kinesis-pub-sqs-sub/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/3-messaging-options/3.6-kinesis-pub-sqs-sub/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7833031&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>27-11-2023</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a>
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/vi/'>Truyền thông tin với Kinesis</a> > <a href='/vi/3-messaging-options/'>Lựa chọn cách truyền tin </a> > Kinesis Publisher tới SQS Subcriber 
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Kinesis Publisher tới SQS Subcriber 
+            </h1>
+          
+
+        
+
+
+
+	<h4 id="kinesis-publisher-tới-sqs-subcriber">Kinesis Publisher tới SQS Subcriber</h4>
+<p>Amazon Kinesis giúp bạn dễ dàng thu thập, xử lý và phân tích luồng dữ liệu truyền liên tục, real-time để bạn có thể nhận được thông tin chi tiết kịp thời và phản ứng nhanh với thông tin mới. Trong trường hợp này, trình duyệt sẽ gửi các điểm vẽ tới Kinesis stream. Thông thường, chúng ta sẽ tạo một Kinesis consumer client và đọc trực tiếp các sự kiện từ stream và xử lý chúng, và chúng ta sẽ thực hiện điều này trong kịch bản tiếp theo. Đối với tình huống này, giả sử chúng ta muốn các thông tin được gửi đến hàng đợi SQS giống như chúng ta đã làm trong các tình huống trước đây.</p>
+<p>Vì không có cách nào được xây dựng sẵn để định tuyến các message đã được gửi tới Kinesis stream vào hàng đợi SQS, chúng ta cần một bên trung gian thực hiện việc xử lý/ định tuyến đó cho chúng ta. Trong trường hợp này, chúng ta sẽ triển khai trung gian dưới dạng một hàm AWS Lambda sẽ tạo cầu nối giữa Kinesis stream và hàng đợi SQS mà chúng ta xác định làm mục tiêu.</p>
+<p>Kiến trúc cho kịch bản này trông giống như sau:
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesislambdasqsarchitecture.png?featherlight=false&amp;width=70pc" alt="Kinesis Publisher To SQS Subscriber">
+Tương tự như kịch bản trước, message được hiển thị bởi một subscriber hàng đợi Amazon SQS. Nhưng trong trường hợp này, các message được gửi đến một Kinesis stream, và sau đó được chuyển đến hàng đợi SQS bởi hàm Lambda.</p>
+<p>Để bắt đầu bản demo này, hãy chọn vào danh sách trên trang web và chọn <strong>AWS Kinesis publisher to SQS subscriber</strong>. Khi trang khởi chạy, hãy vẽ một hình dạng trên khung của Kinesis Publisher. Lưu ý rằng bộ đếm <strong>Messages Sent</strong> tăng lên, nhưng không có hình dạng nào được hiển thị trên khung subscriber SQS? Điều này là do các message đang được gửi vào Kinesis stream, nhưng không có Kinesis consumers nào đang xử lý message:
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-001.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></p>
+<h4 id="tạo-một-hàm-aws-lambda-triển-khai-amazon-kinesis-event-consumer">Tạo một hàm AWS Lambda triển khai Amazon Kinesis event consumer</h4>
+<ol>
+<li>Mở <strong>Eclipse IDE</strong>.</li>
+</ol>
+<ul>
+<li>Click dấu mũi tên xuống cạnh biểu tượng AWS</li>
+<li>Click <strong>New AWS Lambda java Project…</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-002.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="2">
+<li>Trong phần <strong>Create a new AWS Lambda Java project</strong></li>
+</ol>
+<ul>
+<li>Tại mục <strong>Project name</strong>, nhập <code>KinesisToSQS</code></li>
+<li>Tại mục <strong>Input Type</strong>, chon <strong>Kinesis Event</strong></li>
+<li>Click <strong>Finish</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-003.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="3">
+<li>Click chuột phải vào file có đường dẫn <strong>KinesisToSQS\src\main\java\com\amazonaws\lambda\demo\LambdaFunctionHandler.java</strong></li>
+</ol>
+<ul>
+<li>Click <strong>Amazon Web Services</strong></li>
+<li>Click <strong>Upload function to AWS Lambda…</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-004.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="4">
+<li>Trong phần <strong>Select Target AWS Lambda Function</strong></li>
+</ol>
+<ul>
+<li>Tại mục <strong>Select the AWS Region</strong>, chọn <strong>Region</strong> của bạn</li>
+<li>Tại mục <strong>Create a new Lambda function</strong>, nhập <code>Kinesissam-LambdaFunction</code></li>
+<li>Click <strong>Next</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-005.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="5">
+<li>Trong phần <strong>Function Configuration</strong></li>
+</ol>
+<ul>
+<li>Tại mục <strong>Description</strong>, nhập <code>Lab 5 Kinesis to SQS</code></li>
+<li>Tại mục <strong>IAM Role</strong>, chọn <strong>LambdaKinesisToSQSRole</strong></li>
+<li>Click <strong>Finish</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-006.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="6">
+<li>Trong khi bạn đang đợi tải lên hoàn tất, hãy xem nhanh cách triển khai đơn giản mà IDE đã tạo cho bạn. Mở class <strong>LambdaFunctionHandler</strong>. Chúng sẽ tương tự như sau:</li>
+</ol>
+<pre tabindex="0"><code>public class LambdaFunctionHandler implements RequestHandler&lt;KinesisEvent, Integer&gt; {
+
+    @Override
+    public Integer handleRequest(KinesisEvent event, Context context) {
+        context.getLogger().log(&#34;Input: &#34; + event);
+
+        for (KinesisEventRecord record : event.getRecords()) {
+            String payload = new String(record.getKinesis().getData().array());
+            context.getLogger().log(&#34;Payload: &#34; + payload);
+        }
+
+        return event.getRecords().size();
+    }
+}
+</code></pre><ol start="7">
+<li>Truy cập <a href="https://console.aws.amazon.com/kinesis/home"><strong>AWS Kinesis console</strong></a></li>
+</ol>
+<ul>
+<li>Click <strong>Data streams</strong></li>
+<li>Bạn sẽ thấy hai stream - cả hai đều đã được cung cấp bởi template của bài thực hành trong quá trình thiết lập. Click <strong>iDevelopDrawingData</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-007.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="8">
+<li>Chọn tab <strong>Monitoring</strong> và cuộn xuống để hiển thị biểu đồ <strong>Incoming data - sum (Count)</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-008.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber">
+Xung quanh vị trí này sẽ là những thống kê khác về stream. Lưu ý rằng <strong>Incoming data - sum (Count)</strong> khớp với cùng một số bạn thấy trong trang web demo của chúng ta, trong <strong>Messages Sent</strong>. Bạn có thể cần phải di chuyển chuột qua biểu đồ để xem khối lượng dữ liệu thực tế. Trong ví dụ được hiển thị ở đây, bạn sẽ trỏ chuột vào cuối dòng để hiển thị số lượng (hiển thị <strong>206</strong>). Số điểm của hai điểm trên biểu đồ sẽ bằng số liệu <strong>Messages Sent</strong> trên trang web của chúng ta (hình ảnh cuối cùng, hiển thị <strong>Messages Sent</strong> từ trang web của chúng ta. <strong>206</strong>)
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-009.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<li>Truy cập <a href="https://console.aws.amazon.com/lambda/home"><strong>AWS Lambda console</strong></a></li>
+</ol>
+<ul>
+<li>Click <strong>Functions</strong></li>
+<li>Nhập <code>Kinesissam-LambdaFunction</code> vào ô tìm kiếm, nhấn <strong>Enter</strong></li>
+<li>Click <strong>Kinesissam-LambdaFunction</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-010.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="10">
+<li>Click <strong>Add trigger</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-011.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<li>Trong trang <strong>Add trigger</strong></li>
+</ol>
+<ul>
+<li>Chọn <strong>Kinesis</strong></li>
+<li>Tại mục <strong>Kinesis stream</strong>, chọn <strong>iDevelopDrawingData</strong></li>
+<li>Tại mục <strong>Starting position</strong>, chọn <strong>Trim horizon</strong></li>
+<li>Click <strong>Add</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-012.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="12">
+<li>Sẽ mất khoảng thời gian để hàm Lambda được gắn vào Kinesis stream. Chờ một phút, click <strong>Refresh Icon</strong></li>
+</ol>
+<ul>
+<li>Click <strong>Details</strong>, bạn sẽ thấy thông báo cho biết <strong>Last processing result: OK</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-013.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="13">
+<li>Chọn tab <strong>monitor</strong>. Các điểm vẽ đã được gửi vào Kinesis stream sẽ được sử dụng bởi chức năng Lambda và bạn sẽ thấy các CloudWatch metric cho biết hoạt động này. Bạn sẽ thấy hoạt động trong biểu đồ Invocation count và Invocation duration graphs. Kiểm tra để đảm bảo rằng bạn không thấy bất kỳ Invocation error nào.
+
+<div class="notices note" ><p>Tùy thuộc vào số lượng điểm vẽ bạn đã xuất vào Kinesis stream, bạn sẽ thấy một số khác nhau cho Invocation count. Khi chúng ta bật trigger, chúng ta đặt Batch size thành 100 (là giá trị mặc định). Vì vậy, hàm Lambda sẽ được gọi với tối đa 100 bản ghi cùng một lúc. Nếu bạn đã gửi 225 message vào luồng, việc này sẽ sử dụng 3 invocation của hàm Lambda - Math.ceil(225/100) == 3.</p>
+</div>
+</li>
+</ol>
+<ul>
+<li>Click <strong>View logs in CloudWatch</strong> để mở CloudWatch Log Stream cho hàm Lambda này.
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-014.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="14">
+<li>Click <strong>Log stream</strong> đầu tiên trong danh sách
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-015.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<li>Cuộn qua các sự kiện trong kết quả ở CloudWatch Log. Các sự kiện này đã được ghi vào nhật ký bằng hàm Lambda của chúng ta:
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-016.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ol>
+<p>Khi viết mã hàm Lambda của bạn bằng Java, bạn có thể phát chuỗi nhật ký vào CloudWatch log bằng cách chỉ cần gọi phương thức .log() của Logger:</p>
+<pre tabindex="0"><code>context.getLogger().log(&#34;Log message to emit: &#34; + someMessage);
+</code></pre><h4 id="cập-nhật-hàm-lambda-đã-triển-khai-để-gửi-các-sự-kiện-đã-nhận-vào-hàng-đợi-sqs">Cập nhật hàm Lambda đã triển khai để gửi các sự kiện đã nhận vào hàng đợi SQS</h4>
+<p>Quay lại tình huống của chúng ta, chúng ta muốn đọc các message từ Kinesis stream và gửi chúng vào hàng đợi SQS, nơi triển khai trên trình duyệt của chúng ta để có thể đọc chúng và vẽ chúng trên khung của subscriber.</p>
+<ol>
+<li>Trong Eclipse IDE, thay toàn bộ nội dung của tập tin <strong>KinesisToSQS/src/main/java/com/amazonaws/lambda/demo/LambdaFunctionHandler.java</strong> bằng đoạn mã sau:</li>
+</ol>
+<pre tabindex="0"><code>package com.amazonaws.lambda.demo;
+
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.amazonaws.services.lambda.runtime.events.KinesisEvent;
+import com.amazonaws.services.lambda.runtime.events.KinesisEvent.KinesisEventRecord;
+import com.amazonaws.services.sqs.AmazonSQS;
+import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
+import com.amazonaws.services.sqs.model.SendMessageBatchRequest;
+import com.amazonaws.services.sqs.model.SendMessageBatchRequestEntry;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class LambdaFunctionHandler implements RequestHandler&lt;KinesisEvent, Integer&gt; {
+
+	final int MAX_SQS_BATCH_SIZE = 10;
+
+	private AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
+
+    @Override
+    public Integer handleRequest(KinesisEvent event, Context context) {
+
+    		Iterator&lt;KinesisEventRecord&gt; iterator = event.getRecords().iterator();    		
+    		AffineTransform transformer = new AffineTransform(1, 0, 0, -1, 0, 400);
+    		ObjectMapper mapper = new ObjectMapper();
+    		Point2D dstPoint = new Point2D.Double();
+    		boolean sendMessagesToSQS = true;
+    		
+    		try
+    		{
+    			//
+    			// Read the SQS Queue Target from the Lambda Environment Variables
+    			//
+    			String sqsUrl = System.getenv(&#34;TargetSQSUrl&#34;);
+    			if ( sqsUrl == null || sqsUrl.isEmpty() )
+    			{
+    				context.getLogger().log(&#34;WARNING:: Environment Variable [TargetSQSUrl] is not set. No messages will be sent via SQS&#34;);
+    				sendMessagesToSQS = false;
+    			}
+    				
+	    		while ( iterator.hasNext() )
+	    		{
+	    			int messageCounter = 0;
+	
+	        		// Prepare a batch request to write all the messages we have received in this invocation
+	        		Collection&lt;SendMessageBatchRequestEntry&gt; entries = new ArrayList&lt;SendMessageBatchRequestEntry&gt;();
+	
+	        		while ( iterator.hasNext() &amp;&amp; messageCounter++ &lt; MAX_SQS_BATCH_SIZE )
+	        		{
+		            String payload = new String(iterator.next().getKinesis().getData().array());
+		            context.getLogger().log(&#34;Payload: &#34; + payload);
+		            DrawPoint transformedPoint = new DrawPoint();
+	
+		            try {
+	
+						transformedPoint = mapper.readValue(payload, DrawPoint.class);
+			            // Transform the point
+			            Point2D srcPoint = new Point2D.Double(transformedPoint.getX(), transformedPoint.getY());	            
+			            transformer.transform(srcPoint, dstPoint);
+	
+			            // Update the payload
+			            transformedPoint.setX((int)dstPoint.getX());
+			            transformedPoint.setY((int)dstPoint.getY());
+	
+		                 // Add this payload into our batch
+		        		    	SendMessageBatchRequestEntry entry = new SendMessageBatchRequestEntry(
+		        		    			&#34;msg_&#34; + messageCounter,
+		        		    			mapper.writeValueAsString(transformedPoint)
+		        		    			);
+	
+		        		    	entries.add(entry);
+					}
+		            catch (Exception e)
+		            {
+		            		context.getLogger().log(&#34;Unable to deserialise &#34; + payload + &#34; as a DrawPoint! &#34; + e.getMessage());					
+					}
+	        		}
+	
+	        		if ( sendMessagesToSQS &amp;&amp; entries.size() &gt; 0 )
+	        		{
+	        			// We have reached the end of the records or we have reached the maximum	        		
+		        		// batch size allowed for SQS, so we need to send our entries
+		        		context.getLogger().log(&#34;Sending batch of &#34; + (messageCounter - 1) + &#34; events to SQS...&#34;);
+		
+		        		SendMessageBatchRequest batch = new SendMessageBatchRequest()
+		        				.withQueueUrl(sqsUrl);
+		
+		            batch.setEntries(entries);
+		
+		            // Perform the message sending
+		            sqs.sendMessageBatch(batch); 
+	        		}
+	    		}
+    		}
+		catch (Exception e)
+        {
+        		context.getLogger().log(&#34;EXCEPTION::Aborting Lambda processing&#34;);
+        		context.getLogger().log(e.getStackTrace().toString());
+		}
+    		
+        return event.getRecords().size();
+    }
+
+    // Inner class must be marked as static in order for the JSON mapper to deserialise
+	private static class DrawPoint {
+
+		private int x;
+		private int y;
+		private long timestamp;
+		private boolean clear;
+		
+		public int getX() {
+			return x;
+		}
+		public void setX(int x) {
+			this.x = x;
+		}
+		public int getY() {
+			return y;
+		}
+		public void setY(int y) {
+			this.y = y;
+		}
+		public long getTimestamp() {
+			return timestamp;
+		}
+		public void setTimestamp(long timestamp) {
+			this.timestamp = timestamp;
+		}
+		public boolean isClear() {
+			return clear;
+		}
+		public void setClear(boolean clear) {
+			this.clear = clear;
+		}	
+	}
+}
+</code></pre><ul>
+<li>Lưu lại
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-017.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="2">
+<li>Mở <strong>Command Prompt</strong> và chuyển đường dẫn đến project <strong>KinesisToSQS</strong></li>
+</ol>
+<ul>
+<li>Chạy câu lệnh <code>mvn package</code> để build
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-018.png?featherlight=false&amp;width=60pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="3">
+<li>Truy cập <a href="https://console.aws.amazon.com/lambda/home"><strong>AWS Lambda console</strong></a></li>
+</ol>
+<ul>
+<li>Click <strong>Functions</strong></li>
+<li>Nhập <code>Kinesissam-LambdaFunction</code> vào ô tìm kiếm, nhấn <strong>Enter</strong></li>
+<li>Click <strong>Kinesissam-LambdaFunction</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-019.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="4">
+<li>Để cung cấp function package, trong phần <strong>Code soure</strong></li>
+</ol>
+<ul>
+<li>Click Upload from</li>
+<li>Click <strong>.zip or .jar file</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-020.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="5">
+<li>Click <strong>Upload</strong>, Chọn file <strong>demo-1.0.0.jar</strong> trong thư mục <strong>target</strong> của projetc <strong>KinesisToSQS</strong> đã build trong bước 2</li>
+</ol>
+<ul>
+<li>Click <strong>Save</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-021.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="6">
+<li>Click tab <strong>Configuration</strong></li>
+</ol>
+<ul>
+<li>Click <strong>Environment variables</strong></li>
+<li>Click <strong>Edit</strong>
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-022.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="7">
+<li>Trong trang <strong>Edit Environment variables</strong></li>
+</ol>
+<ul>
+<li>Click <strong>Add environment variable</strong></li>
+<li>Tại mục <strong>Key</strong>, nhập <strong>TargetSQSUrl</strong></li>
+<li>Tại mục <strong>Value</strong>, nhập giá trị của <strong>QueueUrl1</strong> đã lưu tại bước 3 phần 3.1
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-023.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ul>
+<ol start="8">
+<li>Quay lại trang web demo của chúng ta và vẽ một hình dạng mới để tạo ra các sự kiện vào Kinesis stream.
+<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-024.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+</ol>
+<p>Các điểm vẽ bây giờ sẽ được nhận qua hàng đợi SQS và được hiển thị trên khung. Lưu ý rằng hình dạng bạn vẽ có bị đảo ngược theo chiều Y không? Điều này là do việc triển khai chúng ta đã sử dụng cho hàm Lambda thực hiện một phép biến đổi trên các điểm vẽ, việc này chứng minh chúng ta có thể thao tác dữ liệu trong Kinesis stream trước khi chuyển nó vào hàng đợi SQS.</p>
+<p>Hãy dành một chút thời gian để xem lại mã triển khai handler để đảm bảo bạn hiểu cách hoạt động của nó.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/vi/3-messaging-options/3.5-sns-pub-subs/" title="SNS Publisher tới nhiều SQS Subcribers "> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/vi/3-messaging-options/3.7-mqtt-pub-sub/" title="MQTT Publisher tới MQTT Subcriber" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1701077935"></script>
+    <script src="/js/perfect-scrollbar.min.js?1701077935"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1701077935"></script>
+    <script src="/js/jquery.sticky.js?1701077935"></script>
+    <script src="/js/featherlight.min.js?1701077935"></script>
+    <script src="/js/highlight.pack.js?1701077935"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1701077935"></script>
+    <script src="/js/learn.js?1701077935"></script>
+    <script src="/js/hugo-learn.js?1701077935"></script>
+
+    <link href="/mermaid/mermaid.css?1701077935" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1701077935"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
