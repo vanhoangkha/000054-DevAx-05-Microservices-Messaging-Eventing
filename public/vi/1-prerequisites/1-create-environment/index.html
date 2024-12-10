@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Chuẩn bị môi trường :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices cho Truyền tin &amp; Sự kiện</title>
 
     
-    <link href="/css/nucleus.css?1701077934" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077934" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077934" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077934" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077934" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077934" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077934" rel="stylesheet">
-    <link href="/css/theme.css?1701077934" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077934" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077934" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077934"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077934"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077934"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077934"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -114,7 +114,7 @@
   
     
     <li data-nav-id="/vi/1-prerequisites/1-create-environment/" title="Chuẩn bị môi trường" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1719,14 +1719,14 @@
 
 </p>
 <p>Mô hình bên dưới thể hiện các tài nguyên được tạo khi triển khai CloudFormation Template:</p>
-<p><img src="/images/1/0.png?width=50pc" alt="Diagram"></p>
+<p><img alt="Diagram" src="/images/1/0.png?width=50pc"></p>
 <p><strong>Nội dung</strong></p>
 <ul>
-<li><a href="#kh%E1%BB%9Fi-t%E1%BA%A1o-keypair">Khởi tạo Keypair</a></li>
-<li><a href="#tri%E1%BB%83n-khai-cloudformation-template">Triển khai CloudFormation Template</a></li>
-<li><a href="#vpc">VPC</a></li>
-<li><a href="#ec2">EC2</a></li>
-<li><a href="#rds">RDS</a></li>
+<li><a href="/vi/1-prerequisites/1-create-environment/#khởi-tạo-keypair">Khởi tạo Keypair</a></li>
+<li><a href="/vi/1-prerequisites/1-create-environment/#triển-khai-cloudformation-template">Triển khai CloudFormation Template</a></li>
+<li><a href="/vi/1-prerequisites/1-create-environment/#vpc">VPC</a></li>
+<li><a href="/vi/1-prerequisites/1-create-environment/#ec2">EC2</a></li>
+<li><a href="/vi/1-prerequisites/1-create-environment/#rds">RDS</a></li>
 </ul>
 <h4 id="khởi-tạo-keypair">Khởi tạo Keypair</h4>
 
@@ -1736,27 +1736,27 @@
 <ol>
 <li>Trước tiên, cần tạo một Keypair cho các máy ảo trong bài thực hành. Truy cập EC2 console, chọn <strong>Keypairs</strong></li>
 <li>Chọn <strong>Create key pair</strong>
-<img src="/images/1/1.png?width=90pc" alt="Keypair"></li>
+<img alt="Keypair" src="/images/1/1.png?width=90pc"></li>
 <li>Nhập tên keypair <strong>KPforDevAxInstances</strong>, chọn định dạng tập tin <strong>pem</strong> và chọn <strong>Create key pair</strong>
-<img src="/images/1/2.png?width=90pc" alt="Keypair"></li>
+<img alt="Keypair" src="/images/1/2.png?width=90pc"></li>
 <li>Một cửa sổ xuất hiện để chọn nơi lưu trữ tập tin keypair. Bạn cần lưu trữ keypair này để truy cập vào máy ảo EC2 trong các bước sau</li>
 </ol>
 <h4 id="triển-khai-cloudformation-template">Triển khai CloudFormation Template</h4>
 <ol>
 <li>Truy cập <strong>AWS CloudFormation</strong>
-<img src="/images/1/3.png?width=90pc" alt="CloudFormation"></li>
+<img alt="CloudFormation" src="/images/1/3.png?width=90pc"></li>
 <li>Chọn <strong>Create stack</strong>, chọn <strong>With new resources (standard)</strong>
-<img src="/images/1/4.png?width=90pc" alt="CloudFormation"></li>
+<img alt="CloudFormation" src="/images/1/4.png?width=90pc"></li>
 <li>Tại mục <strong>Prerequisite - Prepare template</strong> chọn <strong>Template is ready</strong></li>
 <li>Tại mục <strong>Template source</strong>, chọn <strong>Upload a template file</strong>, nhấp chọn <strong>Choose file</strong> và trỏ tới file template đã tải xuống. Chọn <strong>Next</strong>
-<img src="/images/1/5.png?width=90pc" alt="CloudFormation"></li>
+<img alt="CloudFormation" src="/images/1/5.png?width=90pc"></li>
 <li>Nhập tên stack tại mục <strong>Stack name</strong> (VD: <code>DevAx-M2M-M5</code>)</li>
 <li>Chọn keypair <strong>KPforDevAxInstances</strong> cho mục <strong>EEKeyPair</strong> và chọn <strong>Next</strong>
-<img src="/images/1/6.png?width=90pc" alt="CloudFormation"></li>
+<img alt="CloudFormation" src="/images/1/6.png?width=90pc"></li>
 <li>Chọn <strong>Next</strong> tại trang <strong>Configure stack options</strong>
-<img src="/images/1/7.png?width=90pc" alt="CloudFormation"></li>
+<img alt="CloudFormation" src="/images/1/7.png?width=90pc"></li>
 <li>Chọn <strong>Create stack</strong>
-<img src="/images/1/8.png?width=90pc" alt="CloudFormation"></li>
+<img alt="CloudFormation" src="/images/1/8.png?width=90pc"></li>
 <li>Chúng ta cần chờ một vài phút để các tài nguyên được khởi tạo và cấu hình.</li>
 </ol>
 <h4 id="vpc">VPC</h4>
@@ -1769,18 +1769,18 @@
 <ol start="3">
 <li>Chọn <strong>Subnets</strong> và Filter với VPC <em>CdkStack/LabVPC</em> bạn sẽ thấy 4 subnets - 2 private và 2 public.</li>
 </ol>
-<p><img src="/images/1/10.png?width=90pc" alt="VPC"></p>
+<p><img alt="VPC" src="/images/1/10.png?width=90pc"></p>
 <p>Bài thực hành này sử dụng 2 Availibility Zones (AZs), mỗi AZs có một public và một private subnet.
 CloudFormation template cũng định nghĩa một Network Address Translation gateway (NAT gateway) thực hiện ánh xạ giữa địa chỉ IP nội bộ của các máy chủ định tuyến qua nó và địa chỉ IP bên ngoài, để các máy ảo dù có private IP nhưng vẫn có thể truy xuất dữ liệu từ Internet.
 4. Chọn <strong>NAT Gateways</strong>. Bạn sẽ thấy 2 NAT gateways, mỗi gateway cho một private subnet truy cập internet và các dịch vụ khác của AWS nhưng ngăn các dịch vụ bên ngoài truy cập trực tiếp với các tài nguyên bên trong các private subnet</p>
-<p><img src="/images/1/11.png?width=90pc" alt="VPC"></p>
+<p><img alt="VPC" src="/images/1/11.png?width=90pc"></p>
 <h4 id="ec2">EC2</h4>
 <p>CloudFormation cũng tạo một <strong>Workspace instance</strong>.</p>
 <ol>
 <li>Truy cập vào bảng điều khiển EC2</li>
 <li>Chọn <strong>Instances</strong>, bạn sẽ thấy một EC2 instance đã được tạo sẵn</li>
 </ol>
-<p><img src="/images/1/12.png?width=90pc" alt="EC2">
+<p><img alt="EC2" src="/images/1/12.png?width=90pc">
 
 <div class="notices warning" ><p>Nếu bạn không thấy bất kỳ instance nào trong danh sách, vui lòng kiểm tra bảng điều khiển AWS CloudFormation. Các mod-xxxxxx stack status, phải là CREATE_COMPLETE trước khi một EC2 instance chạy</p>
 </div>
@@ -1788,16 +1788,16 @@ CloudFormation template cũng định nghĩa một Network Address Translation g
 <ol start="3">
 <li>Chọn tab <strong>Security</strong>, bạn sẽ thấy security group được gắn với máy ảo.</li>
 </ol>
-<p><img src="/images/1/13.png?width=90pc" alt="EC2"></p>
+<p><img alt="EC2" src="/images/1/13.png?width=90pc"></p>
 <ol start="4">
 <li>Chọn mở rộng tab <strong>Inbound rules</strong> bạn sẽ thấy các giao thức cũng như địa chỉ IP nguồn được phép truy cập từ những port này.</li>
 </ol>
-<p><img src="/images/1/14.png?width=90pc" alt="EC2"></p>
+<p><img alt="EC2" src="/images/1/14.png?width=90pc"></p>
 <p>Trong bài thực hành này, CloudFormation template tạo các quy tắc bảo mật cho phép tất cả các địa chỉ IP nguồn được phép kết nối tới. Bạn có thể chỉnh sửa và chỉ cho phép kết nối tới từ địa chỉ IP của bạn.</p>
 <ol start="5">
 <li>Chọn tab <strong>Volumes</strong>, bạn sẽ thấy một EBS volume.</li>
 </ol>
-<p><img src="/images/1/15.png?width=90pc" alt="EC2"></p>
+<p><img alt="EC2" src="/images/1/15.png?width=90pc"></p>
 <h4 id="rds">RDS</h4>
 <p>Dịch vụ cơ sở dữ liệu quan hệ của Amazon (Amazon RDS) giúp dễ dàng thiết lập, vận hành và mở rộng quy mô cơ sở dữ liệu quan hệ trên đám mây. Nó cung cấp khả năng tiết kiệm chi phí và có thể thay đổi kích thước trong khi tự động hóa các tác vụ quản trị tốn thời gian như cung cấp phần cứng, thiết lập cơ sở dữ liệu, vá lỗi và sao lưu.</p>
 <ol>
@@ -1806,7 +1806,7 @@ CloudFormation template cũng định nghĩa một Network Address Translation g
 <li>Bạn sẽ thấy một database mới được tạo, chọn vào database này</li>
 <li>Database được tạo đã được cấu hình với các dịch vụ VPC, Security Groups,&hellip;</li>
 </ol>
-<p><img src="/images/1/16.png?width=90pc" alt="RDS"></p>
+<p><img alt="RDS" src="/images/1/16.png?width=90pc"></p>
 
 
 
@@ -2655,19 +2655,19 @@ CloudFormation template cũng định nghĩa một Network Address Translation g
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077934"></script>
-    <script src="/js/jquery.sticky.js?1701077934"></script>
-    <script src="/js/featherlight.min.js?1701077934"></script>
-    <script src="/js/highlight.pack.js?1701077934"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077934"></script>
-    <script src="/js/learn.js?1701077934"></script>
-    <script src="/js/hugo-learn.js?1701077934"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077934" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077934"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

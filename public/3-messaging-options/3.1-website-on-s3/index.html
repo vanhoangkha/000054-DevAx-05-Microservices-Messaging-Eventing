@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Setup S3 bucket website :: DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
 
     
-    <link href="/css/nucleus.css?1701077933" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077933" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077933" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077933" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077933" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077933" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077933" rel="stylesheet">
-    <link href="/css/theme.css?1701077933" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077933" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077933" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077933"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077933"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077933"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077933"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -1000,7 +1000,7 @@
   
     
     <li data-nav-id="/3-messaging-options/3.1-website-on-s3/" title="Setup S3 bucket website" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1701,7 +1701,7 @@
 Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong></p>
 </div>
 
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-001.png?featherlight=false&amp;width=60pc" alt="Setup S3 bucket website">
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-001.png?featherlight=false&width=60pc">
 
 <div class="notices tip" ><p>You can create an Amazon S3 bucket to save website resource by AWS Console or the command line.</p>
 </div>
@@ -1738,7 +1738,7 @@ Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong
 <ul>
 <li>Open <strong>Messaging Project</strong> in the Eclipse IDE</li>
 <li>Open the file whose the path is <strong>Messaging/scripts/aws-config.js</strong>
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-002.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-002.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="3">
 <li>Execute the following command:</li>
@@ -1746,7 +1746,7 @@ Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong
 <pre tabindex="0"><code>aws cloudformation describe-stacks --stack-name DevAx-05 --query &#34;Stacks[].Outputs[*].[OutputKey,OutputValue]&#34; --profile aws-lab-env
 </code></pre><ul>
 <li>Save value of <strong>CognitoIdentityPoolId</strong>, <strong>QueueUrl1</strong>, <strong>QueueUrl2</strong>, <strong>QueueUrl3</strong>, <strong>FIFOQueueUrl</strong>, <strong>TopicARN</strong> to use in next step
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-003.png?featherlight=false&amp;width=60pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-003.png?featherlight=false&width=60pc"></li>
 </ul>
 <ol start="4">
 <li>In the file <strong>aws-config.js</strong>, Replace <strong>ap-southeast-2</strong> by your <strong>Region Code</strong></li>
@@ -1759,7 +1759,7 @@ Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong
 <li>Replace <strong>REPLACE_WITH_QUEUE_URL_FIFO</strong> by the value of <strong>FIFOQueueUrl</strong> we saved in step 3</li>
 <li>Replace <strong>REPLACE_WITH_SNS_TOPIC_ARN</strong> by the value of <strong>TopicARN</strong> we saved in step 3</li>
 <li>Save.
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-004.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-004.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="5">
 <li>There is one more item to replace, <strong>REPLACE_WITH_IOT_ENDPOINT</strong>. Execute the following command to get this value</li>
@@ -1771,11 +1771,11 @@ Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong
 
 <ul>
 <li>Save the value of <strong>endpointAddress</strong> to use in next step
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-005.png?featherlight=false&amp;width=60pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-005.png?featherlight=false&width=60pc"></li>
 </ul>
 <ol start="6">
 <li>In the file <strong>aws-config.js</strong>, replace <strong>REPLACE_WITH_IOT_ENDPOINT</strong> by the value of <strong>endpointAddress</strong> we saved in step 5
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-006.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-006.png?featherlight=false&width=90pc"></li>
 <li>Execute the following command:</li>
 </ol>
 <pre tabindex="0"><code>aws s3 website s3://&lt;bucket_name&gt; --index-document sqs-standard.html --region &lt;your_region&gt; --profile aws-lab-env
@@ -1784,7 +1784,7 @@ Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong
 Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong>.</p>
 </div>
 
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-007.png?featherlight=false&amp;width=60pc" alt="Setup S3 bucket website"></p>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-007.png?featherlight=false&width=60pc"></p>
 
 <div class="notices warning" ><p>From  <strong>Step 8</strong> to <strong>Step 10</strong>, the Public policy will be applied to your bucket for lab purpose only and this is a security risk. If you do not want to public your bucket and just want to public objects. Please skip to <strong>Step 11</strong>.</p>
 </div>
@@ -1795,7 +1795,7 @@ Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong
 <ul>
 <li>Replace <strong>idevelop-lab5-&lt; yourinitials&gt;</strong> by the name of the  S3 bucket we created in step 1.</li>
 <li>Save.
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-008.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-008.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="9">
 <li>In the Eclipse IDE, click <strong>Messaging</strong></li>
@@ -1810,7 +1810,7 @@ Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong
 Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong>.</p>
 </div>
 
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-009.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website">
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-009.png?featherlight=false&width=90pc">
 10. Copy the contents of the folder you exploded the zip file into, to the S3 bucket you created earlier, Execute the following command</p>
 <pre tabindex="0"><code>aws s3 cp . s3://&lt;bucket_name&gt; --recursive --region &lt;your_region&gt; --profile aws-lab-env
 </code></pre><p>
@@ -1818,7 +1818,7 @@ Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong
 Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong>.</p>
 </div>
 
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-010.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website">
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-010.png?featherlight=false&width=90pc">
 11. Copy the contents of the folder you exploded the zip file into, to the S3 bucket you created earlier and public all the uploaded objects, Execute the following command</p>
 <pre tabindex="0"><code>aws s3 cp . s3://&lt;bucket_name&gt; --recursive --region &lt;your_region&gt;  --profile aws-lab-env --acl public-read
 </code></pre><p>
@@ -1826,7 +1826,7 @@ Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong
 Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong>.</p>
 </div>
 
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-011.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website">
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-011.png?featherlight=false&width=90pc">
 12. After the command executes, you are ready to review the website in your browser. Open a web browser and browse to the following location</p>
 <pre tabindex="0"><code>http://&lt;bucket_name&gt;.s3-website-&lt;your_region&gt;.amazonaws.com/sqs-standard.html
 </code></pre><p>
@@ -1834,12 +1834,12 @@ Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong
 Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong>.</p>
 </div>
 
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-012.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website"></p>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-012.png?featherlight=false&width=90pc"></p>
 <h4 id="sqs-queue-setup">SQS Queue Setup</h4>
 <p>The lab environment setup has configured the SQS queues used in this lab, using a CloudFormation template.</p>
 <ol>
 <li>Go to <a href="https://console.aws.amazon.com/sqs/home"><strong>AWS SQS console</strong></a>.
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-013.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-013.png?featherlight=false&width=90pc"></li>
 </ol>
 <p>Four queues have been provisioned. Three are standard queues, and one is a FIFO queue. Here is a snippet of the CloudFormation template that provisioned these resources:</p>
 <pre tabindex="0"><code>&#34;idevelopDrawQueueFIFO&#34;: {
@@ -2709,19 +2709,19 @@ Replace <strong>&lt;your_region&gt;</strong> by your <strong>Region code</strong
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077934"></script>
-    <script src="/js/jquery.sticky.js?1701077934"></script>
-    <script src="/js/featherlight.min.js?1701077934"></script>
-    <script src="/js/highlight.pack.js?1701077934"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077934"></script>
-    <script src="/js/learn.js?1701077934"></script>
-    <script src="/js/hugo-learn.js?1701077934"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077934" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077934"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

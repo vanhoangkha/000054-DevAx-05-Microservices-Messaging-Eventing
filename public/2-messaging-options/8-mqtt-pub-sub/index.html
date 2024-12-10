@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>MQTT Publisher to MQTT Subcriber :: DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
 
     
-    <link href="/css/nucleus.css?1701077933" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077933" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077933" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077933" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077933" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077933" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077933" rel="stylesheet">
-    <link href="/css/theme.css?1701077933" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077933" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804480" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804480" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804480" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804480" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804480" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804480" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804480" rel="stylesheet">
+    <link href="/css/theme.css?1733804480" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804480" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077933" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804480" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077933"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804480"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077933"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077933"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804480"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804480"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077933"></script>
+<script type="text/javascript" src="/js/search.js?1733804480"></script>
 
     
   </div>
@@ -498,7 +498,7 @@
   
     
     <li data-nav-id="/2-messaging-options/8-mqtt-pub-sub/" title="MQTT Publisher to MQTT Subcriber" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1682,9 +1682,9 @@
 
 	<p>The last messaging behaviour to explore is lightweight MQTT messaging, using AWS IoT as an ephemeral pub/sub bus. In this scenario, drawing events are published to a custom MQTT topic. This same custom topic is subscribed to by the receiving canvas, and points are rendered. The latency between the publish and subscribe is very low, but note that all messages sent on the bus are ephemeral - if the subscriber is not ‘listening’ when the publisher sends the message, the message is lost forever.</p>
 <p>The architecture for this scenario looks like this:</p>
-<p><img src="/images/2/iotpubsubarchitecture.png?width=50pc" alt="MQTT"></p>
+<p><img alt="MQTT" src="/images/2/iotpubsubarchitecture.png?width=50pc"></p>
 <p>To start this demo, click the drop-down list on the website and choose <strong>AWS IoT MQTT publisher to MQTT subscriber</strong>. When the page initialises, draw a shape on the MQTT Publisher canvas. The MQTT Subscriber canvas will update almost immediately in sync with the drawing on the publisher.</p>
-<p><img src="/images/2/36.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/36.png?width=90pc"></p>
 <p>To get an idea of the latency, click <strong>Clear drawing</strong> a few times and look at the Average Latency statistic.</p>
 <p>Open another browser window, and browse to the demo website and arrange the windows so that you can see both the pages at the same time. Choose <strong>AWS IoT MQTT publisher to MQTT subscriber slave</strong> from the drop-down list on the second browser. Now, draw a shape on the MQTT Publisher. Notice that the shape appears on the MQTT Subscriber canvas on both pages at the same time. The MQTT messages automatically ‘fan-out’ to multiple subscribers. You do not need to pre-provision the subscriber pages ahead of time - they are dynamically subscribed to the same bus when they connect. Unlike SQS for example, where you need to provision the SQS queue ahead of time.</p>
 <p>To demonstrate this, ask one of your peers to also browse to your website and choose the slave page. Your drawings on the MQTT Publisher canvas will appear on all MQTT Subscriber canvases as you draw.s</p>
@@ -2542,19 +2542,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077933"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077933"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077933"></script>
-    <script src="/js/jquery.sticky.js?1701077933"></script>
-    <script src="/js/featherlight.min.js?1701077933"></script>
-    <script src="/js/highlight.pack.js?1701077933"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077933"></script>
-    <script src="/js/learn.js?1701077933"></script>
-    <script src="/js/hugo-learn.js?1701077933"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077933" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077933"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

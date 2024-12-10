@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Setup S3 bucket website :: DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
 
     
-    <link href="/css/nucleus.css?1701077933" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077933" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077933" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077933" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077933" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077933" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077933" rel="stylesheet">
-    <link href="/css/theme.css?1701077933" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077933" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077933" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077933"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077933"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077933"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077933"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -262,7 +262,7 @@
   
     
     <li data-nav-id="/2-messaging-options/2-website-on-s3/" title="Setup S3 bucket website" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1691,8 +1691,8 @@
 	<p>In this exercise, you will set up a web site hosted on Amazon S3. The web site will demonstrate the various messaging options, orchestrated from the web browser. In the lab, you will be guided through exploring the AWS configuration that the lab has set up for you.</p>
 <p><strong>Contents</strong></p>
 <ul>
-<li><a href="#create-configure-and-populate-an-s3-bucket-website">Create, configure and populate an S3 Bucket Website</a></li>
-<li><a href="#sqs-queue-setup">SQS Queue Setup</a></li>
+<li><a href="/2-messaging-options/2-website-on-s3/#create-configure-and-populate-an-s3-bucket-website">Create, configure and populate an S3 Bucket Website</a></li>
+<li><a href="/2-messaging-options/2-website-on-s3/#sqs-queue-setup">SQS Queue Setup</a></li>
 </ul>
 <h4 id="create-configure-and-populate-an-s3-bucket-website">Create, configure and populate an S3 Bucket Website</h4>
 <ol>
@@ -1751,7 +1751,7 @@ If you are using the cloud 9 environment do the following to deploy:</li>
 </section>
 
 
-<p><img src="/images/2/4.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/4.png?width=90pc"></p>
 <p><strong>Option 3:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget -L http://workshops.devax.academy/monoliths-to-microservices/module5/files/Messaging.zip
 </span></span></code></pre></div><ol start="2">
@@ -1969,14 +1969,14 @@ If you do not want to public your bucket and just want to public objects. Please
 </code></pre><ol start="13">
 <li>If all is well, you should be greeted with the following view in the browser:</li>
 </ol>
-<p><img src="/images/2/5.png?width=90pc" alt="Website"></p>
+<p><img alt="Website" src="/images/2/5.png?width=90pc"></p>
 <p>To be sure, use the browser’s developer view to check the console does not have any errors connecting to the AWS services.</p>
 <h4 id="sqs-queue-setup">SQS Queue Setup</h4>
 <p>The lab environment setup has configured the SQS queues used in this lab, using a CloudFormation template.</p>
 <ol start="14">
 <li>Open the <strong>SQS console</strong> in the browser. You will see the queues that have been provisioned for you. These queues will be used in the following examination of the behaviour of SQS queues:</li>
 </ol>
-<p><img src="/images/2/6.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/6.png?width=90pc"></p>
 <ol start="15">
 <li>Four queues have been provisioned. Three are standard queues, and one is a FIFO queue. Here is a snippet of the CloudFormation template that provisioned these resources:</li>
 </ol>
@@ -2850,19 +2850,19 @@ If you do not want to public your bucket and just want to public objects. Please
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077933"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077933"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077933"></script>
-    <script src="/js/jquery.sticky.js?1701077933"></script>
-    <script src="/js/featherlight.min.js?1701077933"></script>
-    <script src="/js/highlight.pack.js?1701077933"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077933"></script>
-    <script src="/js/learn.js?1701077933"></script>
-    <script src="/js/hugo-learn.js?1701077933"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077933" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077933"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

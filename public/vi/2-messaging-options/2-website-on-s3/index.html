@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Triển khai Web trên S3 :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices cho Truyền tin &amp; Sự kiện</title>
 
     
-    <link href="/css/nucleus.css?1701077934" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077934" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077934" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077934" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077934" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077934" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077934" rel="stylesheet">
-    <link href="/css/theme.css?1701077934" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077934" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077934" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077934"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077934"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077934"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077934"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -262,7 +262,7 @@
   
     
     <li data-nav-id="/vi/2-messaging-options/2-website-on-s3/" title="Triển khai Web trên S3" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1691,8 +1691,8 @@
 	<p>Trong bài tập này, bạn sẽ thiết lập một trang web được host trên Amazon S3. Trang web sẽ hiển thị các phương thức truyền tin khác nhau, được sắp xếp trong trình duyệt web. Trong bài thực hành, bạn sẽ được hướng dẫn thông qua việc tìm hiểu cấu hình AWS mà bài thực hành đã thiết lập cho bạn.</p>
 <p><strong>Nội dung</strong></p>
 <ul>
-<li><a href="#t%E1%BA%A1o-c%E1%BA%A5u-h%C3%ACnh-v%C3%A0-t%E1%BA%A3i-website-v%C3%A0o-s3-bucket">Tạo, cấu hình và tải website vào S3 bucket</a></li>
-<li><a href="#thi%E1%BA%BFt-l%E1%BA%ADp-sqs-queue">Thiết lập SQS Queue</a></li>
+<li><a href="/vi/2-messaging-options/2-website-on-s3/#tạo-cấu-hình-và-tải-website-vào-s3-bucket">Tạo, cấu hình và tải website vào S3 bucket</a></li>
+<li><a href="/vi/2-messaging-options/2-website-on-s3/#thiết-lập-sqs-queue">Thiết lập SQS Queue</a></li>
 </ul>
 <h4 id="tạo-cấu-hình-và-tải-website-vào-s3-bucket">Tạo, cấu hình và tải website vào S3 bucket</h4>
 <ol>
@@ -1751,7 +1751,7 @@ Nếu bạn đang sử dụng môi trường Cloud9, hãy làm như sau để tr
 </section>
 
 
-<p><img src="/images/2/4.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/4.png?width=90pc"></p>
 <p><strong>Lựa chọn 3:</strong> Sử dụng cửa sổ dòng lệnh trong Cloud9 để tải về</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget -L http://workshops.devax.academy/monoliths-to-microservices/module5/files/Messaging.zip
 </span></span></code></pre></div><ol start="2">
@@ -1967,14 +1967,14 @@ Nếu bạn không muốn công khai bucket của mình và chỉ muốn công k
 </code></pre><ol start="13">
 <li>Nếu tất cả đều ổn, bạn sẽ được chào đón bằng trang hiển thị sau trong trình duyệt:</li>
 </ol>
-<p><img src="/images/2/5.png?width=90pc" alt="Website"></p>
+<p><img alt="Website" src="/images/2/5.png?width=90pc"></p>
 <p>Để chắc chắn, hãy sử dụng chế độ xem nhà phát triển của trình duyệt để kiểm tra bảng điều khiển không có bất kỳ lỗi nào khi kết nối với các dịch vụ AWS.</p>
 <h4 id="thiết-lập-sqs-queue">Thiết lập SQS Queue</h4>
 <p>Thiết lập môi trường bài thực hành đã cấu hình hàng đợi SQS được sử dụng trong bài thực hành này, sử dụng CloudFormation template.</p>
 <ol start="14">
 <li>Mở <strong>SQS console</strong> trong trình duyệt. Bạn sẽ thấy các hàng đợi đã được cấu hình cho bạn. Các hàng đợi này sẽ được sử dụng trong quá trình kiểm tra hoạt động của hàng đợi SQS sau đây:</li>
 </ol>
-<p><img src="/images/2/6.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/6.png?width=90pc"></p>
 <ol start="15">
 <li>Bốn hàng đợi đã được thiết lập. Ba là hàng đợi tiêu chuẩn và một là hàng đợi FIFO. Đây là một đoạn mã của CloudFormation template đã thiết lập các tài nguyên này:</li>
 </ol>
@@ -2848,19 +2848,19 @@ Nếu bạn không muốn công khai bucket của mình và chỉ muốn công k
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077934"></script>
-    <script src="/js/jquery.sticky.js?1701077934"></script>
-    <script src="/js/featherlight.min.js?1701077934"></script>
-    <script src="/js/highlight.pack.js?1701077934"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077934"></script>
-    <script src="/js/learn.js?1701077934"></script>
-    <script src="/js/hugo-learn.js?1701077934"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077934" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077934"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

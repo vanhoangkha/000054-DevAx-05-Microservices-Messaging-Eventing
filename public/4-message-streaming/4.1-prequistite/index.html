@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Preparation :: DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
 
     
-    <link href="/css/nucleus.css?1701077934" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077934" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077934" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077934" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077934" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077934" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077934" rel="stylesheet">
-    <link href="/css/theme.css?1701077934" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077934" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077934" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077934"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077934"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077934"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077934"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -1260,7 +1260,7 @@
   
     
     <li data-nav-id="/4-message-streaming/4.1-prequistite/" title="Preparation" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1690,7 +1690,7 @@
 
 	<h4 id="preparation">Preparation</h4>
 <p>Our example use case simulates sales data coming from the field, and being processed via a Kinesis stream and written out into ElasticSearch where we can analyse the sales data graphically with Kibana. The sales data will be read from a CSV file, and have costs, quantities and transaction dates randomly applied. The architecture looks like this:
-<img src="/images/4-message-streaming/4.1-prequistite/kinesisconsumerproducerapparch.png?featherlight=false&amp;width=70pc" alt="Prequistite"></p>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/kinesisconsumerproducerapparch.png?featherlight=false&width=70pc"></p>
 <h4 id="create-a-new-repository-for-kinesis-consumer-source">Create a new repository for Kinesis Consumer source</h4>
 <ol>
 <li>Go to <a href="https://console.aws.amazon.com/codesuite/codecommit/home"><strong>AWS CodeCommit console</strong></a>.</li>
@@ -1698,7 +1698,7 @@
 <ul>
 <li>Click <strong>Repositories</strong></li>
 <li>Click <strong>Create repository</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-001.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-001.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="2">
 <li>In the <strong>Create repository</strong> page</li>
@@ -1707,14 +1707,14 @@
 <li>In the <strong>Repository name</strong> section, type <code>KinesisConsumer</code></li>
 <li>In the <strong>Description</strong> section, type <code>Sample application that consumes messages from a Kinesis stream and writes them to an ElasticSearch domain index</code></li>
 <li>Click <strong>Create</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-002.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-002.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="3">
 <li>In the <strong>KinesisConsumer</strong> page, click <strong>Clone URL</strong></li>
 </ol>
 <ul>
 <li>Click <strong>Clone HTTPS</strong> to save the url
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-006.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-006.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="4">
 <li>In the <strong>Eclipse IDE</strong>, click <strong>Window</strong></li>
@@ -1723,23 +1723,23 @@
 <li>Click <strong>Perspective</strong></li>
 <li>Click <strong>Open Perspective</strong></li>
 <li>Click <strong>Other</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-003.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-003.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="5">
 <li>In the <strong>Open Perspective</strong> section, click <strong>Git</strong></li>
 </ol>
 <ul>
 <li>Click <strong>Open</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-004.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-004.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="6">
 <li>Click <strong>Clone a Git repository</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-005.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-005.png?featherlight=false&width=90pc"></li>
 <li>In the <strong>Source Git Repository</strong> section</li>
 </ol>
 <ul>
 <li>In the <strong>URI</strong> section, type the url we saved in step 3
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-007.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-007.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="8">
 <li>Go to <a href="https://console.aws.amazon.com/cloudformation/home"><strong>Amazon CloudFormation Console</strong></a>.</li>
@@ -1748,27 +1748,27 @@
 <li>Click <strong>Stacks</strong></li>
 <li>Type <code>DevAx-05</code> to the search bar, press <strong>Enter</strong></li>
 <li>Click <strong>DevAx-05</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-008.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-008.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="9">
 <li>Click tab <strong>Output</strong></li>
 </ol>
 <ul>
 <li>Save the value of <strong>GitUserName</strong> and <strong>GitPassword</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-009.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-009.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="10">
 <li>In the <strong>Eclipse IDE</strong>, type the value of <strong>User</strong> and <strong>Password</strong> we saved in step 9</li>
 </ol>
 <ul>
 <li>Click <strong>Next</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-010.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-010.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="11">
 <li>Click <strong>Next</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-011.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-011.png?featherlight=false&width=90pc"></li>
 <li>Click <strong>Finish</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-012.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-012.png?featherlight=false&width=90pc"></li>
 </ol>
 
 <section class="attachments orange">
@@ -1814,32 +1814,32 @@
 </ol>
 <ul>
 <li>Click <strong>Open projects from filesystem…</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-013.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-013.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="15">
 <li>Choose the path of the <strong>KinesisConsumer</strong> project</li>
 </ol>
 <ul>
 <li>Click <strong>Finish</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-014.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-014.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="16">
 <li>Open file <strong>KinesisConsumer\src\main\java\idevelop\demo\config.java</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-015.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-015.png?featherlight=false&width=90pc"></li>
 <li>Go to <a href="https://console.aws.amazon.com/cloudformation/home"><strong>Amazon CloudFormation Console</strong></a>.</li>
 </ol>
 <ul>
 <li>Click <strong>Stacks</strong></li>
 <li>Type <code>DevAx-05</code> to the search bar, press <strong>Enter</strong></li>
 <li>Click <strong>DevAx-05</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-016.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-016.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="18">
 <li>Click tab <strong>Output</strong></li>
 </ol>
 <ul>
 <li>Save the value of <strong>ElasticsearchEndpoint</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-017.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-017.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="19">
 <li>In the <strong>Eclipse IDE</strong>, replace <strong>REPLACE_WITH_YOUR_ELASTIC_SEARCH_ENDPOINT</strong> by <strong>ElasticsearchEndpoint</strong> we saved in step 18</li>
@@ -1847,7 +1847,7 @@
 <ul>
 <li>In the <strong>REGION</strong> section, replace <strong>ap-southeast-2</strong> by your <strong>Region code</strong></li>
 <li>Save
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-018.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-018.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="20">
 <li>Open <strong>Command Prompt</strong> and navigate to the directory of <strong>KinesisConsumer</strong> project</li>
@@ -1856,41 +1856,41 @@
 <li>Execute the below command to create <strong>master</strong> branch</li>
 </ul>
 <pre tabindex="0"><code>git checkout -b master
-</code></pre><p><img src="/images/4-message-streaming/4.1-prequistite/prequistite-019.png?featherlight=false&amp;width=60pc" alt="Prequistite">
+</code></pre><p><img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-019.png?featherlight=false&width=60pc">
 21. Execute the below command to add the new file</p>
 <pre tabindex="0"><code>git add .
-</code></pre><p><img src="/images/4-message-streaming/4.1-prequistite/prequistite-020.png?featherlight=false&amp;width=60pc" alt="Prequistite">
+</code></pre><p><img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-020.png?featherlight=false&width=60pc">
 22. Execute the below command to commit the new file</p>
 <pre tabindex="0"><code>git commit -m &#34;Initial commit&#34;
-</code></pre><p><img src="/images/4-message-streaming/4.1-prequistite/prequistite-021.png?featherlight=false&amp;width=60pc" alt="Prequistite">
+</code></pre><p><img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-021.png?featherlight=false&width=60pc">
 23. In the <strong>Eclipse IDE</strong>, right-click on <strong>KinesisConsumer</strong> repository</p>
 <ul>
 <li>Click <strong>Push Branch `master`&hellip;</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-022.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-022.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="24">
 <li>Type the value of <strong>User</strong> and <strong>Password</strong> we saved in step 9 to <strong>User</strong> section and <strong>Password</strong> section</li>
 </ol>
 <ul>
 <li>Click <strong>Login</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-023.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-023.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="25">
 <li>Click <strong>Preview</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-024.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-024.png?featherlight=false&width=90pc"></li>
 <li>Click <strong>Push</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-025.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-025.png?featherlight=false&width=90pc"></li>
 <li>Go to <a href="https://console.aws.amazon.com/codesuite/codecommit/home"><strong>AWS CodeCommit console</strong></a>.</li>
 </ol>
 <ul>
 <li>Click <strong>Repositories</strong></li>
 <li>Type <code>KinesisConsumer</code> to the search bar</li>
 <li>Click <strong>KinesisConsumer</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-026.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-026.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="28">
 <li>You will see the files that you have added into the repository listed in the browser view.
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-027.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-027.png?featherlight=false&width=90pc"></li>
 </ol>
 <h4 id="clone-the-repository-on-the-kinesis-consumer-ec2-instance">Clone the repository on the Kinesis Consumer EC2 instance</h4>
 <p>The labs setup has provisioned an EC2 instance for you to run as the Consumer in this scenario. You will now connect to the EC2 instance, clone the repository, build and run the Consumer code.</p>
@@ -1902,14 +1902,14 @@
 <li>Open <strong>Command Prompt</strong> and execute the below command</li>
 </ol>
 <pre tabindex="0"><code>chmod 400 &lt;path to your key-pair file&gt;
-</code></pre><p><img src="/images/4-message-streaming/4.1-prequistite/prequistite-028.png?featherlight=false&amp;width=60pc" alt="Prequistite">
+</code></pre><p><img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-028.png?featherlight=false&width=60pc">
 30. Execute the below command</p>
 <pre tabindex="0"><code>ssh -i &lt;path to your key-pair file&gt; ec2-user@&lt;EC2InstanceKinesisConsumer&gt;
 </code></pre><p>
 <div class="notices note" ><p>Replace <strong>&lt;EC2InstanceKinesisConsumer&gt;</strong> by the value of <strong>EC2InstanceKinesisConsumer</strong> in the <strong>Output</strong> tab of <strong>DevAx-05</strong> stack</p>
 </div>
 
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-029.png?featherlight=false&amp;width=60pc" alt="Prequistite">
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-029.png?featherlight=false&width=60pc">
 31. Execute the below command</p>
 <pre tabindex="0"><code>git clone https://git-codecommit.&lt;your_region&gt;.amazonaws.com/v1/repos/KinesisConsumer
 </code></pre>
@@ -1918,21 +1918,21 @@
 
 <ul>
 <li>Type <strong>User</strong> and <strong>Password</strong> we saved in step 9 to <strong>Username</strong> section and <strong>Password</strong> section
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-030.png?featherlight=false&amp;width=60pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-030.png?featherlight=false&width=60pc"></li>
 </ul>
 <ol start="32">
 <li>Execute the below command</li>
 </ol>
 <pre tabindex="0"><code>cd KinesisConsumer
 /opt/apache-maven-3.3.9/bin/mvn package shade:shade
-</code></pre><p><img src="/images/4-message-streaming/4.1-prequistite/prequistite-033.png?featherlight=false&amp;width=60pc" alt="Prequistite">
+</code></pre><p><img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-033.png?featherlight=false&width=60pc">
 33. It will take a few moments to complete the build.
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-034.png?featherlight=false&amp;width=60pc" alt="Prequistite">
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-034.png?featherlight=false&width=60pc">
 34. When the build is complete, start the Kinesis Consumer application by executing the below command</p>
 <pre tabindex="0"><code>java -jar target/KinesisConsumerApp-1.0.0.jar
-</code></pre><p><img src="/images/4-message-streaming/4.1-prequistite/prequistite-035.png?featherlight=false&amp;width=60pc" alt="Prequistite">
+</code></pre><p><img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-035.png?featherlight=false&width=60pc">
 The application will start and wait for events to be published into the Kinesis stream. You should see no errors, and after a few moments, the console output should show <strong>Sleeping…</strong> since there are no records in the stream to process:
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-036.png?featherlight=false&amp;width=60pc" alt="Prequistite"></p>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-036.png?featherlight=false&width=60pc"></p>
 <h4 id="create-a-new-repository-for-the-kinesis-producer-source-code">Create a new repository for the Kinesis Producer source code</h4>
 <p>You will now repeat the process above, this time, creating a repository for the <strong>Kinesis Producer</strong> application, and cloning it on to the Kinesis Producer EC2 instance. Once this is complete, you can begin testing data transfer between the two machines, via Amazon Kinesis.</p>
 <p>The process of creating the repository is the same as the previous steps, but we repeat it here for convenience.</p>
@@ -1959,7 +1959,7 @@ The application will start and wait for events to be published into the Kinesis 
 </ul>
 <ol start="38">
 <li>In the <strong>Eclipse IDE</strong>, click <strong>Clone a Git Repository and add the clone to this view</strong> icon
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-037.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-037.png?featherlight=false&width=90pc"></li>
 <li>In the <strong>Source Git Repository</strong> section</li>
 </ol>
 <ul>
@@ -2042,12 +2042,12 @@ The application will start and wait for events to be published into the Kinesis 
 </ul>
 <ol start="48">
 <li>Open file <strong>KinesisProducer\src\main\java\idevelop\demo\KinesisProducerApp.java</strong>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-037a.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-037a.png?featherlight=false&width=90pc"></li>
 <li>In the line 69, replace <strong>AP_SOUTHEAST_2</strong> by your <strong>Region</strong></li>
 </ol>
 <ul>
 <li>Save
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-037b.png?featherlight=false&amp;width=90pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-037b.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="50">
 <li>Open <strong>Command Prompt</strong> and navigate to the directory of <strong>KinesisProducer</strong></li>
@@ -2120,14 +2120,14 @@ git clone https://git-codecommit.&lt;your_region&gt;.amazonaws.com/v1/repos/Kine
 /opt/apache-maven-3.3.9/bin/mvn package shade:shade
 </code></pre><ol start="63">
 <li>It will take a few moments to complete the build.
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-039.png?featherlight=false&amp;width=60pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-039.png?featherlight=false&width=60pc"></li>
 <li>The Producer needs source data, and is expecting a CSV file in the current working folder, called <strong>SalesData.csv</strong>.</li>
 </ol>
 <ul>
 <li>Execute the below command to copy this file to EC2 instance</li>
 </ul>
 <pre tabindex="0"><code>wget https://workshops.devax.academy/monoliths-to-microservices/module5/files/SalesData.csv
-</code></pre><p><img src="/images/4-message-streaming/4.1-prequistite/prequistite-040.png?featherlight=false&amp;width=60pc" alt="Prequistite"></p>
+</code></pre><p><img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-040.png?featherlight=false&width=60pc"></p>
 <h4 id="configure-elasticsearch-index-mappings">Configure ElasticSearch index mappings</h4>
 <p>When data is sent to ElasticSearch, it tries to infer the data types in the content, and usually does a good job of getting the data types right. In our case, we are sending the date/time of each of the sales record as <strong>long</strong> representation (ticks since Epoch) and so ElasticSearch would interpret this field as just a number (of type long). Instead, we need to warn ElasticSearch that it should interpret this timestamp field as a <strong>Date</strong>. We do this by creating Mappings in the index before we send any records.
 65. On the terminal window you have the SSH connection to the <strong>Kinesis Consumer EC2 instance</strong>, Execute the below command</p>
@@ -2165,7 +2165,7 @@ git clone https://git-codecommit.&lt;your_region&gt;.amazonaws.com/v1/repos/Kine
 }&#39;;
 </code></pre><ol start="66">
 <li>If successful, you will see the message <code>{“acknowledged”:true}</code>
-<img src="/images/4-message-streaming/4.1-prequistite/prequistite-041.png?featherlight=false&amp;width=60pc" alt="Prequistite"></li>
+<img alt="Prequistite" src="/images/4-message-streaming/4.1-prequistite/prequistite-041.png?featherlight=false&width=60pc"></li>
 </ol>
 
 
@@ -3018,19 +3018,19 @@ git clone https://git-codecommit.&lt;your_region&gt;.amazonaws.com/v1/repos/Kine
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077934"></script>
-    <script src="/js/jquery.sticky.js?1701077934"></script>
-    <script src="/js/featherlight.min.js?1701077934"></script>
-    <script src="/js/highlight.pack.js?1701077934"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077934"></script>
-    <script src="/js/learn.js?1701077934"></script>
-    <script src="/js/hugo-learn.js?1701077934"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077934" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077934"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

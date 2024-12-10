@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Dùng Eclipse :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices cho Truyền tin &amp; Sự kiện</title>
 
     
-    <link href="/css/nucleus.css?1701077934" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077934" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077934" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077934" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077934" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077934" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077934" rel="stylesheet">
-    <link href="/css/theme.css?1701077934" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077934" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077934" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077934"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077934"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077934"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077934"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -717,7 +717,7 @@
   
     
     <li data-nav-id="/vi/3-message-streaming/1-prequistite/a/" title="Dùng Eclipse" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1695,13 +1695,13 @@
 
 
 	<p>Trường hợp của chúng ta mô phỏng sử dụng mẫu dữ liệu bán hàng thực tế và được xử lý qua Kinesis stream và được ghi vào ElasticSearch nơi chúng ta có thể phân tích dữ liệu bán hàng bằng đồ thị với Kibana. Dữ liệu bán hàng sẽ được đọc từ tệp CSV và có chi phí, số lượng và ngày giao dịch được áp dụng ngẫu nhiên. Kiến trúc trông như thế này:</p>
-<p><img src="/images/3/kinesisconsumerproducerapparch.png?width=50pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/3/kinesisconsumerproducerapparch.png?width=50pc"></p>
 <p><strong>Nội dung</strong></p>
 <ul>
-<li><a href="#t%E1%BA%A1o-m%E1%BB%99t-kho-l%C6%B0u-tr%E1%BB%AF-m%E1%BB%9Bi-cho-m%C3%A3-ngu%E1%BB%93n-kinesis-consumer">Tạo một kho lưu trữ mới cho mã nguồn Kinesis Consumer</a></li>
-<li><a href="#sao-ch%C3%A9p-kho-l%C6%B0u-tr%E1%BB%AF-v%C3%A0o-kinesis-consumer-ec2-instance">Sao chép kho lưu trữ vào Kinesis Consumer EC2 instance</a></li>
-<li><a href="#t%E1%BA%A1o-m%E1%BB%99t-kho-l%C6%B0u-tr%E1%BB%AF-m%E1%BB%9Bi-cho-m%C3%A3-ngu%E1%BB%93n-kinesis-producer">Tạo một kho lưu trữ mới cho mã nguồn Kinesis Producer</a></li>
-<li><a href="#sao-ch%C3%A9p-kho-l%C6%B0u-tr%E1%BB%AF-v%C3%A0o-kinesis-producer-ec2-instance">Sao chép kho lưu trữ vào Kinesis Producer EC2 instance</a></li>
+<li><a href="/vi/3-message-streaming/1-prequistite/a/#tạo-một-kho-lưu-trữ-mới-cho-mã-nguồn-kinesis-consumer">Tạo một kho lưu trữ mới cho mã nguồn Kinesis Consumer</a></li>
+<li><a href="/vi/3-message-streaming/1-prequistite/a/#sao-chép-kho-lưu-trữ-vào-kinesis-consumer-ec2-instance">Sao chép kho lưu trữ vào Kinesis Consumer EC2 instance</a></li>
+<li><a href="/vi/3-message-streaming/1-prequistite/a/#tạo-một-kho-lưu-trữ-mới-cho-mã-nguồn-kinesis-producer">Tạo một kho lưu trữ mới cho mã nguồn Kinesis Producer</a></li>
+<li><a href="/vi/3-message-streaming/1-prequistite/a/#sao-chép-kho-lưu-trữ-vào-kinesis-producer-ec2-instance">Sao chép kho lưu trữ vào Kinesis Producer EC2 instance</a></li>
 </ul>
 <h4 id="tạo-một-kho-lưu-trữ-mới-cho-mã-nguồn-kinesis-consumer">Tạo một kho lưu trữ mới cho mã nguồn Kinesis Consumer</h4>
 <ol>
@@ -1710,7 +1710,7 @@
 <li>Ở trang <strong>Create repository</strong>, mục <strong>Repository name</strong> nhập <code>KinesisConsumer</code></li>
 <li>Ở <strong>Description</strong> nhập <code>Sample application that consumes messages from a Kinesis stream and writes them to an ElasticSearch domain index</code>.</li>
 </ol>
-<p><img src="/images/3/1.png?width=90pc" alt="MessageStreaming"></p>
+<p><img alt="MessageStreaming" src="/images/3/1.png?width=90pc"></p>
 <ol start="5">
 <li>
 <p>Chọn <strong>Create repository</strong>. Kho lưu trữ mới của bạn sẽ được tạo, sẵn sàng cho bạn sử dụng. Chọn vào <strong>Skip</strong> để đóng màn hình tiếp theo. Chọn vào <strong>Close</strong> để đóng bảng điều khiển xuất hiện sau khi tạo kho lưu trữ.</p>
@@ -1722,26 +1722,26 @@
 <p>Chọn biểu tượng <strong>Clone repository</strong></p>
 </li>
 </ol>
-<p><img src="/images/3/2.png?width=90pc" alt="MessageStreaming"></p>
+<p><img alt="MessageStreaming" src="/images/3/2.png?width=90pc"></p>
 <ol start="8">
 <li>Trong <strong>AWS CodeCommit console</strong> trong trình duyệt, nhấp vào nút <strong>Clone URL</strong>. Chọn <strong>HTTPS</strong> từ menu và sau đó sao chép URL vào khay nhớ tạm của bạn.</li>
 </ol>
-<p><img src="/images/3/3.png?width=90pc" alt="MessageStreaming"></p>
+<p><img alt="MessageStreaming" src="/images/3/3.png?width=90pc"></p>
 <ol start="9">
 <li>Quay lại <strong>Eclipse IDE</strong>, dán URL bản sao vào trường <strong>URI</strong>:</li>
 </ol>
-<p><img src="/images/3/4.png?width=90pc" alt="MessageStreaming"></p>
+<p><img alt="MessageStreaming" src="/images/3/4.png?width=90pc"></p>
 <ol start="10">
 <li>Trong mục <strong>Authentication</strong>, ở mục <strong>User</strong> nhập vào giá trị GitUsername từ thông tin ở tab <strong>Cloudformation Output</strong>.</li>
 <li>Ở mục <strong>Password</strong>, nhập giá trị <strong>GitPassword</strong> từ thông tin ở tab <strong>Cloudformation Output</strong>.</li>
 </ol>
-<p><img src="/images/3/5.png?width=90pc" alt="MessageStreaming"></p>
+<p><img alt="MessageStreaming" src="/images/3/5.png?width=90pc"></p>
 <ol start="12">
 <li>Chọn <strong>Next</strong>.</li>
 <li>Trong <strong>Branch Selection</strong>, không có branch nào được tạo, vì vậy chỉ cần chọn vào <strong>Next</strong>.</li>
 <li>Trong bảng <strong>Local destination</strong>, chọn một đường dẫn phù hợp trên filesystem của bạn và chọn vào <strong>Finish:</strong>.</li>
 </ol>
-<p><img src="/images/3/6.png?width=90pc" alt="MessageStreaming"></p>
+<p><img alt="MessageStreaming" src="/images/3/6.png?width=90pc"></p>
 <p>Kho lưu trữ trống sẽ được sao chép vào đường dẫn local của bạn đã chỉ định.</p>
 <ol start="15">
 <li>Tải xuống gói mã nguồn từ <a href="https://workshops.devax.academy/monoliths-to-microservices/module5/files/KinesisConsumer.zip"><strong>KinesisConsumer.zip</strong></a> và giải nén tập tin zip vào hệ thống của bạn.</li>
@@ -1749,7 +1749,7 @@
 <li>Trong <strong>Eclipse IDE</strong>, chuyển sang môi trường Java và mở Project với lựa chọn <strong>File | Open projects from filesystem&hellip;</strong>.</li>
 <li>Trong <strong>Eclipse IDE</strong>, mở tập tin <strong>config.java</strong>.</li>
 </ol>
-<p><img src="/images/3/7.png?width=90pc" alt="MessageStreaming"></p>
+<p><img alt="MessageStreaming" src="/images/3/7.png?width=90pc"></p>
 <ol start="19">
 <li>Cập nhật giá trị <code>public static final String ELASTICSEARCH_ENDPOINT</code> trung với thông tin từ tab <strong>Cloudformation Output</strong>, gọi đến <strong>ElasticsearchEndpoint</strong>. Mặc định, giá trị sẽ được thiết lập ở vị trí <code>REPLACE_WITH_YOUR_ELASTIC_SEARCH_ENDPOINT</code>. Xóa và thay thế với giá trị <strong>ElasticsearchEndpoint</strong> của bạn. Lưu lại tập tin.</li>
 <li>Mở cửa sổ lệnh và chạy lệnh <code>cd</code> vào thư mục tải về từ kho dữ liệu của bạn.</li>
@@ -1774,7 +1774,7 @@
 <ol start="25">
 <li>Chọn <strong>Finish</strong>. Branch sẽ được đẩy lên kho dữ liệu CodeCommit. Xác nhận bằng việc làm mới lại trang <strong>CodeCommit console</strong> trên trình duyệt:</li>
 </ol>
-<p><img src="/images/3/8.png?width=90pc" alt="MessageStreaming"></p>
+<p><img alt="MessageStreaming" src="/images/3/8.png?width=90pc"></p>
 <p>Bạn sẽ thấy các tập tin mà bạn đã thêm vào kho lưu trữ được liệt kê trong giao diện trình duyệt.</p>
 <h4 id="sao-chép-kho-lưu-trữ-vào-kinesis-consumer-ec2-instance">Sao chép kho lưu trữ vào Kinesis Consumer EC2 instance</h4>
 <p>Trong thiết lập bài thực hành đã cung cấp một EC2 instance để bạn chạy với tư cách Consumer trong tình huống này. Bây giờ bạn sẽ kết nối với EC2 instance, sao chép kho lưu trữ về, build và chạy chương trình Consumer.</p>
@@ -1798,7 +1798,7 @@
 <ol start="28">
 <li>Trong <strong>AWS Console</strong>, trang <strong>CloudFormation</strong>, trong tab <strong>Outputs</strong>, tìm giá trị <strong>EC2InstanceKinesisConsumer</strong> và sao chép vào bộ nhớ tạm.</li>
 </ol>
-<p><img src="/images/3/9.png?width=90pc" alt="MessageStreaming"></p>
+<p><img alt="MessageStreaming" src="/images/3/9.png?width=90pc"></p>
 <ol start="29">
 <li>Sử dụng lệnh mẫu sau để kết nối đến EC2 instance của bạn:</li>
 </ol>
@@ -1899,7 +1899,7 @@ Kho lưu trữ trống sẽ được sao chép vào đường dẫn local của 
 </span></span></code></pre></div><ol start="52">
 <li>Trong khung quản lý Git ở <strong>Eclipse IDE</strong>, chuột phải vào kho dữ liệu <em>KinesisProducer</em>, và chọn <strong>Push Branch Master</strong></li>
 </ol>
-<p><img src="/images/3/10a.png?width=90pc" alt="MessageStreaming"></p>
+<p><img alt="MessageStreaming" src="/images/3/10a.png?width=90pc"></p>
 <ol start="53">
 <li>Chọn <strong>Next</strong> và ở trang kế, chọn <strong>Finish</strong>.</li>
 </ol>
@@ -2756,19 +2756,19 @@ Kho lưu trữ trống sẽ được sao chép vào đường dẫn local của 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077934"></script>
-    <script src="/js/jquery.sticky.js?1701077934"></script>
-    <script src="/js/featherlight.min.js?1701077934"></script>
-    <script src="/js/highlight.pack.js?1701077934"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077934"></script>
-    <script src="/js/learn.js?1701077934"></script>
-    <script src="/js/hugo-learn.js?1701077934"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077934" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077934"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -4,7 +4,9 @@
     <title>Kinesis Publisher to SQS Subcriber on DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
     <link>/2-messaging-options/7-kinesis-pub-sqs-sub/</link>
     <description>Recent content in Kinesis Publisher to SQS Subcriber on DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 01 Jan 1970 07:33:41 +0700</lastBuildDate><atom:link href="/2-messaging-options/7-kinesis-pub-sqs-sub/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="/2-messaging-options/7-kinesis-pub-sqs-sub/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

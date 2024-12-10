@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Kinesis Publisher to SQS Subcriber :: DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
 
     
-    <link href="/css/nucleus.css?1701077934" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077934" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077934" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077934" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077934" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077934" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077934" rel="stylesheet">
-    <link href="/css/theme.css?1701077934" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077934" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077934" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077934"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077934"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077934"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077934"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -1140,7 +1140,7 @@
   
     
     <li data-nav-id="/3-messaging-options/3.6-kinesis-pub-sqs-sub/" title="Kinesis Publisher to SQS Subcriber" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1692,10 +1692,10 @@
 <p>Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information. In this scenario, the browser will send draw points to a Kinesis stream. Normally, we would create a Kinesis consumer client and read the events from the stream directly and process them, and we will do this in our next scenario. But for this scenario, let’s assume we want the messages to be delivered to an SQS queue like we have done in our previous scenarios.</p>
 <p>Since there is no in-built way to route messages that have been published to a Kinesis stream into an SQS queue, we need an intermediary to do that processing/routing for us. In this scenario, we will implement the intermediary as an AWS Lambda function that will create a bridge between the Kinesis stream, and the SQS queue we want to target.</p>
 <p>The architecture for this scenario looks like this:
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesislambdasqsarchitecture.png?featherlight=false&amp;width=70pc" alt="Kinesis Publisher To SQS Subscriber">
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesislambdasqsarchitecture.png?featherlight=false&width=70pc">
 Similar to a previous scenario, messages are rendered by a single subscriber to an Amazon SQS queue. But in this case, the messages are published to a Kinesis stream, and then transferred to the SQS queue by the Lambda function.</p>
 <p>o start this demo, click the drop-down list on the website and choose AWS Kinesis publisher to SQS subscriber. When the page initialises, draw a shape on the Kinesis Publisher canvas. Notice that the Messages Sent counter increments, but no shape is rendered on the SQS Subscriber canvas? This is because the messages are being published into the Kinesis stream, but no Kinesis consumers are processing the message yet:
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-001.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></p>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-001.png?featherlight=false&width=90pc"></p>
 <h4 id="create-an-aws-lambda-function-that-implements-an-amazon-kinesis-event-consumer">Create an AWS Lambda function that implements an Amazon Kinesis event consumer</h4>
 <ol>
 <li>Open <strong>Eclipse IDE</strong>.</li>
@@ -1703,7 +1703,7 @@ Similar to a previous scenario, messages are rendered by a single subscriber to 
 <ul>
 <li>Find the AWS Icon and click it to reveal the menu</li>
 <li>Click <strong>New AWS Lambda java Project…</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-002.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-002.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="2">
 <li>In the <strong>Create a new AWS Lambda Java project</strong> section</li>
@@ -1712,7 +1712,7 @@ Similar to a previous scenario, messages are rendered by a single subscriber to 
 <li>In the <strong>Project name</strong> section, type <code>KinesisToSQS</code></li>
 <li>In the <strong>Input Type</strong> section, select <strong>Kinesis Event</strong></li>
 <li>Click <strong>Finish</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-003.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-003.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="3">
 <li>Right-click on the file whose the path is <strong>KinesisToSQS\src\main\java\com\amazonaws\lambda\demo\LambdaFunctionHandler.java</strong></li>
@@ -1720,7 +1720,7 @@ Similar to a previous scenario, messages are rendered by a single subscriber to 
 <ul>
 <li>Click <strong>Amazon Web Services</strong></li>
 <li>Click <strong>Upload function to AWS Lambda…</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-004.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-004.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="4">
 <li>In the <strong>Select Target AWS Lambda Function</strong> section</li>
@@ -1729,7 +1729,7 @@ Similar to a previous scenario, messages are rendered by a single subscriber to 
 <li>In the <strong>Select the AWS Region</strong> section, select your <strong>Region</strong></li>
 <li>In the <strong>Create a new Lambda function</strong> section, type <code>Kinesissam-LambdaFunction</code></li>
 <li>Click <strong>Next</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-005.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-005.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="5">
 <li>In the <strong>Function Configuration</strong>section</li>
@@ -1738,7 +1738,7 @@ Similar to a previous scenario, messages are rendered by a single subscriber to 
 <li>In the <strong>Description</strong> section, type <code>Lab 5 Kinesis to SQS</code></li>
 <li>In the <strong>IAM Role</strong> section, select <strong>LambdaKinesisToSQSRole</strong></li>
 <li>Click <strong>Finish</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-006.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-006.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="6">
 <li>While you are waiting for the upload to complete, take a quick look at the simple implementation the IDE has created for you. Open class <strong>LambdaFunctionHandler</strong>. Chúng sẽ tương tự như sau:</li>
@@ -1763,24 +1763,24 @@ Similar to a previous scenario, messages are rendered by a single subscriber to 
 <ul>
 <li>Click <strong>Data streams</strong></li>
 <li>You will see two streams - both have been provisioned by the lab template during setup. Click <strong>iDevelopDrawingData</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-007.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-007.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="8">
 <li>Select <strong>Monitoring</strong> tab and scroll down to reveal the <strong>Incoming data - sum (Count)</strong> graph
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-008.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber">
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-008.png?featherlight=false&width=90pc">
 Around this location will be other statistics about the stream. Notice that the <strong>Incoming data - sum (Count)</strong> matches the same number you see in our demo website, under <strong>Messages Sent</strong>? You may need to move your mouse over the graph to see the actual data volume. In the example shown here, you would point your mouse at the end of the line to reveal the count (showing <strong>206</strong>). The count of the two points on the graph will equal the <strong>Messages Sent</strong> metric on our website (last image, showing the Messages Sent from our website. <strong>206</strong>)
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-009.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-009.png?featherlight=false&width=90pc"></li>
 <li>Go to <a href="https://console.aws.amazon.com/lambda/home"><strong>AWS Lambda console</strong></a></li>
 </ol>
 <ul>
 <li>Click <strong>Functions</strong></li>
 <li>Type <code>Kinesissam-LambdaFunction</code> to the search bar, type <strong>Enter</strong></li>
 <li>Click <strong>Kinesissam-LambdaFunction</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-010.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-010.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="10">
 <li>Click <strong>Add trigger</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-011.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-011.png?featherlight=false&width=90pc"></li>
 <li>In the <strong>Add trigger</strong> page</li>
 </ol>
 <ul>
@@ -1788,14 +1788,14 @@ Around this location will be other statistics about the stream. Notice that the 
 <li>In the <strong>Kinesis stream</strong> section, select <strong>iDevelopDrawingData</strong></li>
 <li>In the <strong>Starting position</strong> section, select <strong>Trim horizon</strong></li>
 <li>Click <strong>Add</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-012.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-012.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="12">
 <li>It will take a moment or two for the Lambda function to be attached to the Kinesis stream. Wait a minute, and then click <strong>Refresh Icon</strong></li>
 </ol>
 <ul>
 <li>Click <strong>Details</strong>. When the Lambda function is wired-up, you will see a message saying <strong>Last processing result: OK</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-013.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-013.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="13">
 <li>Select tab <strong>monitor</strong>. The draw points that have been sent into the Kinesis stream will have been consumed by the Lambda function, and you will see CloudWatch metrics indicating this activity. You will see activity in the Invocation count and Invocation duration graphs. Check that you don’t see any Invocation errors.
@@ -1806,13 +1806,13 @@ Around this location will be other statistics about the stream. Notice that the 
 </ol>
 <ul>
 <li>Click <strong>View logs in CloudWatch</strong> to open the CloudWatch Log Stream for this Lambda function.
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-014.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-014.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="14">
 <li>Click first <strong>Log stream</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-015.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-015.png?featherlight=false&width=90pc"></li>
 <li>Scroll through the events in the CloudWatch Log output. These events have been written to the log by our Lambda function code:
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-016.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-016.png?featherlight=false&width=90pc"></li>
 </ol>
 <p>When writing your Lambda function code in Java, you can emit log strings into CloudWatch logs by simply calling the Logger’s .log() method:</p>
 <pre tabindex="0"><code>context.getLogger().log(&#34;Log message to emit: &#34; + someMessage);
@@ -1965,14 +1965,14 @@ public class LambdaFunctionHandler implements RequestHandler&lt;KinesisEvent, In
 }
 </code></pre><ul>
 <li>Save
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-017.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-017.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="2">
 <li>Open <strong>Command Prompt</strong> and navigate to the directory of <strong>KinesisToSQS</strong> project</li>
 </ol>
 <ul>
 <li>Execute the command <code>mvn package</code> to build
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-018.png?featherlight=false&amp;width=60pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-018.png?featherlight=false&width=60pc"></li>
 </ul>
 <ol start="3">
 <li>Go to <a href="https://console.aws.amazon.com/lambda/home"><strong>AWS Lambda console</strong></a></li>
@@ -1981,7 +1981,7 @@ public class LambdaFunctionHandler implements RequestHandler&lt;KinesisEvent, In
 <li>Click <strong>Functions</strong></li>
 <li>Type <code>Kinesissam-LambdaFunction</code> to the search bar, type <strong>Enter</strong></li>
 <li>Click <strong>Kinesissam-LambdaFunction</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-019.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-019.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="4">
 <li>In the <strong>Code soure</strong> section</li>
@@ -1989,14 +1989,14 @@ public class LambdaFunctionHandler implements RequestHandler&lt;KinesisEvent, In
 <ul>
 <li>Click Upload from</li>
 <li>Click <strong>.zip or .jar file</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-020.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-020.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="5">
 <li>Click <strong>Upload</strong>, Select file <strong>demo-1.0.0.jar</strong> in <strong>target</strong> folder of the <strong>KinesisToSQS</strong> project we built in step 2</li>
 </ol>
 <ul>
 <li>Click <strong>Save</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-021.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-021.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="6">
 <li>Click tab <strong>Configuration</strong></li>
@@ -2004,7 +2004,7 @@ public class LambdaFunctionHandler implements RequestHandler&lt;KinesisEvent, In
 <ul>
 <li>Click <strong>Environment variables</strong></li>
 <li>Click <strong>Edit</strong>
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-022.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-022.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="7">
 <li>In the <strong>Edit Environment variables</strong> page</li>
@@ -2013,11 +2013,11 @@ public class LambdaFunctionHandler implements RequestHandler&lt;KinesisEvent, In
 <li>Click <strong>Add environment variable</strong></li>
 <li>In the <strong>Key</strong> section, type <strong>TargetSQSUrl</strong></li>
 <li>In the <strong>Value</strong> section, type the value of <strong>QueueUrl1</strong> we saved in the step 3 of section 3.1
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-023.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-023.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="8">
 <li>Go back to our demo website and draw a new shape to emit events into the Kinesis stream.
-<img src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-024.png?featherlight=false&amp;width=90pc" alt="Kinesis Publisher To SQS Subscriber"></li>
+<img alt="Kinesis Publisher To SQS Subscriber" src="/images/3-messaging-options/3.6-kinesis-pub-sqs-sub/kinesis-pub-sqs-sub-024.png?featherlight=false&width=90pc"></li>
 </ol>
 <p>The drawing points should now be received via the SQS queue, and rendered on the canvas. Notice that the shape you draw is rendered inversed in the Y-dimension? This is because the implementation we used for the Lambda function executes a transform on the drawing points, just to demonstrate how we can manipulate the data in the Kinesis stream before passing it to the SQS queue.</p>
 <p>Take a few moments to review the handler implementation code to ensure you understand how it works.</p>
@@ -2875,19 +2875,19 @@ public class LambdaFunctionHandler implements RequestHandler&lt;KinesisEvent, In
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077934"></script>
-    <script src="/js/jquery.sticky.js?1701077934"></script>
-    <script src="/js/featherlight.min.js?1701077934"></script>
-    <script src="/js/highlight.pack.js?1701077934"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077934"></script>
-    <script src="/js/learn.js?1701077934"></script>
-    <script src="/js/hugo-learn.js?1701077934"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077934" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077934"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Khám phá Kibana :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices cho Truyền tin &amp; Sự kiện</title>
 
     
-    <link href="/css/nucleus.css?1701077934" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077934" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077934" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077934" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077934" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077934" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077934" rel="stylesheet">
-    <link href="/css/theme.css?1701077934" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077934" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077934" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077934"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077934"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077934"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077934"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -934,7 +934,7 @@
   
     
     <li data-nav-id="/vi/3-message-streaming/5-kibana/" title="Khám phá Kibana" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1721,11 +1721,11 @@
 <p>Bạn sẽ thấy trang tải Kibana trong khi mọi thứ được thiết lập - sẽ chỉ mất một chút thời gian.</p>
 </li>
 </ol>
-<p><img src="/images/3/14.png?width=90pc" alt="ElasticSearch"></p>
+<p><img alt="ElasticSearch" src="/images/3/14.png?width=90pc"></p>
 <ol start="6">
 <li>Nhiệm vụ đầu tiên của bạn là thiết lập một index pattern mặc định. Trong trường bên dưới <strong>Index name or pattern</strong>, hãy thay thế nội dung bằng dấu hoa thị (*) như minh họa:</li>
 </ol>
-<p><img src="/images/3/15.png?width=90pc" alt="ElasticSearch"></p>
+<p><img alt="ElasticSearch" src="/images/3/15.png?width=90pc"></p>
 <p>Sau đó, Kibana sẽ tự động tìm trường <strong>timestamp</strong> trong chỉ mục giao dịch của chúng ta. Nhấp vào <strong>Create</strong> để xác nhận.</p>
 <ol start="7">
 <li>Click <strong>Discover</strong> in the top menu tab. You may not see any records rendered. At this point, Kibana is defaulting to only show you records that have a <em>timestamp</em> value in the range now minus 15 minutes ago. Our application generates sales events with timestamps starting in 2015 and advancing forward at random increments. Therefore, you may not see any records for the timeframe that spans the <em>Last 15 minutes</em>. Widen the timeframe by clicking on the <strong>Last 15 minutes</strong> link at the top right of the page, and in the list that appears, choose <strong>Last 5 years</strong>
@@ -1737,7 +1737,7 @@ Nhấp vào <strong>Discover</strong> trong menu trên cùng. Bạn có thể kh
 <ol start="8">
 <li>Bấm vào một trong các bản ghi trong danh sách để mở rộng nó. Các trường trong dữ liệu liên quan đến bản ghi giao dịch của chúng tôi cho doanh số bán hàng giả tưởng - productLine, product, totalCost, v.v.</li>
 </ol>
-<p><img src="/images/3/17.png?width=90pc" alt="ElasticSearch"></p>
+<p><img alt="ElasticSearch" src="/images/3/17.png?width=90pc"></p>
 <ol start="9">
 <li>Nếu bạn tham khảo lại mã Java trong Eclipse IDE, trong cả ứng dụng Producer và Consumer, có một class được gọi là <em><strong>SaleItemTransaction</strong></em> có các trường tương tự trong đó. Class này được sử dụng để serialise và deserialise dữ liệu bán hàng vào và ra khỏi Kinesis stream và xa hơn nữa, vào chỉ mục ElasticSearch như bạn có thể thấy ở đây.</li>
 </ol>
@@ -1747,7 +1747,7 @@ Nhấp vào <strong>Discover</strong> trong menu trên cùng. Bạn có thể kh
 <li>Chọn <strong>Visualize</strong> ở thanh menu.</li>
 <li>Chọn <strong>Pie chart</strong> từ danh sách lựa chọn loại đồ thị.</li>
 </ol>
-<p><img src="/images/3/18.png?width=90pc" alt="ElasticSearch"></p>
+<p><img alt="ElasticSearch" src="/images/3/18.png?width=90pc"></p>
 <ol start="12">
 <li>
 <p>Ở bước 2, chọn <strong>From a new search</strong></p>
@@ -1768,7 +1768,7 @@ Nhấp vào <strong>Discover</strong> trong menu trên cùng. Bạn có thể kh
 <p>Chọn biểu tượng <strong>Play</strong> ở trên cùng bảng điều khiển bên trái để vẽ lại đồ thị:</p>
 </li>
 </ol>
-<p><img src="/images/3/19.png?width=90pc" alt="ElasticSearch"></p>
+<p><img alt="ElasticSearch" src="/images/3/19.png?width=90pc"></p>
 <p>Tập dữ liệu của bạn sẽ khác (do các giao dịch và chi tiết của chúng được chọn ngẫu nhiên) nhưng bạn sẽ thấy một kết quả tương tự như được hiển thị ở đây. Trong ví dụ này, <strong>Eyewear</strong> là sản phẩm di chuyển hàng đầu trong khoảng thời gian đã chọn (5 năm qua).</p>
 <ol start="18">
 <li>Chọn <strong>Add sub-buckets</strong></li>
@@ -1777,7 +1777,7 @@ Nhấp vào <strong>Discover</strong> trong menu trên cùng. Bạn có thể kh
 <li>Ở <strong>Field</strong> chọn <code>retailerType</code></li>
 <li>Chọn biểu tượng <strong>Play</strong> ở trên cùng bảng điều khiển bên trái để vẽ lại đồ thị:</li>
 </ol>
-<p><img src="/images/3/20.png?width=90pc" alt="ElasticSearch"></p>
+<p><img alt="ElasticSearch" src="/images/3/20.png?width=90pc"></p>
 <p>Dữ liệu của bạn sẽ khác so, nhưng trong ví dụ này, chúng ta có thể thấy được sự phân bố số lượng giao dịch tại các kiểu kinh doanh bán lẻ, được xác định cho mỗi loại sản phẩm được bán nhiều nhất.</p>
 <p>Bạn có thể thấy, Kibana là một công cụ rất mạnh cho phép bạn phân tích dữ liệu. Dành một chút thời gian để thử nghiệm với các loại đồ thị, trường và liên kết. Bạn có thể lưu lại các đồ thị mà bạn đã tạo và sau đó thêm chúng vào Dashboard sử dụng công vụ và biểu tượng trên trang Kibana.</p>
 <p>Nếu bạn cần xóa các bản ghi, mapping và index từ miền ElasticSearch, bạn có thể chạy câu lệnh sau từ cửa sổ lệnh:</p>
@@ -2638,19 +2638,19 @@ Nhấp vào <strong>Discover</strong> trong menu trên cùng. Bạn có thể kh
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077934"></script>
-    <script src="/js/jquery.sticky.js?1701077934"></script>
-    <script src="/js/featherlight.min.js?1701077934"></script>
-    <script src="/js/highlight.pack.js?1701077934"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077934"></script>
-    <script src="/js/learn.js?1701077934"></script>
-    <script src="/js/hugo-learn.js?1701077934"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077934" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077934"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>SQS Publisher to SQS Subcriber :: DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
 
     
-    <link href="/css/nucleus.css?1701077933" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077933" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077933" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077933" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077933" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077933" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077933" rel="stylesheet">
-    <link href="/css/theme.css?1701077933" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077933" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804480" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804480" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804480" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804480" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804480" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804480" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804480" rel="stylesheet">
+    <link href="/css/theme.css?1733804480" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804480" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077933" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804480" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077933"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804480"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077933"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077933"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804480"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804480"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077933"></script>
+<script type="text/javascript" src="/js/search.js?1733804480"></script>
 
     
   </div>
@@ -290,7 +290,7 @@
   
     
     <li data-nav-id="/2-messaging-options/3-sqs-pub-sub/" title="SQS Publisher to SQS Subcriber" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1689,23 +1689,23 @@
 
 
 	<p>In this scenario, we will make use of these queues and take a look at a simple use case where we have a single publisher pushing messages into an SQS queue, and a single subscriber reading from the same queue. The architecture looks like this:</p>
-<p><img src="/images/2/sqspubsub-architecture.png?width=50pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/sqspubsub-architecture.png?width=50pc"></p>
 <p>The web page uses the AWS SDK for Javascript in the browser, and authenticates anonymously with Amazon Cognito to obtain scoped, temporary credentials with which it can sign requests to connect into the Amazon SQS service, to publish and subscribe to the same SQS queue.</p>
 <p>In this demo, the publisher is represented on the left grey canvas, the subscriber on the right. Using your mouse, draw a shape by clicking down with the left mouse button while you move the mouse to leave a trail of pixels. As you draw, messages will be sent to an SQS queue containing information about the X &amp; Y coordinates of the mouse. These messages will be received by the browser polling the <strong>same</strong> SQS queue, and rendered on the right-hand canvas.</p>
 <p><strong>Contents</strong></p>
 <ul>
-<li><a href="#notice-how-the-points-are-drawn-out-of-order-on-the-right-hand-side">Notice how the points are drawn out-of-order on the right-hand side?</a></li>
-<li><a href="#what-is-causing-the-delay-between-send-and-receive">What is causing the delay between send and receive?</a></li>
-<li><a href="#how-can-i-get-an-idea-of-the-latency-between-send-and-receive">How can I get an idea of the latency between send and receive?</a></li>
-<li><a href="#javascript-code-to-obtain-credentials-from-amazon-cognito">Javascript code to obtain credentials from Amazon Cognito</a></li>
-<li><a href="#how-are-the-messages-sent-into-the-queue-from-javascript">How are the messages sent into the queue from javascript?</a></li>
-<li><a href="#where-can-i-find-more-information-about-the-aws-sdk-for-javascript-and-sqs">Where can I find more information about the AWS SDK for Javascript and SQS?</a></li>
-<li><a href="#inspect-the-messages-in-the-sqs-queue">Inspect the messages in the SQS queue</a></li>
+<li><a href="/2-messaging-options/3-sqs-pub-sub/#notice-how-the-points-are-drawn-out-of-order-on-the-right-hand-side">Notice how the points are drawn out-of-order on the right-hand side?</a></li>
+<li><a href="/2-messaging-options/3-sqs-pub-sub/#what-is-causing-the-delay-between-send-and-receive">What is causing the delay between send and receive?</a></li>
+<li><a href="/2-messaging-options/3-sqs-pub-sub/#how-can-i-get-an-idea-of-the-latency-between-send-and-receive">How can I get an idea of the latency between send and receive?</a></li>
+<li><a href="/2-messaging-options/3-sqs-pub-sub/#javascript-code-to-obtain-credentials-from-amazon-cognito">Javascript code to obtain credentials from Amazon Cognito</a></li>
+<li><a href="/2-messaging-options/3-sqs-pub-sub/#how-are-the-messages-sent-into-the-queue-from-javascript">How are the messages sent into the queue from javascript?</a></li>
+<li><a href="/2-messaging-options/3-sqs-pub-sub/#where-can-i-find-more-information-about-the-aws-sdk-for-javascript-and-sqs">Where can I find more information about the AWS SDK for Javascript and SQS?</a></li>
+<li><a href="/2-messaging-options/3-sqs-pub-sub/#inspect-the-messages-in-the-sqs-queue">Inspect the messages in the SQS queue</a></li>
 </ul>
 <h4 id="notice-how-the-points-are-drawn-out-of-order-on-the-right-hand-side">Notice how the points are drawn out-of-order on the right-hand side?</h4>
 <p>This is because messages received via an SQS are received in an indeterminate order. This is a characteristic of the <strong>standard SQS queue</strong>.</p>
 <p>For example, draw a triangle:</p>
-<p><img src="/images/2/7.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/7.png?width=90pc"></p>
 <p>Notice the statistics panel on the publisher side - it shows the SQS messages it has sent, and those where the HTTP call has successfully completed. When you stop drawing, these two numbers will be the same after a moment or two.</p>
 <p>On the right you will see the subscriber representation. The grey canvas will eventually mirror the drawing in the publisher canvas. It will take a few moments for all the messages to be received and rendered on the subscriber canvas. Eventually, the statistics in the subscriber panel will show the same number of messages received as the messages sent statistics in the publisher panel.</p>
 <p>What you will notice in this demo is that the shape will render the drawing points on the subscriber panel in a different order than the order they were drawn. Regardless, eventually, every drawing point will be rendered.</p>
@@ -1763,12 +1763,12 @@
 <li>Open the <strong>SQS console</strong> in the browser, in a different browser tab so both are active at the same time.</li>
 </ol>
 <p>You will see the SQS Queues that have been provisioned for you by the EE setup. Select <strong>idevelop_drawqueue_1</strong> and from the <strong>Queue Actions</strong> menu, <strong>View/Delete messages</strong>:</p>
-<p><img src="/images/2/8.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/8.png?width=90pc"></p>
 <ol start="2">
 <li>Click <strong>Start Polling for Messages</strong>. In another browser tab, draw more points on the publisher canvas, then switch back to the AWS console tab:</li>
 </ol>
-<p><img src="/images/2/9a.png?width=90pc" alt="SQS"></p>
-<p><img src="/images/2/9b.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/9a.png?width=90pc"></p>
+<p><img alt="SQS" src="/images/2/9b.png?width=90pc"></p>
 <p>Viewing the messages this way does not consume them, they are still available to subscribers to process. But it is a helpful tool, to check that messages are flowing through the queue(s) as expected during the development phase.</p>
 
 
@@ -2624,19 +2624,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077933"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077933"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077933"></script>
-    <script src="/js/jquery.sticky.js?1701077933"></script>
-    <script src="/js/featherlight.min.js?1701077933"></script>
-    <script src="/js/highlight.pack.js?1701077933"></script>
+    <script src="/js/clipboard.min.js?1733804480"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804480"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804480"></script>
+    <script src="/js/jquery.sticky.js?1733804480"></script>
+    <script src="/js/featherlight.min.js?1733804480"></script>
+    <script src="/js/highlight.pack.js?1733804480"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077933"></script>
-    <script src="/js/learn.js?1701077933"></script>
-    <script src="/js/hugo-learn.js?1701077933"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804480"></script>
+    <script src="/js/learn.js?1733804480"></script>
+    <script src="/js/hugo-learn.js?1733804480"></script>
 
-    <link href="/mermaid/mermaid.css?1701077933" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077933"></script>
+    <link href="/mermaid/mermaid.css?1733804480" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804480"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

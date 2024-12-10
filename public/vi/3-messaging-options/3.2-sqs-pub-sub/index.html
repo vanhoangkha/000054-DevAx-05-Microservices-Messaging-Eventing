@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>SQS Publisher tới SQS Subcriber :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices cho Truyền tin &amp; Sự kiện</title>
 
     
-    <link href="/css/nucleus.css?1701077934" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077934" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077934" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077934" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077934" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077934" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077934" rel="stylesheet">
-    <link href="/css/theme.css?1701077934" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077934" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077934" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077934"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077934"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077934"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077934"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -1028,7 +1028,7 @@
   
     
     <li data-nav-id="/vi/3-messaging-options/3.2-sqs-pub-sub/" title="SQS Publisher tới SQS Subcriber" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1690,10 +1690,10 @@
 
 	<h4 id="sqs-publisher-tới-sqs-subcriber">SQS Publisher tới SQS Subcriber</h4>
 <p>Trong trường hợp này, chúng ta sẽ sử dụng các hàng đợi này và xem xét một trường hợp đơn giản trong đó chúng ta có publisher đẩy các thông tin vào hàng đợi SQS và một subscriber đọc từ cùng một hàng đợi. Kiến trúc trông như thế này:
-<img src="/images/3-messaging-options/3.2-sqs-pub-sub/architecture.png?featherlight=false&amp;width=70pc" alt="SQS Publisher to SQS Subscriber"></p>
+<img alt="SQS Publisher to SQS Subscriber" src="/images/3-messaging-options/3.2-sqs-pub-sub/architecture.png?featherlight=false&width=70pc"></p>
 <p>Trang web sử dụng AWS SDK cho Javascript trong trình duyệt và xác thực ẩn danh với Amazon Cognito để lấy thông tin đăng nhập tạm thời, phạm vi mà nó có thể ký yêu cầu kết nối với dịch vụ Amazon SQS, để gửi tin và đăng ký vào cùng một hàng đợi SQS.</p>
 <p>Trong bản demo này, publisher được thể hiện trên khung màu xám bên trái, subscriber ở bên phải. Sử dụng chuột của bạn, vẽ một hình dạng bằng cách nhấp xuống bằng nút chuột trái trong khi bạn di chuyển chuột để để lại một đường các pixel. Khi bạn vẽ, thông tin sẽ được gửi đến hàng đợi SQS chứa thông tin về tọa độ X &amp; Y của chuột. Các thông tin này sẽ được nhận bởi trình duyệt đang lấy thông tin từ cùng một hàng đợi SQS và được hiển thị trên khung vẽ bên phải.
-<img src="/images/3-messaging-options/3.2-sqs-pub-sub/sqs-pub-sub-001.png?featherlight=false&amp;width=90pc" alt="SQS Publisher to SQS Subscriber"></p>
+<img alt="SQS Publisher to SQS Subscriber" src="/images/3-messaging-options/3.2-sqs-pub-sub/sqs-pub-sub-001.png?featherlight=false&width=90pc"></p>
 <p>Chú ý vì sao các điểm được vẽ không theo thứ tự ở phía bên tay phải. Điều này là do các thông tin nhận được qua SQS được nhận theo thứ tự không xác định. Đây là một đặc điểm của <strong>standard SQS queue</strong>.</p>
 <p>Chú ý bảng thống kê ở phía publisher - nó hiển thị các SQS thông tin mà nó đã gửi và những thông tin đã gọi HTTP hoàn tất thành công. Khi bạn ngừng vẽ, hai con số này sẽ giống nhau sau một thời gian.</p>
 <p>Ở bên phải, bạn sẽ thấy hiển thị subscriber. Khung màu xám cuối cùng sẽ phản chiếu bản vẽ trong khung của publisher. Sẽ mất một vài phút để tất cả các thông tin được nhận và hiển thị trên khung dành cho subscriber. Cuối cùng, thống kê trong bảng subscriber sẽ hiển thị số lượng thông tin nhận được giống như số liệu thống kê tin nhắn đã gửi trong bảng publisher.</p>
@@ -1754,15 +1754,15 @@ sqsInstance.receiveMessage(params, function (err, data) {});
 <ul>
 <li>Chọn <strong>idevelop_drawqueue_1</strong></li>
 <li>Click <strong>Send and recieve messages</strong>
-<img src="/images/3-messaging-options/3.2-sqs-pub-sub/sqs-pub-sub-002.png?featherlight=false&amp;width=90pc" alt="SQS Publisher to SQS Subscriber"></li>
+<img alt="SQS Publisher to SQS Subscriber" src="/images/3-messaging-options/3.2-sqs-pub-sub/sqs-pub-sub-002.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="2">
 <li>Click <strong>Start Polling for messages</strong>, Trong một tab trình duyệt khác, vẽ thêm điểm trên khung của publisher, sau đó chuyển trở lại.
-<img src="/images/3-messaging-options/3.2-sqs-pub-sub/sqs-pub-sub-003.png?featherlight=false&amp;width=90pc" alt="SQS Publisher to SQS Subscriber"></li>
+<img alt="SQS Publisher to SQS Subscriber" src="/images/3-messaging-options/3.2-sqs-pub-sub/sqs-pub-sub-003.png?featherlight=false&width=90pc"></li>
 </ol>
 <ul>
 <li>Click id của message để xem thông tin chi tiết
-<img src="/images/3-messaging-options/3.2-sqs-pub-sub/sqs-pub-sub-004.png?featherlight=false&amp;width=90pc" alt="SQS Publisher to SQS Subscriber"></li>
+<img alt="SQS Publisher to SQS Subscriber" src="/images/3-messaging-options/3.2-sqs-pub-sub/sqs-pub-sub-004.png?featherlight=false&width=90pc"></li>
 </ul>
 <p>Việc xem thông tin theo cách này không làm mất chúng, chúng vẫn có sẵn cho subscriber xử lý. Nhưng nó là một công cụ hữu ích, để kiểm tra xem các thông tin có chạy qua các hàng đợi như mong đợi trong giai đoạn phát triển hay không.</p>
 
@@ -2619,19 +2619,19 @@ sqsInstance.receiveMessage(params, function (err, data) {});
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077935"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077935"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077935"></script>
-    <script src="/js/jquery.sticky.js?1701077935"></script>
-    <script src="/js/featherlight.min.js?1701077935"></script>
-    <script src="/js/highlight.pack.js?1701077935"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077935"></script>
-    <script src="/js/learn.js?1701077935"></script>
-    <script src="/js/hugo-learn.js?1701077935"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077935" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077935"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

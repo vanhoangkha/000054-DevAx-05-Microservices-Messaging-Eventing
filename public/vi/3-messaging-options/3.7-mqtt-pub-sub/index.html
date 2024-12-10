@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>MQTT Publisher tới MQTT Subcriber :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices cho Truyền tin &amp; Sự kiện</title>
 
     
-    <link href="/css/nucleus.css?1701077934" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077934" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077934" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077934" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077934" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077934" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077934" rel="stylesheet">
-    <link href="/css/theme.css?1701077934" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077934" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077934" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077934"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077934"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077934"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077934"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -1168,7 +1168,7 @@
   
     
     <li data-nav-id="/vi/3-messaging-options/3.7-mqtt-pub-sub/" title="MQTT Publisher tới MQTT Subcriber" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1691,10 +1691,10 @@
 	<h4 id="mqtt-publisher-tới-mqtt-subcriber">MQTT Publisher tới MQTT Subcriber</h4>
 <p>Hành động gửi thông tin cuối cùng cần khám phá là <strong>Lightweight MQTT messaging</strong>, sử dụng <strong>AWS IoT</strong> như một kênh pub/sub tạm thời. Trong trường hợp này, các sự kiện vẽ được gửi cho một MQTT topic tùy chỉnh. Cùng một topic tùy chỉnh này được đăng ký bởi khung nhận và điểm được hiển thị. Độ trễ giữa publisher và subscriber là rất thấp, nhưng lưu ý rằng tất cả các message được gửi trên kênh là tạm thời - nếu subscriber không trong trạng thái “listening” khi publisher gửi tin nhắn, tin nhắn sẽ bị mất vĩnh viễn.</p>
 <p>Kiến trúc cho kịch bản này trông giống như sau:
-<img src="/images/3-messaging-options/3.7-mqtt-pub-sub/iotpubsubarchitecture.png?featherlight=false&amp;width=70pc" alt="MQTT Publisher to MQTT Subscriber"></p>
+<img alt="MQTT Publisher to MQTT Subscriber" src="/images/3-messaging-options/3.7-mqtt-pub-sub/iotpubsubarchitecture.png?featherlight=false&width=70pc"></p>
 <ol>
 <li>Để bắt đầu demo này, hãy chọn vào danh sách trên trang web và chọn <strong>AWS IoT MQTT publisher to MQTT subscriber</strong>. Khi trang khởi chạy, hãy vẽ một hình trên khung MQTT Publisher. Khung vẽ của MQTT Subscriber sẽ cập nhật gần như ngay lập tức đồng bộ với bản vẽ trên publisher.
-<img src="/images/3-messaging-options/3.7-mqtt-pub-sub/mqtt-pub-sub-001.png?featherlight=false&amp;width=90pc" alt="MQTT Publisher to MQTT Subscriber"></li>
+<img alt="MQTT Publisher to MQTT Subscriber" src="/images/3-messaging-options/3.7-mqtt-pub-sub/mqtt-pub-sub-001.png?featherlight=false&width=90pc"></li>
 </ol>
 <p>Để biết về độ trễ, hãy chọn vào <strong>Clear drawing</strong> một vài lần và xem <strong>Average Latency statistic</strong>.</p>
 <p>Mở một cửa sổ trình duyệt khác và duyệt đến trang web demo và sắp xếp các cửa sổ để bạn có thể xem cả hai trang cùng một lúc. Chọn <strong>AWS IoT MQTT publisher to MQTT subscriber slave</strong> từ danh sách trên trình duyệt thứ hai. Bây giờ, hãy vẽ một hình trên MQTT Publisher. Lưu ý rằng hình xuất hiện trên khung MQTT Subscriber trên cả hai trang cùng một lúc. Các tin nhắn MQTT tự động gửi ‘rẽ quạt’ đến nhiều subscriber. Bạn không cần cung cấp trước các trang subscriber - chúng được đăng ký động vào cùng một kênh khi chúng kết nối. Không giống như SQS, nơi bạn cần cung cấp hàng đợi SQS trước.</p>
@@ -2553,19 +2553,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077934"></script>
-    <script src="/js/jquery.sticky.js?1701077934"></script>
-    <script src="/js/featherlight.min.js?1701077934"></script>
-    <script src="/js/highlight.pack.js?1701077934"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077934"></script>
-    <script src="/js/learn.js?1701077934"></script>
-    <script src="/js/hugo-learn.js?1701077934"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077934" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077934"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

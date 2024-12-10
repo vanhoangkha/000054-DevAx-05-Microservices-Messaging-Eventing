@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>SNS Publisher tới nhiều SQS Subcribers  :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices cho Truyền tin &amp; Sự kiện</title>
 
     
-    <link href="/css/nucleus.css?1701077934" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077934" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077934" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077934" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077934" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077934" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077934" rel="stylesheet">
-    <link href="/css/theme.css?1701077934" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077934" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077934" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077934"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077934"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077934"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077934"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -1112,7 +1112,7 @@
   
     
     <li data-nav-id="/vi/3-messaging-options/3.5-sns-pub-subs/" title="SNS Publisher tới nhiều SQS Subcribers " class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1689,14 +1689,14 @@
 
 
 	<h4 id="sns-publisher-tới-nhiều-sqs-subcribers">SNS Publisher tới nhiều SQS Subcribers</h4>
-<p>Trong <a href="../3.3-sqs-pub-subs/">Phần 3.3</a>, chúng ta đã thấy cách nhiều subscriber đọc từ cùng một hàng đợi SQS có thể ‘giành lấy’ thông tin của nhau, do đó không có subscriber nào nhìn thấy tất cả các thông tin trong hàng đợi. Đôi khi yêu cầu nhiều subscriber trong một hàng đợi nhận được tất cả các thông tin, vì vậy cần có một số cơ chế để gửi một thông tin cho nhiều hàng đợi. Giải pháp là sử dụng một phương thức trung gian để ‘truyền tải’ thông điệp đến nhiều subscriber. Trung gian trong trường hợp này là Amazon Simple Notification Service (SNS). Amazon SNS cho phép một ứng dụng gửi một mục đích thông điệp duy nhất và gửi thông điệp đó đến một hoặc nhiều mục tiêu. (Các) mục tiêu của thông báo có thể là HTTP endpoint, thiết bị di động hoặc hàng đợi SQS - và trên thực tế là sự kết hợp giữa nhiều hoặc bất kỳ thành phần nào trong những thành phần đã liệt kê. Kiến trúc cho kịch bản này trông giống như sau:</p>
-<p><img src="/images/3-messaging-options/3.5-sns-pub-subs/snssqsarchitecture.png?featherlight=false&amp;width=70pc" alt="SNS Publisher To Multiple SQS Subscriber"></p>
+<p>Trong <a href="/vi/3-messaging-options/3.3-sqs-pub-subs/">Phần 3.3</a>, chúng ta đã thấy cách nhiều subscriber đọc từ cùng một hàng đợi SQS có thể ‘giành lấy’ thông tin của nhau, do đó không có subscriber nào nhìn thấy tất cả các thông tin trong hàng đợi. Đôi khi yêu cầu nhiều subscriber trong một hàng đợi nhận được tất cả các thông tin, vì vậy cần có một số cơ chế để gửi một thông tin cho nhiều hàng đợi. Giải pháp là sử dụng một phương thức trung gian để ‘truyền tải’ thông điệp đến nhiều subscriber. Trung gian trong trường hợp này là Amazon Simple Notification Service (SNS). Amazon SNS cho phép một ứng dụng gửi một mục đích thông điệp duy nhất và gửi thông điệp đó đến một hoặc nhiều mục tiêu. (Các) mục tiêu của thông báo có thể là HTTP endpoint, thiết bị di động hoặc hàng đợi SQS - và trên thực tế là sự kết hợp giữa nhiều hoặc bất kỳ thành phần nào trong những thành phần đã liệt kê. Kiến trúc cho kịch bản này trông giống như sau:</p>
+<p><img alt="SNS Publisher To Multiple SQS Subscriber" src="/images/3-messaging-options/3.5-sns-pub-subs/snssqsarchitecture.png?featherlight=false&width=70pc"></p>
 <ol>
 <li>Để bắt đầu demo này, hãy nhấp vào danh sách trên trang web và chọn <strong>AWS SNS publisher to multiple SQS subscribers</strong>.</li>
 </ol>
 <ul>
 <li>Khi quá trình khởi tạo trang hoàn tất, hãy vẽ một hình dạng trên khung của publisher. Hãy để ý xem hình dạng được hiển thị như thế nào trên các khung bên phải của subscriber, với mỗi khung thể hiện giống hệt nhau và trình bày đầy đủ như khung của publisher? Điều này là do các điểm vẽ được gửi đến một Amazon SNS topic, từ đó gửi ‘rẽ quạt’ tới ba hàng đợi Amazon SQS, để mỗi hàng đợi nhận được tất cả các thông tin. Cuối cùng, cả ba subscriber sẽ hiển thị hình dạng đầy đủ, mặc dù họ sẽ nhận được thông tin điểm vẽ theo các thứ tự khác nhau và vẽ theo thứ tự mà chúng đã được nhận.
-<img src="/images/3-messaging-options/3.5-sns-pub-subs/sns-pub-subs-001.png?featherlight=false&amp;width=90pc" alt="SNS Publisher To Multiple SQS Subscriber">
+<img alt="SNS Publisher To Multiple SQS Subscriber" src="/images/3-messaging-options/3.5-sns-pub-subs/sns-pub-subs-001.png?featherlight=false&width=90pc">
 Lưu ý rằng thông tins Received statistic đã nhận gấp 3 lần thông tins Sent statistic, được mong đợi nếu các thông tin được gửi được ‘rẽ quạt’ thành ba hàng đợi.</li>
 </ul>
 <h4 id="cấu-hình-sns-fan-out-cho-nhiều-hàng-đợi-sqs-như-thế-nào">Cấu hình SNS fan-out cho nhiều hàng đợi SQS như thế nào?</h4>
@@ -1708,11 +1708,11 @@ Lưu ý rằng thông tins Received statistic đã nhận gấp 3 lần thông t
 <li>Click <strong>Topics</strong></li>
 <li>Nhập <code>iDevelopMessageDuplicator</code> vào ô tìm kiếm, nhấn <strong>Enter</strong></li>
 <li>Click <strong>iDevelopMessageDuplicator</strong>
-<img src="/images/3-messaging-options/3.5-sns-pub-subs/sns-pub-subs-002.png?featherlight=false&amp;width=90pc" alt="SNS Publisher To Multiple SQS Subscriber"></li>
+<img alt="SNS Publisher To Multiple SQS Subscriber" src="/images/3-messaging-options/3.5-sns-pub-subs/sns-pub-subs-002.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="2">
 <li>Bạn sẽ thấy ba subscriber - một subscriber đại diện cho một trong ba hàng đợi SQS
-<img src="/images/3-messaging-options/3.5-sns-pub-subs/sns-pub-subs-003.png?featherlight=false&amp;width=90pc" alt="SNS Publisher To Multiple SQS Subscriber"></li>
+<img alt="SNS Publisher To Multiple SQS Subscriber" src="/images/3-messaging-options/3.5-sns-pub-subs/sns-pub-subs-003.png?featherlight=false&width=90pc"></li>
 </ol>
 <p>Khi một thông tin được gửi đến SNS topic, nó sẽ tự động được chuyển đến từng subscriber, trong trường hợp này là ba hàng đợi SQS. Khi trình duyệt gửi các điểm vẽ đến SNS topic, chúng cũng được chuyển đến ba hàng đợi SQS, mỗi hàng được triển khai trên trang web và các điểm được hiển thị trên khung của ba subscriber.</p>
 <h4 id="làm-thế-nào-các-thông-tin-được-gửi-đến-một-sns-topic-từ-javascript">Làm thế nào các thông tin được gửi đến một SNS topic từ Javascript?</h4>
@@ -2579,19 +2579,19 @@ snsInstance.publish(params, function(err, data){});
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077934"></script>
-    <script src="/js/jquery.sticky.js?1701077934"></script>
-    <script src="/js/featherlight.min.js?1701077934"></script>
-    <script src="/js/highlight.pack.js?1701077934"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077934"></script>
-    <script src="/js/learn.js?1701077934"></script>
-    <script src="/js/hugo-learn.js?1701077934"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077934" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077934"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

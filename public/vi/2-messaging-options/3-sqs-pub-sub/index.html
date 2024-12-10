@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>SQS Publisher tới SQS Subcriber :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices cho Truyền tin &amp; Sự kiện</title>
 
     
-    <link href="/css/nucleus.css?1701077934" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077934" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077934" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077934" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077934" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077934" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077934" rel="stylesheet">
-    <link href="/css/theme.css?1701077934" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077934" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077934" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077934"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077934"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077934"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077934"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -290,7 +290,7 @@
   
     
     <li data-nav-id="/vi/2-messaging-options/3-sqs-pub-sub/" title="SQS Publisher tới SQS Subcriber" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1689,23 +1689,23 @@
 
 
 	<p>Trong trường hợp này, chúng ta sẽ sử dụng các hàng đợi này và xem xét một trường hợp đơn giản trong đó chúng ta có publisher đẩy các thông tin vào hàng đợi SQS và một subscriber đọc từ cùng một hàng đợi. Kiến trúc trông như thế này:</p>
-<p><img src="/images/2/sqspubsub-architecture.png?width=50pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/sqspubsub-architecture.png?width=50pc"></p>
 <p>Trang web sử dụng AWS SDK cho Javascript trong trình duyệt và xác thực ẩn danh với Amazon Cognito để lấy thông tin đăng nhập tạm thời, phạm vi mà nó có thể ký yêu cầu kết nối với dịch vụ Amazon SQS, để gửi tin và đăng ký vào cùng một hàng đợi SQS.</p>
 <p>Trong bản demo này, publisher được thể hiện trên khung màu xám bên trái, subscriber ở bên phải. Sử dụng chuột của bạn, vẽ một hình dạng bằng cách nhấp xuống bằng nút chuột trái trong khi bạn di chuyển chuột để để lại một đường các pixel. Khi bạn vẽ, thông tin sẽ được gửi đến hàng đợi SQS chứa thông tin về tọa độ X &amp; Y của chuột. Các thông tin này sẽ được nhận bởi trình duyệt đang lấy thông tin từ <strong>cùng một</strong> hàng đợi SQS và được hiển thị trên khung vẽ bên phải.</p>
 <p><strong>Nội dung</strong></p>
 <ul>
-<li><a href="#ch%C3%BA-%C3%BD-v%C3%AC-sao-c%C3%A1c-%C4%91i%E1%BB%83m-%C4%91%C6%B0%E1%BB%A3c-v%E1%BA%BD-kh%C3%B4ng-theo-th%E1%BB%A9-t%E1%BB%B1-%E1%BB%9F-ph%C3%ADa-b%C3%AAn-tay-ph%E1%BA%A3i">Chú ý vì sao các điểm được vẽ không theo thứ tự ở phía bên tay phải?</a></li>
-<li><a href="#%C4%91i%E1%BB%81u-g%C3%AC-g%C3%A2y-ra-s%E1%BB%B1-ch%E1%BA%ADm-tr%E1%BB%85-gi%E1%BB%AFa-g%E1%BB%ADi-v%C3%A0-nh%E1%BA%ADn">Điều gì gây ra sự chậm trễ giữa gửi và nhận?</a></li>
-<li><a href="#l%C3%A0m-c%C3%A1ch-n%C3%A0o-%C4%91%E1%BB%83-bi%E1%BA%BFt-%C4%91%C6%B0%E1%BB%A3c-%C4%91%E1%BB%99-tr%E1%BB%85-gi%E1%BB%AFa-g%E1%BB%ADi-v%C3%A0-nh%E1%BA%ADn">Làm cách nào để biết được độ trễ giữa gửi và nhận?</a></li>
-<li><a href="#m%C3%A3-javascript-%C4%91%E1%BB%83-l%E1%BA%A5y-th%C3%B4ng-tin-%C4%91%C4%83ng-nh%E1%BA%ADp-t%E1%BB%AB-amazon-cognito">Mã Javascript để lấy thông tin đăng nhập từ Amazon Cognito</a></li>
-<li><a href="#l%C3%A0m-th%E1%BA%BF-n%C3%A0o-c%C3%A1c-tin-nh%E1%BA%AFn-%C4%91%C6%B0%E1%BB%A3c-g%E1%BB%ADi-v%C3%A0o-h%C3%A0ng-%C4%91%E1%BB%A3i-t%E1%BB%AB-javascript">Làm thế nào các tin nhắn được gửi vào hàng đợi từ javascript?</a></li>
-<li><a href="#b%E1%BA%A1n-c%C3%B3-th%E1%BB%83-t%C3%ACm-th%C3%AAm-th%C3%B4ng-tin-v%E1%BB%81-aws-sdk-cho-javascript-v%C3%A0-sqs-%E1%BB%9F-%C4%91%C3%A2u">Bạn có thể tìm thêm thông tin về AWS SDK cho Javascript và SQS ở đâu?</a></li>
-<li><a href="#ki%E1%BB%83m-tra-c%C3%A1c-th%C3%B4ng-tin-trong-h%C3%A0ng-%C4%91%E1%BB%A3i-sqs">Kiểm tra các thông tin trong hàng đợi SQS</a></li>
+<li><a href="/vi/2-messaging-options/3-sqs-pub-sub/#chú-ý-vì-sao-các-điểm-được-vẽ-không-theo-thứ-tự-ở-phía-bên-tay-phải">Chú ý vì sao các điểm được vẽ không theo thứ tự ở phía bên tay phải?</a></li>
+<li><a href="/vi/2-messaging-options/3-sqs-pub-sub/#điều-gì-gây-ra-sự-chậm-trễ-giữa-gửi-và-nhận">Điều gì gây ra sự chậm trễ giữa gửi và nhận?</a></li>
+<li><a href="/vi/2-messaging-options/3-sqs-pub-sub/#làm-cách-nào-để-biết-được-độ-trễ-giữa-gửi-và-nhận">Làm cách nào để biết được độ trễ giữa gửi và nhận?</a></li>
+<li><a href="/vi/2-messaging-options/3-sqs-pub-sub/#mã-javascript-để-lấy-thông-tin-đăng-nhập-từ-amazon-cognito">Mã Javascript để lấy thông tin đăng nhập từ Amazon Cognito</a></li>
+<li><a href="/vi/2-messaging-options/3-sqs-pub-sub/#làm-thế-nào-các-tin-nhắn-được-gửi-vào-hàng-đợi-từ-javascript">Làm thế nào các tin nhắn được gửi vào hàng đợi từ javascript?</a></li>
+<li><a href="/vi/2-messaging-options/3-sqs-pub-sub/#bạn-có-thể-tìm-thêm-thông-tin-về-aws-sdk-cho-javascript-và-sqs-ở-đâu">Bạn có thể tìm thêm thông tin về AWS SDK cho Javascript và SQS ở đâu?</a></li>
+<li><a href="/vi/2-messaging-options/3-sqs-pub-sub/#kiểm-tra-các-thông-tin-trong-hàng-đợi-sqs">Kiểm tra các thông tin trong hàng đợi SQS</a></li>
 </ul>
 <h4 id="chú-ý-vì-sao-các-điểm-được-vẽ-không-theo-thứ-tự-ở-phía-bên-tay-phải">Chú ý vì sao các điểm được vẽ không theo thứ tự ở phía bên tay phải?</h4>
 <p>Điều này là do các thông tin nhận được qua SQS được nhận theo thứ tự không xác định. Đây là một đặc điểm của <strong>standard SQS queue</strong>.</p>
 <p>Ví dụ, vẽ một hình tam giác:</p>
-<p><img src="/images/2/7.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/7.png?width=90pc"></p>
 <p>Chú ý bảng thống kê ở phía publisher - nó hiển thị các SQS thông tin mà nó đã gửi và những thông tin đã gọi HTTP hoàn tất thành công. Khi bạn ngừng vẽ, hai con số này sẽ giống nhau sau một thời gian.</p>
 <p>Ở bên phải, bạn sẽ thấy hiển thị subscriber. Khung màu xám cuối cùng sẽ phản chiếu bản vẽ trong khung của publisher. Sẽ mất một vài phút để tất cả các thông tin được nhận và hiển thị trên khung dành cho subscriber. Cuối cùng, thống kê trong bảng subscriber sẽ hiển thị số lượng thông tin nhận được giống như số liệu thống kê tin nhắn đã gửi trong bảng publisher.</p>
 <p>Những gì bạn sẽ nhận thấy trong bản trình diễn này là hình dạng sẽ hiển thị các điểm vẽ trên bảng subscriber theo thứ tự khác với thứ tự chúng được vẽ. Mặc dù cuối cùng, mọi điểm vẽ sẽ được hiển thị.</p>
@@ -1764,12 +1764,12 @@ Do bản chất của mô hình phân luồng trong trình duyệt và sự xung
 <li>Mở <strong>SQS console</strong> trong trình duyệt, trong một tab trình duyệt khác để cả hai đều hoạt động cùng một lúc.</li>
 </ol>
 <p>Bạn sẽ thấy Hàng đợi SQS đã được thiết lập cho bạn bằng việc cài đặt EE. Chọn <strong>idevelop_drawqueue_1</strong> và từ menu <strong>Queue Actions</strong>, <strong>View/Delete thông tins</strong>:</p>
-<p><img src="/images/2/8.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/8.png?width=90pc"></p>
 <ol start="2">
 <li>Nhấp vào <strong>Start Polling for thông tins</strong>. Trong một tab trình duyệt khác, vẽ thêm điểm trên khung của publisher, sau đó chuyển trở lại tab ở AWS console:</li>
 </ol>
-<p><img src="/images/2/9a.png?width=90pc" alt="SQS"></p>
-<p><img src="/images/2/9b.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/9a.png?width=90pc"></p>
+<p><img alt="SQS" src="/images/2/9b.png?width=90pc"></p>
 <p>Việc xem thông tin theo cách này không làm mất chúng, chúng vẫn có sẵn cho subscriber xử lý. Nhưng nó là một công cụ hữu ích, để kiểm tra xem các thông tin có chạy qua (các) hàng đợi như mong đợi trong giai đoạn phát triển hay không.</p>
 
 
@@ -2625,19 +2625,19 @@ Do bản chất của mô hình phân luồng trong trình duyệt và sự xung
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077934"></script>
-    <script src="/js/jquery.sticky.js?1701077934"></script>
-    <script src="/js/featherlight.min.js?1701077934"></script>
-    <script src="/js/highlight.pack.js?1701077934"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077934"></script>
-    <script src="/js/learn.js?1701077934"></script>
-    <script src="/js/hugo-learn.js?1701077934"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077934" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077934"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>AWS Cloud9 Environment :: DevAx - Monoliths to Microservices - Microservices Messaging &amp; Eventing</title>
 
     
-    <link href="/css/nucleus.css?1701077933" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077933" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077933" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077933" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077933" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077933" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077933" rel="stylesheet">
-    <link href="/css/theme.css?1701077933" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077933" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077933" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077933"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077933"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077933"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077933"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -461,7 +461,7 @@
   
     
     <li data-nav-id="/2-messaging-options/7-kinesis-pub-sqs-sub/b/" title="AWS Cloud9 Environment" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1697,17 +1697,17 @@
 	<p>Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information. In this scenario, the browser will send draw points to a Kinesis stream. Normally, we would create a Kinesis consumer client and read the events from the stream directly and process them, and we will do this in our next scenario. But for this scenario, let’s assume we want the messages to be delivered to an SQS queue like we have done in our previous scenarios.</p>
 <p>Since there is no in-built way to route messages that have been published to a Kinesis stream into an SQS queue, we need an intermediary to do that processing/routing for us. In this scenario, we will implement the intermediary as an AWS Lambda function that will create a bridge between the Kinesis stream, and the SQS queue we want to target.</p>
 <p>The architecture for this scenario looks like this:</p>
-<p><img src="/images/2/kinesislambdasqsarchitecture.png?width=50pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/kinesislambdasqsarchitecture.png?width=50pc"></p>
 <p>Similar to a previous scenario, messages are rendered by a single subscriber to an Amazon SQS queue. But in this case, the messages are published to a Kinesis stream, and then transferred to the SQS queue by the Lambda function.</p>
 <p><strong>Contents</strong></p>
 <ul>
-<li><a href="#create-an-aws-lambda-function-that-implements-an-amazon-kinesis-event-consumer">Create an AWS Lambda function that implements an Amazon Kinesis event consumer</a></li>
-<li><a href="#update-the-lambda-function-implementation-to-publish-received-events-to-an-sqs-queue">Update the Lambda function implementation to publish received events to an SQS queue</a></li>
+<li><a href="/2-messaging-options/7-kinesis-pub-sqs-sub/b/#create-an-aws-lambda-function-that-implements-an-amazon-kinesis-event-consumer">Create an AWS Lambda function that implements an Amazon Kinesis event consumer</a></li>
+<li><a href="/2-messaging-options/7-kinesis-pub-sqs-sub/b/#update-the-lambda-function-implementation-to-publish-received-events-to-an-sqs-queue">Update the Lambda function implementation to publish received events to an SQS queue</a></li>
 </ul>
 <ol>
 <li>To start this demo, click the drop-down list on the website and choose <strong>AWS Kinesis publisher to SQS subscriber</strong>. When the page initialises, draw a shape on the Kinesis Publisher canvas. Notice that the <strong>Messages Sent</strong> counter increments, but no shape is rendered on the SQS Subscriber canvas? This is because the messages are being published into the Kinesis stream, but no Kinesis consumers are processing the message yet:</li>
 </ol>
-<p><img src="/images/2/15.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/15.png?width=90pc"></p>
 <p>Follow the steps below to implement the Lambda function.</p>
 <h4 id="create-an-aws-lambda-function-that-implements-an-amazon-kinesis-event-consumer">Create an AWS Lambda function that implements an Amazon Kinesis event consumer</h4>
 <ol start="2">
@@ -1857,57 +1857,57 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Successfully created/updated stack - kinesissam-202103 in ap-northeast-1
 </span></span></code></pre></div><p>Lets test the function. Go to the lambda console, and click on the newly created function through SAM.</p>
-<p><img src="/images/2/35.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/35.png?width=90pc"></p>
 <p>Open the <strong>LambdaFunctionHandler</strong> class. It looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LambdaFunctionHandler</span> <span style="color:#66d9ef">implements</span> RequestHandler<span style="color:#f92672">&lt;</span>KinesisEvent<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LambdaFunctionHandler</span> <span style="color:#66d9ef">implements</span> RequestHandler<span style="color:#f92672">&lt;</span>KinesisEvent, Integer<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">handleRequest</span><span style="color:#f92672">(</span>KinesisEvent event<span style="color:#f92672">,</span> Context context<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Input: &#34;</span> <span style="color:#f92672">+</span> event<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">handleRequest</span>(KinesisEvent event, Context context) {
+</span></span><span style="display:flex;"><span>        context.<span style="color:#a6e22e">getLogger</span>().<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Input: &#34;</span> <span style="color:#f92672">+</span> event);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>KinesisEventRecord record <span style="color:#f92672">:</span> event<span style="color:#f92672">.</span><span style="color:#a6e22e">getRecords</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            String payload <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>record<span style="color:#f92672">.</span><span style="color:#a6e22e">getKinesis</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">().</span><span style="color:#a6e22e">array</span><span style="color:#f92672">());</span>
-</span></span><span style="display:flex;"><span>            context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Payload: &#34;</span> <span style="color:#f92672">+</span> payload<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (KinesisEventRecord record : event.<span style="color:#a6e22e">getRecords</span>()) {
+</span></span><span style="display:flex;"><span>            String payload <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String(record.<span style="color:#a6e22e">getKinesis</span>().<span style="color:#a6e22e">getData</span>().<span style="color:#a6e22e">array</span>());
+</span></span><span style="display:flex;"><span>            context.<span style="color:#a6e22e">getLogger</span>().<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Payload: &#34;</span> <span style="color:#f92672">+</span> payload);
+</span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> event<span style="color:#f92672">.</span><span style="color:#a6e22e">getRecords</span><span style="color:#f92672">().</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> event.<span style="color:#a6e22e">getRecords</span>().<span style="color:#a6e22e">size</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>This implementation will simply log the input event received by the Lambda function, and then for each record in the batch, it will log the contents. This is a good starting point to allow us to confirm our configuration is correctly reading data from the Kinesis stream.</p>
 <ol start="3">
 <li>Open the <strong>Kinesis console</strong> in the browser and select <strong>Go to the Streams console</strong></li>
 </ol>
-<p><img src="/images/2/20.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/20.png?width=90pc"></p>
 <ol start="4">
 <li>You will see two streams - both have been provisioned by the lab template during setup. Click on <strong>iDevelopDrawingData</strong></li>
 </ol>
-<p><img src="/images/2/21.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/21.png?width=90pc"></p>
 <ol start="5">
 <li>Select the <strong>Monitoring</strong> tab and scroll down to reveal the <strong>Incoming data - sum (Count)</strong> graph.</li>
 </ol>
-<p><img src="/images/2/22.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/22.png?width=90pc"></p>
 <p>Around this location will be other statistics about the stream. Notice that the <strong>Incoming data - sum (Count)</strong> matches the same number you see in our demo website, under <strong>Messages Sent</strong>? You may need to move your mouse over the graph to see the actual data volume. In the example shown here, you would point your mouse at the end of the line to reveal the count (showing 118). The count of the two points on the graph will equal the <strong>Messages Sent</strong> metric on our website (last image, showing the Messages Sent from our website. 118)</p>
-<p><img src="/images/2/23.png?width=90pc" alt="SQS"></p>
-<p><img src="/images/2/25.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/23.png?width=90pc"></p>
+<p><img alt="SQS" src="/images/2/25.png?width=90pc"></p>
 <ol>
 <li>When the Lambda function has finished uploading, open the <strong>AWS Lambda console</strong> in the browser. You will see the new Lambda function you just uploaded, (<code>kinesissam-202103-LambdaFunction-XXXXXXXXX</code>). Click on it to manage its configuration.</li>
 <li>Under the Designer dashboard, you will find the <strong>Add triggers</strong> section.</li>
 </ol>
-<p><img src="/images/2/26.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/26.png?width=90pc"></p>
 <ol start="8">
 <li>Click <strong>Kinesis</strong> from the list of triggers. It opens up Trigger configuration.</li>
 <li>For <strong>Kinesis stream</strong> select <code>iDevelopDrawingData</code> from the list</li>
 <li>For <strong>Starting position</strong> select <code>Trim horizon</code>. Leave the <strong>Batch size</strong> at <code>100</code>.</li>
 </ol>
-<p><img src="/images/2/27.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/27.png?width=90pc"></p>
 <ol start="11">
 <li>Click <strong>Add</strong> and then click <strong>Save</strong>. The Kinesis trigger will be enabled for this Lambda function.</li>
 </ol>
-<p><img src="/images/2/28.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/28.png?width=90pc"></p>
 <ol start="12">
 <li>It will take a moment or two for the Lambda function to be attached to the Kinesis stream. Wait a minute, and then click the <strong>Refresh</strong> icon on the <strong>Kinesis</strong> pannel. When the Lambda function is wired-up, you will see a message saying <em>Last processing result: OK</em>.</li>
 </ol>
-<p><img src="/images/2/29.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/29.png?width=90pc"></p>
 <ol start="13">
 <li>Click the <strong>Monitoring</strong> tab. The draw points that have been sent into the Kinesis stream will have been consumed by the Lambda function, and you will see CloudWatch metrics indicating this activity. You will see activity in the <em>Invocation count</em> and <em>Invocation duration graphs</em>. Check that you don’t see any <em>Invocation error</em>s.</li>
 </ol>
@@ -1915,15 +1915,15 @@
 <div class="notices note" ><p>Depending on how many draw points you emited into the Kinesis stream, you will see a different number for <em>Invocation count</em>. When we enabled the trigger, we set the Batch size to 100 (which was the default). So the Lambda function will be invoked with up to 100 records at a time. If you sent 225 messages into the stream, this will be consumed by 3 invocations of the Lambda function - Math.ceil(225/100) == 3.</p>
 </div>
 
-<p><img src="/images/2/30.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/30.png?width=90pc"></p>
 <ol start="14">
 <li>Click the <strong>View logs in CloudWatch</strong> button to open the CloudWatch Log Stream for this Lambda function. Click on the first log stream in the list and review the logs listed:</li>
 </ol>
-<p><img src="/images/2/31.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/31.png?width=90pc"></p>
 <ol start="15">
 <li>Scroll through the events in the CloudWatch Log output. These events have been written to the log by our Lambda function code:</li>
 </ol>
-<p><img src="/images/2/32.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/32.png?width=90pc"></p>
 <p>When writing your Lambda function code in Java, you can emit log strings into CloudWatch logs by simply calling the Logger’s .log() method:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>context.getLogger<span style="color:#f92672">()</span>.log<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Log message to emit: &#34;</span> + someMessage<span style="color:#f92672">)</span>;
 </span></span></code></pre></div><h4 id="update-the-lambda-function-implementation-to-publish-received-events-to-an-sqs-queue">Update the Lambda function implementation to publish received events to an SQS queue</h4>
@@ -1931,148 +1931,148 @@
 <ol start="16">
 <li>In the <strong>Cloud9 IDE</strong>, replace the <strong>entire contents</strong> of the <code>kinesis_setup/src/main/java/com/amazonaws/lambda/demo/LambdaFunctionHandler.java</code> file with the following code:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.amazonaws.lambda.demo<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.amazonaws.lambda.demo;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.geom.AffineTransform<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.geom.Point2D<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Collection<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Iterator<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.geom.AffineTransform;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.geom.Point2D;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.ArrayList;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Collection;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Iterator;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.lambda.runtime.Context<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.lambda.runtime.RequestHandler<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.lambda.runtime.events.KinesisEvent<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.lambda.runtime.events.KinesisEvent.KinesisEventRecord<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.sqs.AmazonSQS<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.sqs.AmazonSQSClientBuilder<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.sqs.model.SendMessageBatchRequest<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.sqs.model.SendMessageBatchRequestEntry<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.lambda.runtime.Context;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.lambda.runtime.RequestHandler;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.lambda.runtime.events.KinesisEvent;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.lambda.runtime.events.KinesisEvent.KinesisEventRecord;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.sqs.AmazonSQS;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.sqs.AmazonSQSClientBuilder;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.sqs.model.SendMessageBatchRequest;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.amazonaws.services.sqs.model.SendMessageBatchRequestEntry;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LambdaFunctionHandler</span> <span style="color:#66d9ef">implements</span> RequestHandler<span style="color:#f92672">&lt;</span>KinesisEvent<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LambdaFunctionHandler</span> <span style="color:#66d9ef">implements</span> RequestHandler<span style="color:#f92672">&lt;</span>KinesisEvent, Integer<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> MAX_SQS_BATCH_SIZE <span style="color:#f92672">=</span> 10<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> MAX_SQS_BATCH_SIZE <span style="color:#f92672">=</span> 10;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> AmazonSQS sqs <span style="color:#f92672">=</span> AmazonSQSClientBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">defaultClient</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> AmazonSQS sqs <span style="color:#f92672">=</span> AmazonSQSClientBuilder.<span style="color:#a6e22e">defaultClient</span>();
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">handleRequest</span><span style="color:#f92672">(</span>KinesisEvent event<span style="color:#f92672">,</span> Context context<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">handleRequest</span>(KinesisEvent event, Context context) {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    		Iterator<span style="color:#f92672">&lt;</span>KinesisEventRecord<span style="color:#f92672">&gt;</span> iterator <span style="color:#f92672">=</span> event<span style="color:#f92672">.</span><span style="color:#a6e22e">getRecords</span><span style="color:#f92672">().</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">();</span>    		
-</span></span><span style="display:flex;"><span>    		AffineTransform transformer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AffineTransform<span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> 400<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    		ObjectMapper mapper <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectMapper<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    		Point2D dstPoint <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Point2D<span style="color:#f92672">.</span><span style="color:#a6e22e">Double</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    		<span style="color:#66d9ef">boolean</span> sendMessagesToSQS <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    		Iterator<span style="color:#f92672">&lt;</span>KinesisEventRecord<span style="color:#f92672">&gt;</span> iterator <span style="color:#f92672">=</span> event.<span style="color:#a6e22e">getRecords</span>().<span style="color:#a6e22e">iterator</span>();    		
+</span></span><span style="display:flex;"><span>    		AffineTransform transformer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AffineTransform(1, 0, 0, <span style="color:#f92672">-</span>1, 0, 400);
+</span></span><span style="display:flex;"><span>    		ObjectMapper mapper <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectMapper();
+</span></span><span style="display:flex;"><span>    		Point2D dstPoint <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Point2D.<span style="color:#a6e22e">Double</span>();
+</span></span><span style="display:flex;"><span>    		<span style="color:#66d9ef">boolean</span> sendMessagesToSQS <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
 </span></span><span style="display:flex;"><span>    		
 </span></span><span style="display:flex;"><span>    		<span style="color:#66d9ef">try</span>
-</span></span><span style="display:flex;"><span>    		<span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    			<span style="color:#75715e">//
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    			<span style="color:#75715e">// Read the SQS Queue Target from the Lambda Environment Variables
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    			<span style="color:#75715e">//
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    			String sqsUrl <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">getenv</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;TargetSQSUrl&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    			<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span> sqsUrl <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> sqsUrl<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">()</span> <span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>    			<span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    				context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;WARNING:: Environment Variable [TargetSQSUrl] is not set. No messages will be sent via SQS&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    				sendMessagesToSQS <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    			<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    		{
+</span></span><span style="display:flex;"><span>    			<span style="color:#75715e">//</span>
+</span></span><span style="display:flex;"><span>    			<span style="color:#75715e">// Read the SQS Queue Target from the Lambda Environment Variables</span>
+</span></span><span style="display:flex;"><span>    			<span style="color:#75715e">//</span>
+</span></span><span style="display:flex;"><span>    			String sqsUrl <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">getenv</span>(<span style="color:#e6db74">&#34;TargetSQSUrl&#34;</span>);
+</span></span><span style="display:flex;"><span>    			<span style="color:#66d9ef">if</span> ( sqsUrl <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> sqsUrl.<span style="color:#a6e22e">isEmpty</span>() )
+</span></span><span style="display:flex;"><span>    			{
+</span></span><span style="display:flex;"><span>    				context.<span style="color:#a6e22e">getLogger</span>().<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;WARNING:: Environment Variable [TargetSQSUrl] is not set. No messages will be sent via SQS&#34;</span>);
+</span></span><span style="display:flex;"><span>    				sendMessagesToSQS <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    			}
 </span></span><span style="display:flex;"><span>    				
-</span></span><span style="display:flex;"><span>	    		<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span> iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">()</span> <span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>	    		<span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>	    			<span style="color:#66d9ef">int</span> messageCounter <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	    		<span style="color:#66d9ef">while</span> ( iterator.<span style="color:#a6e22e">hasNext</span>() )
+</span></span><span style="display:flex;"><span>	    		{
+</span></span><span style="display:flex;"><span>	    			<span style="color:#66d9ef">int</span> messageCounter <span style="color:#f92672">=</span> 0;
 </span></span><span style="display:flex;"><span>	
-</span></span><span style="display:flex;"><span>	        		<span style="color:#75715e">// Prepare a batch request to write all the messages we have received in this invocation
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	        		Collection<span style="color:#f92672">&lt;</span>SendMessageBatchRequestEntry<span style="color:#f92672">&gt;</span> entries <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>SendMessageBatchRequestEntry<span style="color:#f92672">&gt;();</span>
+</span></span><span style="display:flex;"><span>	        		<span style="color:#75715e">// Prepare a batch request to write all the messages we have received in this invocation</span>
+</span></span><span style="display:flex;"><span>	        		Collection<span style="color:#f92672">&lt;</span>SendMessageBatchRequestEntry<span style="color:#f92672">&gt;</span> entries <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>SendMessageBatchRequestEntry<span style="color:#f92672">&gt;</span>();
 </span></span><span style="display:flex;"><span>	
-</span></span><span style="display:flex;"><span>	        		<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span> iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">()</span> <span style="color:#f92672">&amp;&amp;</span> messageCounter<span style="color:#f92672">++</span> <span style="color:#f92672">&lt;</span> MAX_SQS_BATCH_SIZE <span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>	        		<span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>		            String payload <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getKinesis</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">().</span><span style="color:#a6e22e">array</span><span style="color:#f92672">());</span>
-</span></span><span style="display:flex;"><span>		            context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Payload: &#34;</span> <span style="color:#f92672">+</span> payload<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>		            DrawPoint transformedPoint <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DrawPoint<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>	        		<span style="color:#66d9ef">while</span> ( iterator.<span style="color:#a6e22e">hasNext</span>() <span style="color:#f92672">&amp;&amp;</span> messageCounter<span style="color:#f92672">++</span> <span style="color:#f92672">&lt;</span> MAX_SQS_BATCH_SIZE )
+</span></span><span style="display:flex;"><span>	        		{
+</span></span><span style="display:flex;"><span>		            String payload <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String(iterator.<span style="color:#a6e22e">next</span>().<span style="color:#a6e22e">getKinesis</span>().<span style="color:#a6e22e">getData</span>().<span style="color:#a6e22e">array</span>());
+</span></span><span style="display:flex;"><span>		            context.<span style="color:#a6e22e">getLogger</span>().<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Payload: &#34;</span> <span style="color:#f92672">+</span> payload);
+</span></span><span style="display:flex;"><span>		            DrawPoint transformedPoint <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DrawPoint();
 </span></span><span style="display:flex;"><span>	
-</span></span><span style="display:flex;"><span>		            <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		            <span style="color:#66d9ef">try</span> {
 </span></span><span style="display:flex;"><span>	
-</span></span><span style="display:flex;"><span>						transformedPoint <span style="color:#f92672">=</span> mapper<span style="color:#f92672">.</span><span style="color:#a6e22e">readValue</span><span style="color:#f92672">(</span>payload<span style="color:#f92672">,</span> DrawPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>			            <span style="color:#75715e">// Transform the point
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			            Point2D srcPoint <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Point2D<span style="color:#f92672">.</span><span style="color:#a6e22e">Double</span><span style="color:#f92672">(</span>transformedPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">getX</span><span style="color:#f92672">(),</span> transformedPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">getY</span><span style="color:#f92672">());</span>	            
-</span></span><span style="display:flex;"><span>			            transformer<span style="color:#f92672">.</span><span style="color:#a6e22e">transform</span><span style="color:#f92672">(</span>srcPoint<span style="color:#f92672">,</span> dstPoint<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>						transformedPoint <span style="color:#f92672">=</span> mapper.<span style="color:#a6e22e">readValue</span>(payload, DrawPoint.<span style="color:#a6e22e">class</span>);
+</span></span><span style="display:flex;"><span>			            <span style="color:#75715e">// Transform the point</span>
+</span></span><span style="display:flex;"><span>			            Point2D srcPoint <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Point2D.<span style="color:#a6e22e">Double</span>(transformedPoint.<span style="color:#a6e22e">getX</span>(), transformedPoint.<span style="color:#a6e22e">getY</span>());	            
+</span></span><span style="display:flex;"><span>			            transformer.<span style="color:#a6e22e">transform</span>(srcPoint, dstPoint);
 </span></span><span style="display:flex;"><span>	
-</span></span><span style="display:flex;"><span>			            <span style="color:#75715e">// Update the payload
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			            transformedPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">setX</span><span style="color:#f92672">((</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span>dstPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">getX</span><span style="color:#f92672">());</span>
-</span></span><span style="display:flex;"><span>			            transformedPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">setY</span><span style="color:#f92672">((</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span>dstPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">getY</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>			            <span style="color:#75715e">// Update the payload</span>
+</span></span><span style="display:flex;"><span>			            transformedPoint.<span style="color:#a6e22e">setX</span>((<span style="color:#66d9ef">int</span>)dstPoint.<span style="color:#a6e22e">getX</span>());
+</span></span><span style="display:flex;"><span>			            transformedPoint.<span style="color:#a6e22e">setY</span>((<span style="color:#66d9ef">int</span>)dstPoint.<span style="color:#a6e22e">getY</span>());
 </span></span><span style="display:flex;"><span>	
-</span></span><span style="display:flex;"><span>		                 <span style="color:#75715e">// Add this payload into our batch
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		        		    	SendMessageBatchRequestEntry entry <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SendMessageBatchRequestEntry<span style="color:#f92672">(</span>
-</span></span><span style="display:flex;"><span>		        		    			<span style="color:#e6db74">&#34;msg_&#34;</span> <span style="color:#f92672">+</span> messageCounter<span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>		        		    			mapper<span style="color:#f92672">.</span><span style="color:#a6e22e">writeValueAsString</span><span style="color:#f92672">(</span>transformedPoint<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>		        		    			<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		                 <span style="color:#75715e">// Add this payload into our batch</span>
+</span></span><span style="display:flex;"><span>		        		    	SendMessageBatchRequestEntry entry <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SendMessageBatchRequestEntry(
+</span></span><span style="display:flex;"><span>		        		    			<span style="color:#e6db74">&#34;msg_&#34;</span> <span style="color:#f92672">+</span> messageCounter,
+</span></span><span style="display:flex;"><span>		        		    			mapper.<span style="color:#a6e22e">writeValueAsString</span>(transformedPoint)
+</span></span><span style="display:flex;"><span>		        		    			);
 </span></span><span style="display:flex;"><span>	
-</span></span><span style="display:flex;"><span>		        		    	entries<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>entry<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>					<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>		            <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>		            <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>		            		context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Unable to deserialise &#34;</span> <span style="color:#f92672">+</span> payload <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; as a DrawPoint! &#34;</span> <span style="color:#f92672">+</span> e<span style="color:#f92672">.</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">());</span>					
-</span></span><span style="display:flex;"><span>					<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>	        		<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>		        		    	entries.<span style="color:#a6e22e">add</span>(entry);
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>		            <span style="color:#66d9ef">catch</span> (Exception e)
+</span></span><span style="display:flex;"><span>		            {
+</span></span><span style="display:flex;"><span>		            		context.<span style="color:#a6e22e">getLogger</span>().<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Unable to deserialise &#34;</span> <span style="color:#f92672">+</span> payload <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; as a DrawPoint! &#34;</span> <span style="color:#f92672">+</span> e.<span style="color:#a6e22e">getMessage</span>());					
+</span></span><span style="display:flex;"><span>					}
+</span></span><span style="display:flex;"><span>	        		}
 </span></span><span style="display:flex;"><span>	
-</span></span><span style="display:flex;"><span>	        		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span> sendMessagesToSQS <span style="color:#f92672">&amp;&amp;</span> entries<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;</span> 0 <span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>	        		<span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>	        			<span style="color:#75715e">// We have reached the end of the records or we have reached the maximum	        		
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		        		<span style="color:#75715e">// batch size allowed for SQS, so we need to send our entries
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		        		context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Sending batch of &#34;</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>messageCounter <span style="color:#f92672">-</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; events to SQS...&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>	        		<span style="color:#66d9ef">if</span> ( sendMessagesToSQS <span style="color:#f92672">&amp;&amp;</span> entries.<span style="color:#a6e22e">size</span>() <span style="color:#f92672">&gt;</span> 0 )
+</span></span><span style="display:flex;"><span>	        		{
+</span></span><span style="display:flex;"><span>	        			<span style="color:#75715e">// We have reached the end of the records or we have reached the maximum	        		</span>
+</span></span><span style="display:flex;"><span>		        		<span style="color:#75715e">// batch size allowed for SQS, so we need to send our entries</span>
+</span></span><span style="display:flex;"><span>		        		context.<span style="color:#a6e22e">getLogger</span>().<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Sending batch of &#34;</span> <span style="color:#f92672">+</span> (messageCounter <span style="color:#f92672">-</span> 1) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; events to SQS...&#34;</span>);
 </span></span><span style="display:flex;"><span>		
-</span></span><span style="display:flex;"><span>		        		SendMessageBatchRequest batch <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SendMessageBatchRequest<span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>		        				<span style="color:#f92672">.</span><span style="color:#a6e22e">withQueueUrl</span><span style="color:#f92672">(</span>sqsUrl<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		        		SendMessageBatchRequest batch <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SendMessageBatchRequest()
+</span></span><span style="display:flex;"><span>		        				.<span style="color:#a6e22e">withQueueUrl</span>(sqsUrl);
 </span></span><span style="display:flex;"><span>		
-</span></span><span style="display:flex;"><span>		            batch<span style="color:#f92672">.</span><span style="color:#a6e22e">setEntries</span><span style="color:#f92672">(</span>entries<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		            batch.<span style="color:#a6e22e">setEntries</span>(entries);
 </span></span><span style="display:flex;"><span>		
-</span></span><span style="display:flex;"><span>		            <span style="color:#75715e">// Perform the message sending
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		            sqs<span style="color:#f92672">.</span><span style="color:#a6e22e">sendMessageBatch</span><span style="color:#f92672">(</span>batch<span style="color:#f92672">);</span> 
-</span></span><span style="display:flex;"><span>	        		<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>	    		<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>    		<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        		context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;EXCEPTION::Aborting Lambda processing&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        		context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">getStackTrace</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>		            <span style="color:#75715e">// Perform the message sending</span>
+</span></span><span style="display:flex;"><span>		            sqs.<span style="color:#a6e22e">sendMessageBatch</span>(batch); 
+</span></span><span style="display:flex;"><span>	        		}
+</span></span><span style="display:flex;"><span>	    		}
+</span></span><span style="display:flex;"><span>    		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">catch</span> (Exception e)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        		context.<span style="color:#a6e22e">getLogger</span>().<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;EXCEPTION::Aborting Lambda processing&#34;</span>);
+</span></span><span style="display:flex;"><span>        		context.<span style="color:#a6e22e">getLogger</span>().<span style="color:#a6e22e">log</span>(e.<span style="color:#a6e22e">getStackTrace</span>().<span style="color:#a6e22e">toString</span>());
+</span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>    		
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> event<span style="color:#f92672">.</span><span style="color:#a6e22e">getRecords</span><span style="color:#f92672">().</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> event.<span style="color:#a6e22e">getRecords</span>().<span style="color:#a6e22e">size</span>();
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Inner class must be marked as static in order for the JSON mapper to deserialise
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DrawPoint</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Inner class must be marked as static in order for the JSON mapper to deserialise</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DrawPoint</span> {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> x<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> y<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> timestamp<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> clear<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> x;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> y;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> timestamp;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> clear;
 </span></span><span style="display:flex;"><span>		
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getX</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> x<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setX</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> x<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getY</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> y<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setY</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> y<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> y<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getTimestamp</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> timestamp<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setTimestamp</span><span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> timestamp<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">timestamp</span> <span style="color:#f92672">=</span> timestamp<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isClear</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> clear<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setClear</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> clear<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">clear</span> <span style="color:#f92672">=</span> clear<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>	
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getX</span>() {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> x;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setX</span>(<span style="color:#66d9ef">int</span> x) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> x;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getY</span>() {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> y;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setY</span>(<span style="color:#66d9ef">int</span> y) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> y;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getTimestamp</span>() {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> timestamp;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setTimestamp</span>(<span style="color:#66d9ef">long</span> timestamp) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">timestamp</span> <span style="color:#f92672">=</span> timestamp;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isClear</span>() {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> clear;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setClear</span>(<span style="color:#66d9ef">boolean</span> clear) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">clear</span> <span style="color:#f92672">=</span> clear;
+</span></span><span style="display:flex;"><span>		}	
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>You can also download this file from <a href="https://workshops.devax.academy/monoliths-to-microservices/module5/files/LambdaFunctionHandler.java"><strong>here</strong></a>.</p>
 <ol start="17">
 <li>To recompile in SAM, <strong>save</strong> the new lambdafunction. On the terminal, run:</li>
@@ -2087,11 +2087,11 @@ Scroll down to the <strong>Environment variables</strong> section (if you don’
 Then click <strong>Save</strong>.</p>
 <p>You can use the aws cli to get these details if you are using the same terminal as before (note you have to have the environment <code>$dets</code> set)</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws cloudformation describe-stacks --stack-name $dets --query <span style="color:#e6db74">&#34;Stacks[].Outputs[?OutputKey==&#39;QueueUrl1&#39;][OutputValue]&#34;</span> --output text
-</span></span></code></pre></div><p><img src="/images/2/33.png?width=90pc" alt="SQS"></p>
+</span></span></code></pre></div><p><img alt="SQS" src="/images/2/33.png?width=90pc"></p>
 <ol>
 <li>Now go back to our demo website and draw a new shape to emit events into the Kinesis stream.</li>
 </ol>
-<p><img src="/images/2/34.png?width=90pc" alt="SQS"></p>
+<p><img alt="SQS" src="/images/2/34.png?width=90pc"></p>
 <p>The drawing points should now be received via the SQS queue, and rendered on the canvas. Notice that the shape you draw is rendered inversed in the Y-dimension? This is because the implementation we used for the Lambda function executes a transform on the drawing points, just to demonstrate how we can manipulate the data in the Kinesis stream before passing it to the SQS queue.</p>
 <p>Take a few moments to review the handler implementation code to ensure you understand how it works.</p>
 
@@ -2952,19 +2952,19 @@ Then click <strong>Save</strong>.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077934"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077934"></script>
-    <script src="/js/jquery.sticky.js?1701077934"></script>
-    <script src="/js/featherlight.min.js?1701077934"></script>
-    <script src="/js/highlight.pack.js?1701077934"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077934"></script>
-    <script src="/js/learn.js?1701077934"></script>
-    <script src="/js/hugo-learn.js?1701077934"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077934" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077934"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

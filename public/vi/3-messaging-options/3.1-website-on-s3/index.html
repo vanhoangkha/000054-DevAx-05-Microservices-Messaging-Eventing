@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Triển khai Web trên S3 :: DevAx - Chuyển đổi Monoliths sang Microservices - Microservices cho Truyền tin &amp; Sự kiện</title>
 
     
-    <link href="/css/nucleus.css?1701077934" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701077934" rel="stylesheet">
-    <link href="/css/hybrid.css?1701077934" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701077934" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701077934" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701077934" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701077934" rel="stylesheet">
-    <link href="/css/theme.css?1701077934" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701077934" rel="stylesheet">
+    <link href="/css/nucleus.css?1733804481" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733804481" rel="stylesheet">
+    <link href="/css/hybrid.css?1733804481" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733804481" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733804481" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733804481" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733804481" rel="stylesheet">
+    <link href="/css/theme.css?1733804481" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733804481" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701077934" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733804481" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701077934"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733804481"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701077934"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701077934"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733804481"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733804481"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701077934"></script>
+<script type="text/javascript" src="/js/search.js?1733804481"></script>
 
     
   </div>
@@ -1000,7 +1000,7 @@
   
     
     <li data-nav-id="/vi/3-messaging-options/3.1-website-on-s3/" title="Triển khai Web trên S3" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1591,7 +1591,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -1701,7 +1701,7 @@
 Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> của bạn</p>
 </div>
 
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-001.png?featherlight=false&amp;width=60pc" alt="Setup S3 bucket website">
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-001.png?featherlight=false&width=60pc">
 
 <div class="notices tip" ><p>Bạn có thể tạo một Amazon S3 bucket để lưu mã nguồn website bằng AWS Console hoặc bằng giao diện dòng lệnh.</p>
 </div>
@@ -1738,7 +1738,7 @@ Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> c�
 <ul>
 <li>Mở <strong>Messaging Project</strong> trong Eclipse IDE</li>
 <li>Mở file có đường dẫn <strong>Messaging/scripts/aws-config.js</strong>
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-002.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-002.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="3">
 <li>Chạy lệnh dưới đây</li>
@@ -1746,7 +1746,7 @@ Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> c�
 <pre tabindex="0"><code>aws cloudformation describe-stacks --stack-name DevAx-05 --query &#34;Stacks[].Outputs[*].[OutputKey,OutputValue]&#34; --profile aws-lab-env
 </code></pre><ul>
 <li>Lưu lại thông tin <strong>CognitoIdentityPoolId</strong>, <strong>QueueUrl1</strong>, <strong>QueueUrl2</strong>, <strong>QueueUrl3</strong>, <strong>FIFOQueueUrl</strong>, <strong>TopicARN</strong> để dùng trong bước tiếp theo
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-003.png?featherlight=false&amp;width=60pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-003.png?featherlight=false&width=60pc"></li>
 </ul>
 <ol start="4">
 <li>Trong file <strong>aws-config.js</strong>, thay thế <strong>ap-southeast-2</strong> bằng <strong>Region Code</strong> của bạn</li>
@@ -1759,7 +1759,7 @@ Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> c�
 <li>Thay thế <strong>REPLACE_WITH_QUEUE_URL_FIFO</strong> bằng giá trị của <strong>FIFOQueueUrl</strong> đã lưu trong bước 3</li>
 <li>Thay thế <strong>REPLACE_WITH_SNS_TOPIC_ARN</strong> bằng giá trị của <strong>TopicARN</strong> đã lưu trong bước 3</li>
 <li>Lưu lại.
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-004.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-004.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="5">
 <li>Có một mục khác cần thay thế, <strong>REPLACE_WITH_IOT_ENDPOINT</strong>. Chạy lệnh dưới đây để xác định giá trị này</li>
@@ -1771,11 +1771,11 @@ Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> c�
 
 <ul>
 <li>Lưu lại giá trị <strong>endpointAddress</strong> để sử dụng trong bước tiếp theo
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-005.png?featherlight=false&amp;width=60pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-005.png?featherlight=false&width=60pc"></li>
 </ul>
 <ol start="6">
 <li>Trong file <strong>aws-config.js</strong>, thay thế <strong>REPLACE_WITH_IOT_ENDPOINT</strong> bằng giá trị của <strong>endpointAddress</strong> đã lưu trong bước 5
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-006.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-006.png?featherlight=false&width=90pc"></li>
 <li>Chạy lệnh dưới đây</li>
 </ol>
 <pre tabindex="0"><code>aws s3 website s3://&lt;bucket_name&gt; --index-document sqs-standard.html --region &lt;your_region&gt; --profile aws-lab-env
@@ -1784,7 +1784,7 @@ Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> c�
 Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> của bạn.</p>
 </div>
 
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-007.png?featherlight=false&amp;width=60pc" alt="Setup S3 bucket website"></p>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-007.png?featherlight=false&width=60pc"></p>
 
 <div class="notices warning" ><p>Từ <strong>Bước 8</strong> đến <strong>Bước 10</strong>, Public policy sẽ được áp dụng cho bucket của bạn chỉ dành cho mục đích thực hành và đây là một rủi ro bảo mật. Nếu bạn không muốn công khai bucket của mình và chỉ muốn công khai các đối tượng. Vui lòng chuyển sang <strong>Bước 11</strong>.</p>
 </div>
@@ -1795,7 +1795,7 @@ Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> c�
 <ul>
 <li>Thay <strong>idevelop-lab5-&lt; yourinitials&gt;</strong> bằng tên của S3 bucket chúng ta đã tạo trong bước 1.</li>
 <li>Lưu lại.
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-008.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-008.png?featherlight=false&width=90pc"></li>
 </ul>
 <ol start="9">
 <li>Trong Eclipse IDE, click <strong>Messaging</strong></li>
@@ -1810,7 +1810,7 @@ Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> c�
 Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> của bạn.</p>
 </div>
 
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-009.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website">
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-009.png?featherlight=false&width=90pc">
 10. Chạy lệnh dưới đây để sao chép nội dung trong thư mục mà bạn đã giải nén lên trên S3 bucket mà bạn đã tạo</p>
 <pre tabindex="0"><code>aws s3 cp . s3://&lt;bucket_name&gt; --recursive --region &lt;your_region&gt; --profile aws-lab-env
 </code></pre><p>
@@ -1818,7 +1818,7 @@ Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> c�
 Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> của bạn.</p>
 </div>
 
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-010.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website">
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-010.png?featherlight=false&width=90pc">
 11. Chạy lệnh dưới đây để sao chép nội dung trong thư mục mà bạn đã giải nén và mở cho phép truy cập public tất cả các tập tin đó lên trên S3 bucket mà bạn đã tạo</p>
 <pre tabindex="0"><code>aws s3 cp . s3://&lt;bucket_name&gt; --recursive --region &lt;your_region&gt;  --profile aws-lab-env --acl public-read
 </code></pre><p>
@@ -1826,7 +1826,7 @@ Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> c�
 Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> của bạn.</p>
 </div>
 
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-011.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website">
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-011.png?featherlight=false&width=90pc">
 12. Sau khi lệnh thực thi, bạn đã có thể xem lại trang web trong trình duyệt của mình. Mở trình duyệt web và truy cập theo link dưới đây</p>
 <pre tabindex="0"><code>http://&lt;bucket_name&gt;.s3-website-&lt;your_region&gt;.amazonaws.com/sqs-standard.html
 </code></pre><p>
@@ -1834,12 +1834,12 @@ Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> c�
 Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> của bạn.</p>
 </div>
 
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-012.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website"></p>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-012.png?featherlight=false&width=90pc"></p>
 <h4 id="thiết-lập-sqs-queue">Thiết lập SQS Queue</h4>
 <p>Thiết lập môi trường bài thực hành đã cấu hình hàng đợi SQS được sử dụng trong bài thực hành này, sử dụng CloudFormation template.</p>
 <ol>
 <li>Truy cập <a href="https://console.aws.amazon.com/sqs/home"><strong>AWS SQS console</strong></a>.
-<img src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-013.png?featherlight=false&amp;width=90pc" alt="Setup S3 bucket website"></li>
+<img alt="Setup S3 bucket website" src="/images/3-messaging-options/3.1-website-on-s3/website-on-s3-013.png?featherlight=false&width=90pc"></li>
 </ol>
 <p>Bốn hàng đợi đã được thiết lập. Ba là hàng đợi tiêu chuẩn và một là hàng đợi FIFO. Đây là một đoạn mã của CloudFormation template đã thiết lập các tài nguyên này:</p>
 <pre tabindex="0"><code>&#34;idevelopDrawQueueFIFO&#34;: {
@@ -2709,19 +2709,19 @@ Thay <strong>&lt;your_region&gt;</strong> bằng <strong>Region code</strong> c�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701077935"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701077935"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701077935"></script>
-    <script src="/js/jquery.sticky.js?1701077935"></script>
-    <script src="/js/featherlight.min.js?1701077935"></script>
-    <script src="/js/highlight.pack.js?1701077935"></script>
+    <script src="/js/clipboard.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733804481"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733804481"></script>
+    <script src="/js/jquery.sticky.js?1733804481"></script>
+    <script src="/js/featherlight.min.js?1733804481"></script>
+    <script src="/js/highlight.pack.js?1733804481"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701077935"></script>
-    <script src="/js/learn.js?1701077935"></script>
-    <script src="/js/hugo-learn.js?1701077935"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733804481"></script>
+    <script src="/js/learn.js?1733804481"></script>
+    <script src="/js/hugo-learn.js?1733804481"></script>
 
-    <link href="/mermaid/mermaid.css?1701077935" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701077935"></script>
+    <link href="/mermaid/mermaid.css?1733804481" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733804481"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
