@@ -1,4 +1,4 @@
-# 📨 DevAx 05: Microservices Messaging
+# DevAx 05: Microservices Messaging
 
 Event-driven architecture with SQS, SNS, and EventBridge.
 
@@ -8,7 +8,7 @@ This is a hands-on workshop from the **AWS First Cloud Journey** series, designe
 
 ## Workshop
 
-📖 **[Start the workshop](https://vanhoangkha.github.io/000054-DevAx-05-Microservices-Messaging-Eventing/)**
+**[Start the workshop](https://vanhoangkha.github.io/000054-DevAx-05-Microservices-Messaging-Eventing/)**
 
 ## Prerequisites
 
